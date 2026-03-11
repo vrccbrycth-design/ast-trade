@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="AST Trade International — Les meilleurs fruits (Ananas IGP, Mangue, Papaye), Noix de Cajou et Beurre de Karité du Bénin. Agriculture biologique, équitable, et santé."/>
   <title>AST Trade International — Frais, Bio & Bon pour la Santé</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
@@ -24,12 +25,13 @@
     nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,42,20,.97);backdrop-filter:blur(10px)}
     .nav-kente{height:4px;background:repeating-linear-gradient(90deg,var(--ocre) 0,var(--ocre) 10px,var(--vert2) 10px,var(--vert2) 20px,var(--ocre2) 20px,var(--ocre2) 30px,var(--terre) 30px,var(--terre) 40px)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 5rem}
-    .nav-logo img{height:46px;width:auto;filter:brightness(0) invert(1)}
+    .nav-logo img{height:60px;width:auto;transition:transform .3s;filter:invert(1) grayscale(1) brightness(2)}
     .nav-links{display:flex;gap:2rem;list-style:none}
     .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:color .25s}
     .nav-links a:hover{color:var(--ocre2)}
     .nav-cta{background:var(--ocre);color:var(--terre);padding:.6rem 1.5rem;border-radius:2px;font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .25s,transform .2s}
     .nav-cta:hover{background:var(--ocre2);transform:translateY(-1px)}
+    .mobile-toggle{display:none;background:none;border:none;color:var(--blanc);font-size:1.8rem;cursor:pointer;z-index:300}
 
     /* HERO */
     #hero{min-height:100vh;background:var(--vert3);position:relative;overflow:hidden;display:flex;align-items:center}
@@ -207,7 +209,7 @@
     footer{background:var(--terre);padding:3rem 0}
     .footer-kente{height:6px;background:repeating-linear-gradient(90deg,var(--ocre) 0,var(--ocre) 10px,var(--vert2) 10px,var(--vert2) 20px,var(--ocre2) 20px,var(--ocre2) 30px,#1a1208 30px,#1a1208 40px);margin-bottom:2.5rem}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-    .footer-logo img{height:42px;filter:brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg);opacity:.9}
+    .footer-logo img{height:56px;opacity:.9;transition:opacity .3s;filter:invert(1) grayscale(1) brightness(2)}
     .footer-info{font-size:.78rem;color:rgba(255,255,255,.3);line-height:1.8}
     .footer-info a{color:rgba(255,255,255,.35);text-decoration:none}
     .footer-legal{font-size:.7rem;color:rgba(255,255,255,.18);line-height:1.8;text-align:right}
@@ -218,7 +220,11 @@
 
     /* RESPONSIVE */
     @media(max-width:960px){
-      .nav-inner{padding:1rem 1.5rem}.nav-links{display:none}
+      .nav-inner{padding:1rem 1.5rem}
+      .mobile-toggle{display:block}
+      .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(13,42,20,.98);padding:1.5rem;gap:1.5rem;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+      .nav-links.active{display:flex}
+      .nav-cta{display:none}
       #hero .hero-content{grid-template-columns:1fr;padding:8rem 1.5rem 4rem;gap:3rem}
       .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
       .avantages-grid{grid-template-columns:1fr}
@@ -236,8 +242,9 @@
 <nav>
   <div class="nav-kente"></div>
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgNjAiIHdpZHRoPSIyMjAiIGhlaWdodD0iNjAiPgogIDx0ZXh0IHg9IjAiIHk9IjQ4IiBmb250LWZhbWlseT0iJ0hlbHZldGljYSBOZXVlJyxIZWx2ZXRpY2EsQXJpYWwsc2Fucy1zZXJpZiIKICAgIGZvbnQtc2l6ZT0iNTYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSItMSI+QVNUPC90ZXh0Pgo8L3N2Zz4=" alt="AST Trade International"/></a>
-    <ul class="nav-links">
+    <a href="#hero" class="nav-logo"><img src="logo_transparent.png" alt="AST Trade International"/></a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">Qui sommes-nous</a></li>
       <li><a href="#ananas">Ananas</a></li>
       <li><a href="#mangue">Mangue</a></li>
@@ -539,10 +546,10 @@
     <p class="s-label">Livraison & Conditionnement</p>
     <h2 class="s-title" style="color:var(--terre)">De la ferme à votre porte</h2>
     <div class="log-grid">
-      <div class="log-card reveal"><div class="log-icon">✈️</div><div class="log-title">Transport Aérien</div><ul class="log-list"><li>Ananas & Mangue : livraison en 3 à 5 jours</li><li>Papaye : 3 jours après expédition</li><li>Noix de cajou : 15 jours</li><li>Idéal pour garantir la fraîcheur maximale</li><li>Recommandé pour petites et moyennes commandes</li></ul></div>
-      <div class="log-card reveal"><div class="log-icon">🚢</div><div class="log-title">Transport Maritime</div><ul class="log-list"><li>Conteneur réfrigéré à ±8°C · ventilation 20%</li><li>Ananas : 11 à 15 jours · jusqu'à 1 800 cartons</li><li>Mangue & Papaye : 11 à 30 jours</li><li>Noix de cajou : 30 jours</li><li>Solution économique pour les grands volumes</li></ul></div>
-      <div class="log-card reveal"><div class="log-icon">📦</div><div class="log-title">Conditionnement</div><ul class="log-list"><li>Cartons de 4 kg, 6 kg ou 12 kg selon le fruit</li><li>Calibres au choix à la commande (A, B, C, D)</li><li>Emballages rigides pour transport international</li><li>Karité : conditionnement sur mesure disponible</li><li>Étiquetage personnalisé selon vos besoins</li></ul></div>
-      <div class="log-card reveal"><div class="log-icon">🔒</div><div class="log-title">Commande & Paiement</div><ul class="log-list"><li>Commande par email, téléphone ou WhatsApp</li><li>Devis personnalisé sous 24 heures</li><li>Paiement sécurisé par virement bancaire</li><li>Lettre de crédit disponible pour grands volumes</li><li>Suivi de votre commande de bout en bout</li></ul></div>
+      <div class="log-card reveal"><div class="log-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ocre)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.7l-1.3 2.6c-.2.4.1.8.6.9l6.3 1.9L6 14.6l-2.4-.8c-.4-.1-.8.1-1 .5l-.8 1.6c-.2.4.1.8.6.9l4.5 1 1 4.5c.1.5.5.8.9.6l1.6-.8c.4-.2.6-.6.5-1l-.8-2.4 3.3-3.3 1.9 6.3c.1.5.5.8.9.6l2.6-1.3c.5-.2.8-.6.7-1.1Z"/></svg></div><div class="log-title">Transport Aérien</div><ul class="log-list"><li>Ananas & Mangue : livraison en 3 à 5 jours</li><li>Papaye : 3 jours après expédition</li><li>Noix de cajou : 15 jours</li><li>Idéal pour garantir la fraîcheur maximale</li><li>Recommandé pour petites et moyennes commandes</li></ul></div>
+      <div class="log-card reveal"><div class="log-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ocre)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></svg></div><div class="log-title">Transport Maritime</div><ul class="log-list"><li>Conteneur réfrigéré à ±8°C · ventilation 20%</li><li>Ananas : 11 à 15 jours · jusqu'à 1 800 cartons</li><li>Mangue & Papaye : 11 à 30 jours</li><li>Noix de cajou : 30 jours</li><li>Solution économique pour les grands volumes</li></ul></div>
+      <div class="log-card reveal"><div class="log-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ocre)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div><div class="log-title">Conditionnement</div><ul class="log-list"><li>Cartons de 4 kg, 6 kg ou 12 kg selon le fruit</li><li>Calibres au choix à la commande (A, B, C, D)</li><li>Emballages rigides pour transport international</li><li>Karité : conditionnement sur mesure disponible</li><li>Étiquetage personnalisé selon vos besoins</li></ul></div>
+      <div class="log-card reveal"><div class="log-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ocre)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2-1 4-2 7-2 2.9 0 5 1 7 2a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="log-title">Commande & Paiement</div><ul class="log-list"><li>Commande par email, téléphone ou WhatsApp</li><li>Devis personnalisé sous 24 heures</li><li>Paiement sécurisé par virement bancaire</li><li>Lettre de crédit disponible pour grands volumes</li><li>Suivi de votre commande de bout en bout</li></ul></div>
     </div>
   </div>
 </section>
@@ -564,16 +571,16 @@
         </div>
       </div>
       <div class="reveal">
-        <div class="contact-form">
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Merci pour votre message\u00A0! Nous vous répondrons dans les plus brefs délais.');">
           <div class="form-h">Votre demande</div>
           <div class="form-2col">
-            <div class="fg"><label>Prénom</label><input type="text" placeholder="Jean"/></div>
-            <div class="fg"><label>Nom</label><input type="text" placeholder="Dupont"/></div>
+            <div class="fg"><label>Prénom</label><input type="text" placeholder="Jean" required/></div>
+            <div class="fg"><label>Nom</label><input type="text" placeholder="Dupont" required/></div>
           </div>
-          <div class="fg"><label>Email</label><input type="email" placeholder="jean@email.com"/></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="jean@email.com" required/></div>
           <div class="fg"><label>Téléphone</label><input type="tel" placeholder="+33 6 00 00 00 00"/></div>
           <div class="fg"><label>Produit souhaité</label>
-            <select>
+            <select required>
               <option value="">Sélectionner un produit</option>
               <option>Ananas Pain de Sucre (IGP)</option>
               <option>Mangue Kent</option>
@@ -583,9 +590,9 @@
               <option>Plusieurs produits</option>
             </select>
           </div>
-          <div class="fg"><label>Votre message</label><textarea placeholder="Quantités souhaitées, mode de livraison préféré, questions..."></textarea></div>
-          <button class="form-submit" onclick="alert('Merci pour votre message\u00a0! Nous vous répondrons dans les plus brefs délais.')">Envoyer ma demande →</button>
-        </div>
+          <div class="fg"><label>Votre message</label><textarea placeholder="Quantités souhaitées, mode de livraison préféré, questions..." required></textarea></div>
+          <button type="submit" class="form-submit">Envoyer ma demande →</button>
+        </form>
       </div>
     </div>
   </div>
@@ -596,22 +603,43 @@
   <div class="container">
     <div class="footer-kente"></div>
     <div class="footer-inner">
-      <div class="footer-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgNjAiIHdpZHRoPSIyMjAiIGhlaWdodD0iNjAiPgogIDx0ZXh0IHg9IjAiIHk9IjQ4IiBmb250LWZhbWlseT0iJ0hlbHZldGljYSBOZXVlJyxIZWx2ZXRpY2EsQXJpYWwsc2Fucy1zZXJpZiIKICAgIGZvbnQtc2l6ZT0iNTYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiNmZmZmZmYiIGxldHRlci1zcGFjaW5nPSItMSI+QVNUPC90ZXh0Pgo8L3N2Zz4=" alt="AST Trade International"/></div>
+      <div class="footer-logo"><img src="logo_transparent.png" alt="AST Trade International"/></div>
       <div class="footer-info">40, rue de Ménilmontant · 75020 Paris, France<br><a href="tel:+33785228514">+33 7 85 22 85 14</a> · <a href="mailto:astt.international@gmail.com">astt.international@gmail.com</a></div>
       <div class="footer-legal">SIRET 98040601100026 · TVA FR50980406011<br>© 2024 AST Trade International SARL</div>
     </div>
   </div>
 </footer>
 
+<a href="#" id="backToTop" style="position:fixed;bottom:2rem;right:2rem;opacity:0;visibility:hidden;z-index:900;background:var(--ocre);color:var(--blanc);border:none;border-radius:50%;width:44px;height:44px;display:flex;justify-content:center;align-items:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:all .3s;text-decoration:none;">↑</a>
+
 <script>
+  // Mobile Menu Toggle
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('active')));
+  }
+
+  // Back to Top & Scroll padding
+  const backToTop = document.getElementById('backToTop');
+  const navInner = document.querySelector('.nav-inner');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 300) {
+      backToTop.style.opacity = '1';
+      backToTop.style.visibility = 'visible';
+    } else {
+      backToTop.style.opacity = '0';
+      backToTop.style.visibility = 'hidden';
+    }
+    if(navInner) navInner.style.padding = window.scrollY > 60 ? '.75rem 5rem' : '1rem 5rem';
+  });
+
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*80); });
   },{threshold:0.1});
   reveals.forEach(el=>obs.observe(el));
-  window.addEventListener('scroll',()=>{
-    document.querySelector('.nav-inner').style.padding = window.scrollY>60?'.75rem 5rem':'1rem 5rem';
-  });
 </script>
 </body>
 </html>
