@@ -576,8 +576,10 @@
     }
 
     .v-icon {
-      font-size: 1.4rem;
-      flex-shrink: 0
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      color: var(--ocre)
     }
 
     .v-name {
@@ -714,9 +716,10 @@
     }
 
     .av-icon {
-      font-size: 2.2rem;
       margin-bottom: 1.2rem;
-      display: block
+      display: block;
+      color: var(--ocre);
+      line-height: 0
     }
 
     .av-title {
@@ -1344,7 +1347,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      color: var(--blanc);
       margin-bottom: .6rem;
       flex-shrink: 0;
     }
@@ -1478,7 +1481,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem
+      color: var(--ocre)
     }
 
     .c-label {
@@ -1973,21 +1976,21 @@
           <p class="about-body" data-i18n="about.body">Basée à Paris, AST Trade International connecte les meilleurs producteurs d'Afrique de l'Ouest aux acheteurs B2B internationaux. Sans intermédiaire, nous maîtrisons chaque étape de la chaîne de valeur, de la récolte à l'expédition.<br><br>Garantie absolue : qualité irréprochable, traçabilité rigoureuse, et respect strict des normes phytosanitaires et de sécurité internationales.</p>
           <div class="values-row">
             <div class="value-item">
-              <div class="v-icon">&#10070;</div>
+              <div class="v-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
               <div>
                 <div class="v-name" data-i18n="about.v1.name">Filière directe</div>
                 <div class="v-desc" data-i18n="about.v1.desc">Aucun intermédiaire entre nos producteurs et votre entrepôt. Prix compétitifs et traçabilité garantie.</div>
               </div>
             </div>
             <div class="value-item">
-              <div class="v-icon">&#128200;</div>
+              <div class="v-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
               <div>
                 <div class="v-name" data-i18n="about.v2.name">Qualité constante</div>
                 <div class="v-desc" data-i18n="about.v2.desc">Contrôle qualité à chaque étape : récolte, tri, conditionnement, expédition. Taux de conformité élevé.</div>
               </div>
             </div>
             <div class="value-item">
-              <div class="v-icon">&#127758;</div>
+              <div class="v-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
               <div>
                 <div class="v-name" data-i18n="about.v3.name">Logistique mondiale</div>
               <div class="v-desc" data-i18n="about.v3.desc">Expédition internationale par air et mer. Prise en charge depuis nos bureaux en France (Paris) et en Suisse.</div>
@@ -2001,9 +2004,9 @@
             <p class="about-quote" data-i18n="about.quote">Nous construisons des partenariats durables avec les professionnels du monde entier, en leur offrant un accès fiable aux produits d'exception de l'agriculture ouest-africaine.</p>
             <!-- B2B: Certifications -->
             <div class="certif-row">
-              <span class="certif-badge" data-i18n="about.cert1">&#9745; Appellation IGP</span>
-              <span class="certif-badge" data-i18n="about.cert2">&#9745; Conforme phytosanitaire</span>
-              <span class="certif-badge" data-i18n="about.cert3">&#9745; Agriculture sans pesticides</span>
+              <span class="certif-badge" data-i18n="about.cert1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Appellation IGP</span>
+              <span class="certif-badge" data-i18n="about.cert2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Conforme phytosanitaire</span>
+              <span class="certif-badge" data-i18n="about.cert3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Agriculture sans pesticides</span>
             </div>
           </div>
         </div>
@@ -2019,27 +2022,27 @@
       <p class="s-label" style="color:var(--ocre)" data-i18n="av.label">Pourquoi nous choisir</p>
       <h2 class="s-title" style="color:var(--blanc)" data-i18n="av.title">Pourquoi AST ?</h2>
       <div class="avantages-grid">
-        <div class="av-card reveal"><span class="av-icon">&#128279;</span>
+        <div class="av-card reveal"><span class="av-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
           <div class="av-title" data-i18n="av.1.title">Filière directe, meilleur prix</div>
           <p class="av-text" data-i18n="av.1.text">Aucun intermédiaire entre nos producteurs partenaires et votre entrepôt. Vous bénéficiez de prix compétitifs et d'une traçabilité complète de la parcelle à la livraison.</p>
         </div>
-        <div class="av-card reveal"><span class="av-icon">&#9989;</span>
+        <div class="av-card reveal"><span class="av-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
           <div class="av-title" data-i18n="av.2.title">Qualité constante et conforme</div>
           <p class="av-text" data-i18n="av.2.text">Contrôle qualité rigoureux à chaque étape. Documentation phytosanitaire et douanière fournie. Conformité aux normes internationales d'importation de produits frais.</p>
         </div>
-        <div class="av-card reveal"><span class="av-icon">&#128230;</span>
+        <div class="av-card reveal"><span class="av-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
           <div class="av-title" data-i18n="av.3.title">Conditionnement sur mesure</div>
           <p class="av-text" data-i18n="av.3.text">Cartons aux calibres de votre choix, private label possible, étiquetage personnalisé. Nous adaptons le conditionnement à vos spécifications exactes.</p>
         </div>
-        <div class="av-card reveal"><span class="av-icon">&#9889;</span>
+        <div class="av-card reveal"><span class="av-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
           <div class="av-title" data-i18n="av.4.title">Réactivité et interlocuteur dédié</div>
           <p class="av-text" data-i18n="av.4.text">Devis sous 24 heures. Un interlocuteur unique pour un suivi commercial sans friction.</p>
         </div>
-        <div class="av-card reveal"><span class="av-icon">&#128196;</span>
+        <div class="av-card reveal"><span class="av-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></span>
           <div class="av-title" data-i18n="av.5.title">Documentation complète</div>
           <p class="av-text" data-i18n="av.5.text">Certificats phytosanitaires, certificats d'origine, packing list, factures pro forma — tous les documents requis pour un dédouanement sans obstacle.</p>
         </div>
-        <div class="av-card reveal"><span class="av-icon">&#128218;</span>
+        <div class="av-card reveal"><span class="av-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
           <div class="av-title" data-i18n="av.6.title">Régularité d'approvisionnement</div>
           <p class="av-text" data-i18n="av.6.text">Planification des campagnes avec nos producteurs pour garantir des volumes réguliers. Calendrier de disponibilité communiqué en amont de chaque saison.</p>
         </div>
@@ -2063,8 +2066,8 @@
           <p class="prod-hero-tagline" data-i18n="ananas.tagline">Indication Géographique Protégée d'Allada. Chair blanche, faible acidité, taux de sucre élevé. Le premium de l'ananas béninois.</p>
         </div>
         <div class="prod-hero-right">
-          <span class="prod-badge" data-i18n="ananas.badge1">&#127942; Appellation IGP</span>
-          <span class="prod-badge" data-i18n="ananas.badge2">&#128230; Calibres A &agrave; D</span>
+          <span class="prod-badge" data-i18n="ananas.badge1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>Appellation IGP</span>
+          <span class="prod-badge" data-i18n="ananas.badge2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>Calibres A &agrave; D</span>
           <div class="prod-price-big" data-i18n="price.devis">Sur devis</div>
           <div class="prod-price-label" data-i18n="price.label">Prix selon volume et Incoterm</div>
         </div>
@@ -2355,27 +2358,27 @@
       <!-- B2B: Chaîne logistique visuelle -->
       <div class="supply-chain reveal">
         <div class="sc-step">
-          <div class="sc-icon">&#127793;</div>
+          <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
           <div class="sc-label" data-i18n="log.sc1">Producteurs<br>partenaires</div>
         </div>
         <div class="sc-arrow">&rarr;</div>
         <div class="sc-step">
-          <div class="sc-icon">&#128230;</div>
+          <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
           <div class="sc-label" data-i18n="log.sc2">Station de<br>conditionnement</div>
         </div>
         <div class="sc-arrow">&rarr;</div>
         <div class="sc-step">
-          <div class="sc-icon">&#128270;</div>
+          <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>
           <div class="sc-label" data-i18n="log.sc3">Contr&ocirc;le<br>qualité</div>
         </div>
         <div class="sc-arrow">&rarr;</div>
         <div class="sc-step">
-          <div class="sc-icon">&#9992;</div>
+          <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
           <div class="sc-label" data-i18n="log.sc4">Expédition<br>Cotonou</div>
         </div>
         <div class="sc-arrow">&rarr;</div>
         <div class="sc-step">
-          <div class="sc-icon">&#127919;</div>
+          <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div class="sc-label" data-i18n="log.sc5">Réception</div>
         </div>
       </div>
@@ -2480,7 +2483,7 @@
           <p class="contact-lead" data-i18n="contact.lead">Échantillons, volumes et plannings saisonniers : notre équipe vous répond en 24h ouvrées. Commande en 6 étapes simples jusqu'à livraison.</p>
           <div class="contact-items">
             <div class="c-item">
-              <div class="c-icon">&#128222;</div>
+              <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
               <div>
                 <div class="c-label" data-i18n="contact.phone">Téléphone / WhatsApp</div>
                 <a class="c-value" href="tel:+33785228514">+33 7 85 22 85 14</a>
@@ -2488,14 +2491,14 @@
               </div>
             </div>
             <div class="c-item">
-              <div class="c-icon">&#9993;</div>
+              <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
               <div>
                 <div class="c-label">Email</div>
                 <a class="c-value" href="mailto:contact@asttrade.com">contact@asttrade.com</a>
               </div>
             </div>
             <div class="c-item">
-              <div class="c-icon">&#128205;</div>
+              <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
               <div>
                 <div class="c-label" data-i18n="contact.hq">Siège social</div>
                 <div class="c-value" data-i18n="contact.address">40, rue de Ménilmontant &middot; 75020 Paris</div>
@@ -2504,8 +2507,8 @@
           </div>
           <!-- B2B: Documents téléchargeables -->
           <div class="download-row">
-            <a href="#" class="dl-btn" data-i18n="contact.dl1">&#128196; T&eacute;l&eacute;charger le catalogue produits (PDF)</a>
-            <a href="#" class="dl-btn" data-i18n="contact.dl2">&#128196; T&eacute;l&eacute;charger les conditions g&eacute;n&eacute;rales de vente</a>
+            <a href="#" class="dl-btn" data-i18n="contact.dl1"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>T&eacute;l&eacute;charger le catalogue produits (PDF)</a>
+            <a href="#" class="dl-btn" data-i18n="contact.dl2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>T&eacute;l&eacute;charger les conditions g&eacute;n&eacute;rales de vente</a>
           </div>
         </div>
         <div class="reveal">
@@ -2687,9 +2690,9 @@
         'about.v3.name': 'Global logistics',
         'about.v3.desc': 'International shipping by air and sea. Managed from our offices in France (Paris) and Switzerland.',
         'about.quote': 'We build lasting partnerships with professionals worldwide, providing them with reliable access to exceptional products from West African agriculture.',
-        'about.cert1': '&#9745; PGI Designation',
-        'about.cert2': '&#9745; Phytosanitary compliant',
-        'about.cert3': '&#9745; Pesticide-free farming',
+        'about.cert1': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>PGI Designation',
+        'about.cert2': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Phytosanitary compliant',
+        'about.cert3': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Pesticide-free farming',
 
         // Advantages
         'av.label': 'Why choose us',
@@ -2713,8 +2716,8 @@
         'ananas.botanical.val': '<em>Ananas comosus</em> var. Sugarloaf',
         'ananas.label': 'Flagship product &middot; PGI Label',
         'ananas.tagline': 'Protected Geographical Indication from Allada. White flesh, low acidity, high sugar content. The premium of Beninese pineapple.',
-        'ananas.badge1': '&#127942; PGI Designation',
-        'ananas.badge2': '&#128230; Sizes A to D',
+        'ananas.badge1': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>PGI Designation',
+        'ananas.badge2': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>Sizes A to D',
         'price.devis': 'On request',
         'price.label': 'Price based on volume and Incoterm',
         'spec.title': 'Technical sheet',
@@ -2855,8 +2858,8 @@
         'contact.swiss': '+41 78 309 53 17 (Switzerland)',
         'contact.hq': 'Headquarters',
         'contact.address': '40, rue de Ménilmontant · 75020 Paris',
-        'contact.dl1': '&#128196; Download product catalogue (PDF)',
-        'contact.dl2': '&#128196; Download general terms of sale',
+        'contact.dl1': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download product catalogue (PDF)',
+        'contact.dl2': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download general terms of sale',
 
         // Form
         'form.title': 'Your professional enquiry',
