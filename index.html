@@ -2059,7 +2059,7 @@
       <div class="prod-hero-content">
         <div class="prod-hero-left">
           <div class="prod-label" data-i18n="ananas.label">Produit phare &middot; Label IGP</div>
-          <h2 class="prod-hero-title">Ananas<br><em>Pain de Sucre</em></h2>
+          <h2 class="prod-hero-title" data-i18n="ananas.h2">Ananas<br><em>Pain de Sucre</em></h2>
           <p class="prod-hero-tagline" data-i18n="ananas.tagline">Indication Géographique Protégée d'Allada. Chair blanche, faible acidité, taux de sucre élevé. Le premium de l'ananas béninois.</p>
         </div>
         <div class="prod-hero-right">
@@ -2076,8 +2076,8 @@
           <h3 class="prod-desc-title" data-i18n="spec.title">Fiche technique</h3>
           <!-- B2B: Tableau de spécifications techniques -->
           <table class="spec-table">
-            <tr><td data-i18n="spec.commercial">Nom commercial</td><td>Ananas Pain de Sucre</td></tr>
-            <tr><td data-i18n="spec.botanical">Nom botanique</td><td><em>Ananas comosus</em> var. Pain de Sucre</td></tr>
+            <tr><td data-i18n="spec.commercial">Nom commercial</td><td data-i18n="ananas.commercial.val">Ananas Pain de Sucre</td></tr>
+            <tr><td data-i18n="spec.botanical">Nom botanique</td><td data-i18n="ananas.botanical.val"><em>Ananas comosus</em> var. Pain de Sucre</td></tr>
             <tr><td data-i18n="spec.origin">Origine / Terroir</td><td data-i18n="ananas.origin.val">Bénin — Label IGP</td></tr>
             <tr><td data-i18n="spec.calibres">Calibres</td><td>A (&ge;2 kg) · B (1,5–2 kg) · C (1–1,5 kg) · D (0,7–1 kg)</td></tr>
             <tr><td data-i18n="spec.packaging">Conditionnement</td><td data-i18n="ananas.packaging.val">Carton 6 kg ou 12 kg · Emballage rigide export</td></tr>
@@ -2145,7 +2145,7 @@
         </div>
         <div class="reveal">
           <p class="s-label" data-i18n="mangue.label">Mangue d'export</p>
-          <h2 class="s-title" style="color:var(--terre)">Mangue<br><em style="font-family:'Playfair Display';color:var(--ocre)">Kent</em></h2>
+          <h2 class="s-title" style="color:var(--terre)" data-i18n="mangue.h2">Mangue<br><em style="font-family:'Playfair Display';color:var(--ocre)">Kent</em></h2>
           <div class="adinkra-div"></div>
           <table class="spec-table">
             <tr><td data-i18n="spec.botanical">Nom botanique</td><td><em>Mangifera indica</em> cv. Kent</td></tr>
@@ -2309,7 +2309,7 @@
           <div class="adinkra-div"></div>
           <table class="spec-table">
             <tr><td data-i18n="spec.botanical">Nom botanique</td><td><em>Vitellaria paradoxa</em></td></tr>
-            <tr><td data-i18n="spec.origin2">Origine</td><td data-i18n="karite.origin.val">Nord Bénin</td></tr>
+            <tr><td data-i18n="spec.origin2">Origine</td><td data-i18n="karite.origin.val">Bénin</td></tr>
             <tr><td>Grade</td><td data-i18n="karite.grade.val">A (non raffiné, brut) — extraction traditionnelle</td></tr>
             <tr><td data-i18n="karite.usages">Usages</td><td data-i18n="karite.usages.val">Cosmétique · Pharmacie · Agroalimentaire</td></tr>
             <tr><td data-i18n="spec.packaging">Conditionnement</td><td data-i18n="karite.packaging.val">F&ucirc;ts 25 kg, 50 kg ou 200 kg · Sur mesure selon vos besoins</td></tr>
@@ -2708,6 +2708,9 @@
         'av.6.text': 'Campaign planning with our producers to guarantee regular volumes. Availability calendar communicated ahead of each season.',
 
         // Ananas
+        'ananas.h2': 'Sugarloaf<br><em>Pineapple</em>',
+        'ananas.commercial.val': 'Sugarloaf Pineapple',
+        'ananas.botanical.val': '<em>Ananas comosus</em> var. Sugarloaf',
         'ananas.label': 'Flagship product &middot; PGI Label',
         'ananas.tagline': 'Protected Geographical Indication from Allada. White flesh, low acidity, high sugar content. The premium of Beninese pineapple.',
         'ananas.badge1': '&#127942; PGI Designation',
@@ -2745,6 +2748,7 @@
 
         // Mangue
         'mangue.label': 'Export mango',
+        'mangue.h2': 'Mango<br><em style="font-family:\'Playfair Display\';color:var(--ocre)">Kent</em>',
         'origin.benin': 'Benin',
         'mangue.packaging.val': 'Box 4 kg or 6 kg · Individual trays',
         'mangue.shelf.val': '10–14 days (transport 10–12 °C)',
@@ -2780,9 +2784,9 @@
         'cajou.tag2': 'Long shelf life',
 
         // Karité
-        'karite.label': 'Cosmetics & Food',
+        'karite.label': 'Cosmetics and Food',
         'karite.title': 'Shea<br><em style="font-family:\'Playfair Display\';color:var(--ocre)">Butter</em>',
-        'karite.origin.val': 'Northern Benin',
+        'karite.origin.val': 'Bénin',
         'karite.grade.val': 'A (unrefined, raw) — traditional extraction',
         'karite.usages': 'Applications',
         'karite.usages.val': 'Cosmetics · Pharmaceuticals · Food industry',
@@ -2792,10 +2796,10 @@
         'karite.allyear': 'Year-round',
         'karite.desc': '100% pure raw butter (Grade A) from the traditional expertise of women\'s cooperatives. Ideal for your high-end cosmetic or food formulations.',
         'karite.tag1': 'Unrefined',
-        'karite.tag2': 'Cosmetic & food grade',
+        'karite.tag2': 'Cosmetic and food grade',
 
         // Logistique
-        'log.label': 'Logistics & Shipping',
+        'log.label': 'Logistics and Shipping',
         'log.title': 'From producer to your warehouse',
         'log.sc1': 'Partner<br>producers',
         'log.sc2': 'Packing<br>station',
@@ -2812,13 +2816,13 @@
         'log.sea.2': 'Refrigerated container at ±8 °C · 20% ventilation',
         'log.sea.3': 'Pineapple: 11 to 15 days · up to 1,800 boxes',
         'log.sea.4': 'Cost-effective solution for volumes > 5 tonnes',
-        'log.pack.title': 'Packaging & Sizing',
+        'log.pack.title': 'Packaging and Sizing',
         'log.pack.1': 'Boxes of 4 kg, 6 kg or 12 kg depending on the fruit',
         'log.pack.2': 'Sizes to choose at order (A, B, C, D)',
         'log.pack.3': 'Rigid packaging for international transport',
         'log.pack.4': 'Custom labelling / private label available',
         'log.pack.5': 'Shea butter: custom packaging (drums, IBC)',
-        'log.inco.title': 'Incoterms & Documentation',
+        'log.inco.title': 'Incoterms and Documentation',
         'log.inco.1': 'Incoterms offered: FOB Cotonou · CIF · DDP',
         'log.inco.2': 'Payment: bank transfer · L/C for large volumes',
         'log.inco.3': 'Documents provided: phytosanitary certificate, certificate of origin, packing list, pro forma invoice',
