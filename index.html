@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="htmlRoot">
 
 <head>
   <meta charset="UTF-8" />
@@ -158,6 +158,38 @@
     .nav-cta:hover {
       background: var(--ocre2);
       transform: translateY(-1px)
+    }
+
+    /* LANGUAGE SWITCHER */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-left: 1rem;
+      border: 1px solid rgba(196,130,58,.4);
+      border-radius: 100px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,.5);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      padding: .4rem .75rem;
+      cursor: pointer;
+      transition: background .25s, color .25s;
+      text-transform: uppercase;
+    }
+    .lang-btn.active {
+      background: var(--ocre);
+      color: var(--terre);
+    }
+    .lang-btn:hover:not(.active) {
+      color: var(--ocre2);
     }
 
     .mobile-toggle {
@@ -1861,7 +1893,7 @@
 <body>
 
   <!-- Skip to content -->
-  <a href="#about" class="skip-to-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;padding:1rem;background:var(--vert);color:var(--blanc);font-size:1rem;text-decoration:none;" onfocus="this.style.position='fixed';this.style.left='1rem';this.style.top='1rem';this.style.width='auto';this.style.height='auto';this.style.overflow='visible';" onblur="this.style.position='absolute';this.style.left='-9999px';">Aller au contenu principal</a>
+  <a href="#about" class="skip-to-content" data-i18n="skip" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;padding:1rem;background:var(--vert);color:var(--blanc);font-size:1rem;text-decoration:none;" onfocus="this.style.position='fixed';this.style.left='1rem';this.style.top='1rem';this.style.width='auto';this.style.height='auto';this.style.overflow='visible';" onblur="this.style.position='absolute';this.style.left='-9999px';">Aller au contenu principal</a>
 
   <!-- B2B: Navigation mise à jour avec liens B2B -->
   <nav>
@@ -1870,14 +1902,18 @@
       <a href="#hero" class="nav-logo"><img src="logo.png" alt="AST Trade International" /></a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">&#9776;</button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#about">L'entreprise</a></li>
-        <li><a href="#avantages">Nos atouts</a></li>
-        <li><a href="#ananas">Produits</a></li>
-        <li><a href="#logistique">Logistique</a></li>
+        <li><a href="#about" data-i18n="nav.about">L'entreprise</a></li>
+        <li><a href="#avantages" data-i18n="nav.avantages">Nos atouts</a></li>
+        <li><a href="#ananas" data-i18n="nav.produits">Produits</a></li>
+        <li><a href="#logistique" data-i18n="nav.logistique">Logistique</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a class="nav-cta" href="#contact">Demander un devis</a>
+      <a class="nav-cta" href="#contact" data-i18n="nav.cta">Demander un devis</a>
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn active" data-lang="fr" id="btnFR">FR</button>
+        <button class="lang-btn" data-lang="en" id="btnEN">EN</button>
+      </div>
     </div>
   </nav>
 
@@ -1889,11 +1925,11 @@
     <div class="hero-overlay" style="background: linear-gradient(135deg, rgba(13, 42, 20, 0.85) 0%, rgba(13, 42, 20, 0.6) 50%, rgba(45, 26, 14, 0.85) 100%);"></div>
     <div class="hero-content" style="grid-template-columns: 1fr; text-align: center;">
       <div class="hero-left" style="display: flex; flex-direction: column; align-items: center;">
-        <h1 class="hero-h1">Votre partenaire<br>d'import de fruits<br>tropicaux premium</h1>
-        <p class="hero-sub" style="max-width: 60ch;">Filière directe d'Afrique de l'Ouest, des produits premium incluant : Ananas IGP, Mangue Kent, Papaye Solo, Cajou, Karité. Une qualité certifiée, un accompagnement sur mesure et livraison internationale.</p>
+        <h1 class="hero-h1" data-i18n="hero.title">Votre partenaire<br>d'import de fruits<br>tropicaux premium</h1>
+        <p class="hero-sub" style="max-width: 60ch;" data-i18n="hero.sub">Filière directe d'Afrique de l'Ouest, des produits premium incluant : Ananas IGP, Mangue Kent, Papaye Solo, Cajou, Karité. Une qualité certifiée, un accompagnement sur mesure et livraison internationale.</p>
         <div class="hero-actions" style="justify-content: center;">
-          <a class="btn-primary" href="#contact">Demander un devis</a>
-          <a class="btn-ghost" href="#ananas">Voir nos produits</a>
+          <a class="btn-primary" href="#contact" data-i18n="hero.cta">Demander un devis</a>
+          <a class="btn-ghost" href="#ananas" data-i18n="hero.products">Voir nos produits</a>
         </div>
       </div>
     </div>
@@ -1907,19 +1943,19 @@
       <div class="chiffres-grid">
         <div class="chiffre-card reveal">
           <div class="chiffre-number">500+</div>
-          <div class="chiffre-label">Tonnes de capacité d'export / an</div>
+          <div class="chiffre-label" data-i18n="chiffres.1">Tonnes de capacité d'export / an</div>
         </div>
         <div class="chiffre-card reveal">
           <div class="chiffre-number">15+</div>
-          <div class="chiffre-label">Coopératives partenaires qualifiées</div>
+          <div class="chiffre-label" data-i18n="chiffres.2">Coopératives partenaires qualifiées</div>
         </div>
         <div class="chiffre-card reveal">
-          <div class="chiffre-number">3–5j</div>
-          <div class="chiffre-label">Délai de livraison moyen par fret aérien</div>
+          <div class="chiffre-number" data-i18n="chiffres.3.num">3–5j</div>
+          <div class="chiffre-label" data-i18n="chiffres.3">Délai de livraison moyen par fret aérien</div>
         </div>
         <div class="chiffre-card reveal">
           <div class="chiffre-number">5</div>
-          <div class="chiffre-label">Gammes de produits premium du Bénin</div>
+          <div class="chiffre-label" data-i18n="chiffres.4">Gammes de produits premium du Bénin</div>
         </div>
       </div>
     </div>
@@ -1930,31 +1966,31 @@
     <div class="container">
       <div class="about-grid">
         <div class="reveal">
-          <p class="s-label">L'entreprise</p>
-          <h2 class="s-title" style="color:var(--terre)">Notre métier</h2>
+          <p class="s-label" data-i18n="about.label">L'entreprise</p>
+          <h2 class="s-title" style="color:var(--terre)" data-i18n="about.title">Notre métier</h2>
           <div class="adinkra-div"></div>
-          <p class="about-lead">Expert en export de produits agricoles premium d'Afrique de l'Ouest, partenaire des professionnels du monde entier.</p>
-          <p class="about-body">Basée à Paris, AST Trade International connecte les meilleurs producteurs d'Afrique de l'Ouest aux acheteurs B2B internationaux. Sans intermédiaire, nous maîtrisons chaque étape de la chaîne de valeur, de la récolte à l'expédition.<br><br>Garantie absolue : qualité irréprochable, traçabilité rigoureuse, et respect strict des normes phytosanitaires et de sécurité internationales.</p>
+          <p class="about-lead" data-i18n="about.lead">Expert en export de produits agricoles premium d'Afrique de l'Ouest, partenaire des professionnels du monde entier.</p>
+          <p class="about-body" data-i18n="about.body">Basée à Paris, AST Trade International connecte les meilleurs producteurs d'Afrique de l'Ouest aux acheteurs B2B internationaux. Sans intermédiaire, nous maîtrisons chaque étape de la chaîne de valeur, de la récolte à l'expédition.<br><br>Garantie absolue : qualité irréprochable, traçabilité rigoureuse, et respect strict des normes phytosanitaires et de sécurité internationales.</p>
           <div class="values-row">
             <div class="value-item">
               <div class="v-icon">&#10070;</div>
               <div>
-                <div class="v-name">Filière directe</div>
-                <div class="v-desc">Aucun intermédiaire entre nos producteurs et votre entrepôt. Prix compétitifs et traçabilité garantie.</div>
+                <div class="v-name" data-i18n="about.v1.name">Filière directe</div>
+                <div class="v-desc" data-i18n="about.v1.desc">Aucun intermédiaire entre nos producteurs et votre entrepôt. Prix compétitifs et traçabilité garantie.</div>
               </div>
             </div>
             <div class="value-item">
               <div class="v-icon">&#128200;</div>
               <div>
-                <div class="v-name">Qualité constante</div>
-                <div class="v-desc">Contrôle qualité à chaque étape : récolte, tri, conditionnement, expédition. Taux de conformité élevé.</div>
+                <div class="v-name" data-i18n="about.v2.name">Qualité constante</div>
+                <div class="v-desc" data-i18n="about.v2.desc">Contrôle qualité à chaque étape : récolte, tri, conditionnement, expédition. Taux de conformité élevé.</div>
               </div>
             </div>
             <div class="value-item">
               <div class="v-icon">&#127758;</div>
               <div>
-                <div class="v-name">Logistique mondiale</div>
-              <div class="v-desc">Expédition internationale par air et mer. Prise en charge depuis nos bureaux en France (Paris) et en Suisse.</div>
+                <div class="v-name" data-i18n="about.v3.name">Logistique mondiale</div>
+              <div class="v-desc" data-i18n="about.v3.desc">Expédition internationale par air et mer. Prise en charge depuis nos bureaux en France (Paris) et en Suisse.</div>
               </div>
             </div>
           </div>
@@ -1962,12 +1998,12 @@
         <div class="reveal">
           <div class="about-card">
             <div class="about-logo"><img src="logo.png" alt="AST Trade International" /></div>
-            <p class="about-quote">Nous construisons des partenariats durables avec les professionnels européens, en leur offrant un accès fiable aux produits d'exception de l'agriculture béninoise.</p>
+            <p class="about-quote" data-i18n="about.quote">Nous construisons des partenariats durables avec les professionnels européens, en leur offrant un accès fiable aux produits d'exception de l'agriculture béninoise.</p>
             <!-- B2B: Certifications -->
             <div class="certif-row">
-              <span class="certif-badge">&#9745; Appellation IGP</span>
-              <span class="certif-badge">&#9745; Conforme phytosanitaire</span>
-              <span class="certif-badge">&#9745; Agriculture sans pesticides</span>
+              <span class="certif-badge" data-i18n="about.cert1">&#9745; Appellation IGP</span>
+              <span class="certif-badge" data-i18n="about.cert2">&#9745; Conforme phytosanitaire</span>
+              <span class="certif-badge" data-i18n="about.cert3">&#9745; Agriculture sans pesticides</span>
             </div>
           </div>
         </div>
@@ -1980,32 +2016,32 @@
   <!-- B2B: Pourquoi AST Trade — bénéfices business -->
   <section id="avantages">
     <div class="container">
-      <p class="s-label" style="color:var(--ocre)">Pourquoi nous choisir</p>
-      <h2 class="s-title" style="color:var(--blanc)">Pourquoi AST ?</h2>
+      <p class="s-label" style="color:var(--ocre)" data-i18n="av.label">Pourquoi nous choisir</p>
+      <h2 class="s-title" style="color:var(--blanc)" data-i18n="av.title">Pourquoi AST ?</h2>
       <div class="avantages-grid">
         <div class="av-card reveal"><span class="av-icon">&#128279;</span>
-          <div class="av-title">Filière directe, meilleur prix</div>
-          <p class="av-text">Aucun intermédiaire entre nos producteurs partenaires et votre entrepôt. Vous bénéficiez de prix compétitifs et d'une traçabilité complète de la parcelle à la livraison.</p>
+          <div class="av-title" data-i18n="av.1.title">Filière directe, meilleur prix</div>
+          <p class="av-text" data-i18n="av.1.text">Aucun intermédiaire entre nos producteurs partenaires et votre entrepôt. Vous bénéficiez de prix compétitifs et d'une traçabilité complète de la parcelle à la livraison.</p>
         </div>
         <div class="av-card reveal"><span class="av-icon">&#9989;</span>
-          <div class="av-title">Qualité constante et conforme</div>
-          <p class="av-text">Contrôle qualité rigoureux à chaque étape. Documentation phytosanitaire et douanière fournie. Conformité aux normes internationales d'importation de produits frais.</p>
+          <div class="av-title" data-i18n="av.2.title">Qualité constante et conforme</div>
+          <p class="av-text" data-i18n="av.2.text">Contrôle qualité rigoureux à chaque étape. Documentation phytosanitaire et douanière fournie. Conformité aux normes internationales d'importation de produits frais.</p>
         </div>
         <div class="av-card reveal"><span class="av-icon">&#128230;</span>
-          <div class="av-title">Conditionnement sur mesure</div>
-          <p class="av-text">Cartons aux calibres de votre choix, private label possible, étiquetage personnalisé. Nous adaptons le conditionnement à vos spécifications exactes.</p>
+          <div class="av-title" data-i18n="av.3.title">Conditionnement sur mesure</div>
+          <p class="av-text" data-i18n="av.3.text">Cartons aux calibres de votre choix, private label possible, étiquetage personnalisé. Nous adaptons le conditionnement à vos spécifications exactes.</p>
         </div>
         <div class="av-card reveal"><span class="av-icon">&#9889;</span>
-          <div class="av-title">Réactivité et interlocuteur dédié</div>
-          <p class="av-text">Devis sous 24 heures. Un interlocuteur unique pour un suivi commercial sans friction.</p>
+          <div class="av-title" data-i18n="av.4.title">Réactivité et interlocuteur dédié</div>
+          <p class="av-text" data-i18n="av.4.text">Devis sous 24 heures. Un interlocuteur unique pour un suivi commercial sans friction.</p>
         </div>
         <div class="av-card reveal"><span class="av-icon">&#128196;</span>
-          <div class="av-title">Documentation complète</div>
-          <p class="av-text">Certificats phytosanitaires, certificats d'origine, packing list, factures pro forma — tous les documents requis pour un dédouanement sans obstacle.</p>
+          <div class="av-title" data-i18n="av.5.title">Documentation complète</div>
+          <p class="av-text" data-i18n="av.5.text">Certificats phytosanitaires, certificats d'origine, packing list, factures pro forma — tous les documents requis pour un dédouanement sans obstacle.</p>
         </div>
         <div class="av-card reveal"><span class="av-icon">&#128218;</span>
-          <div class="av-title">Régularité d'approvisionnement</div>
-          <p class="av-text">Planification des campagnes avec nos producteurs pour garantir des volumes réguliers. Calendrier de disponibilité communiqué en amont de chaque saison.</p>
+          <div class="av-title" data-i18n="av.6.title">Régularité d'approvisionnement</div>
+          <p class="av-text" data-i18n="av.6.text">Planification des campagnes avec nos producteurs pour garantir des volumes réguliers. Calendrier de disponibilité communiqué en amont de chaque saison.</p>
         </div>
       </div>
     </div>
@@ -2022,38 +2058,38 @@
       <div class="prod-hero-overlay"></div>
       <div class="prod-hero-content">
         <div class="prod-hero-left">
-          <div class="prod-label">Produit phare &middot; Label IGP</div>
+          <div class="prod-label" data-i18n="ananas.label">Produit phare &middot; Label IGP</div>
           <h2 class="prod-hero-title">Ananas<br><em>Pain de Sucre</em></h2>
-          <p class="prod-hero-tagline">Indication Géographique Protégée d'Allada. Chair blanche, faible acidité, taux de sucre élevé. Le premium de l'ananas béninois.</p>
+          <p class="prod-hero-tagline" data-i18n="ananas.tagline">Indication Géographique Protégée d'Allada. Chair blanche, faible acidité, taux de sucre élevé. Le premium de l'ananas béninois.</p>
         </div>
         <div class="prod-hero-right">
-          <span class="prod-badge">&#127942; Appellation IGP</span>
-          <span class="prod-badge">&#128230; Calibres A &agrave; D</span>
-          <div class="prod-price-big">Sur devis</div>
-          <div class="prod-price-label">Prix selon volume et Incoterm</div>
+          <span class="prod-badge" data-i18n="ananas.badge1">&#127942; Appellation IGP</span>
+          <span class="prod-badge" data-i18n="ananas.badge2">&#128230; Calibres A &agrave; D</span>
+          <div class="prod-price-big" data-i18n="price.devis">Sur devis</div>
+          <div class="prod-price-label" data-i18n="price.label">Prix selon volume et Incoterm</div>
         </div>
       </div>
     </div>
     <div class="prod-body">
       <div class="prod-grid">
         <div class="reveal">
-          <h3 class="prod-desc-title">Fiche technique</h3>
+          <h3 class="prod-desc-title" data-i18n="spec.title">Fiche technique</h3>
           <!-- B2B: Tableau de spécifications techniques -->
           <table class="spec-table">
-            <tr><td>Nom commercial</td><td>Ananas Pain de Sucre</td></tr>
-            <tr><td>Nom botanique</td><td><em>Ananas comosus</em> var. Pain de Sucre</td></tr>
-            <tr><td>Origine / Terroir</td><td>Bénin — Label IGP</td></tr>
-            <tr><td>Calibres</td><td>A (&ge;2 kg) · B (1,5–2 kg) · C (1–1,5 kg) · D (0,7–1 kg)</td></tr>
-            <tr><td>Conditionnement</td><td>Carton 6 kg ou 12 kg · Emballage rigide export</td></tr>
+            <tr><td data-i18n="spec.commercial">Nom commercial</td><td>Ananas Pain de Sucre</td></tr>
+            <tr><td data-i18n="spec.botanical">Nom botanique</td><td><em>Ananas comosus</em> var. Pain de Sucre</td></tr>
+            <tr><td data-i18n="spec.origin">Origine / Terroir</td><td data-i18n="ananas.origin.val">Bénin — Label IGP</td></tr>
+            <tr><td data-i18n="spec.calibres">Calibres</td><td>A (&ge;2 kg) · B (1,5–2 kg) · C (1–1,5 kg) · D (0,7–1 kg)</td></tr>
+            <tr><td data-i18n="spec.packaging">Conditionnement</td><td data-i18n="ananas.packaging.val">Carton 6 kg ou 12 kg · Emballage rigide export</td></tr>
 
-            <tr><td>Shelf life</td><td>14–21 jours apr&egrave;s récolte (conditions optimales)</td></tr>
-            <tr><td>Transport</td><td>8–10 &deg;C · Humidit&eacute; 85–90 % · Ventilation requise</td></tr>
-            <tr><td>MOQ suggéré</td><td>500 kg (a&eacute;rien) · 1 palette (maritime)</td></tr>
-            <tr><td>Certifications</td><td>Appellation IGP · Conforme phytosanitaire</td></tr>
+            <tr><td>Shelf life</td><td data-i18n="ananas.shelf.val">14–21 jours apr&egrave;s récolte (conditions optimales)</td></tr>
+            <tr><td>Transport</td><td data-i18n="ananas.transport.val">8–10 &deg;C · Humidit&eacute; 85–90 % · Ventilation requise</td></tr>
+            <tr><td data-i18n="spec.moq">MOQ suggéré</td><td data-i18n="ananas.moq.val">500 kg (a&eacute;rien) · 1 palette (maritime)</td></tr>
+            <tr><td data-i18n="spec.certif">Certifications</td><td data-i18n="ananas.certif.val">Appellation IGP · Conforme phytosanitaire</td></tr>
           </table>
 
           <!-- B2B: Calendrier de saisonnalité -->
-          <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:2rem;margin-bottom:.5rem;">Saisonnalité</p>
+          <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:2rem;margin-bottom:.5rem;" data-i18n="season.label">Saisonnalité</p>
           <div class="season-bar">
             <div class="season-month active" title="Janvier">J</div>
             <div class="season-month peak" title="Février">F</div>
@@ -2069,22 +2105,22 @@
             <div class="season-month active" title="Décembre">D</div>
           </div>
           <p style="font-size:.72rem;color:var(--gris);margin-top:.3rem;display:flex;gap:1rem;align-items:center;">
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--ocre);border-radius:2px;display:inline-block;"></span> Pic</span>
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--vert);border-radius:2px;display:inline-block;"></span> Disponible</span>
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:rgba(0,0,0,.08);border-radius:2px;display:inline-block;"></span> Hors saison</span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--ocre);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.peak">Pic</span></span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--vert);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.available">Disponible</span></span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:rgba(0,0,0,.08);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.off">Hors saison</span></span>
           </p>
 
           <div class="prod-tags" style="margin-top:2rem">
-            <span class="p-tag">Appellation IGP</span><span class="p-tag">Chair blanche</span><span class="p-tag">Faible acidit&eacute;</span><span class="p-tag">Sans pesticides</span>
+            <span class="p-tag" data-i18n="ananas.tag1">Appellation IGP</span><span class="p-tag" data-i18n="ananas.tag2">Chair blanche</span><span class="p-tag" data-i18n="ananas.tag3">Faible acidit&eacute;</span><span class="p-tag" data-i18n="ananas.tag4">Sans pesticides</span>
           </div>
-          <div style="margin-top:2rem"><a class="btn-primary" href="#contact">Demander un devis</a></div>
+          <div style="margin-top:2rem"><a class="btn-primary" href="#contact" data-i18n="btn.devis">Demander un devis</a></div>
         </div>
         <div class="reveal">
-          <h3 class="prod-desc-title">Descriptif produit</h3>
-          <p class="prod-desc-text">Variété IGP rare : sa chair blanche offre une douceur naturelle exceptionnelle (Brix &gt;14) avec une acidité quasiment nulle.<br>Cultivée traditionnellement sans pesticides, notre sélection premium garantit un calibrage homogène et une tenue en rayon prolongée.</p>
+          <h3 class="prod-desc-title" data-i18n="ananas.desc.title">Descriptif produit</h3>
+          <p class="prod-desc-text" data-i18n="ananas.desc.text">Variété IGP rare : sa chair blanche offre une douceur naturelle exceptionnelle (Brix &gt;14) avec une acidité quasiment nulle.<br>Cultivée traditionnellement sans pesticides, notre sélection premium garantit un calibrage homogène et une tenue en rayon prolongée.</p>
           <div class="prod-varietes">
-            <strong>Atouts commerciaux</strong>
-            Différenciation rayon grâce au label IGP · Shelf life supérieur à Cayenne · Forte demande sur les segments bio et premium · Faible taux de rebut
+            <strong data-i18n="ananas.atouts.title">Atouts commerciaux</strong>
+            <span data-i18n="ananas.atouts.text">Différenciation rayon grâce au label IGP · Shelf life supérieur à Cayenne · Forte demande sur les segments bio et premium · Faible taux de rebut</span>
           </div>
           <div class="prod-gallery">
             <img src="ananas-produit.png"
@@ -2108,18 +2144,18 @@
           </div>
         </div>
         <div class="reveal">
-          <p class="s-label">Mangue d'export</p>
+          <p class="s-label" data-i18n="mangue.label">Mangue d'export</p>
           <h2 class="s-title" style="color:var(--terre)">Mangue<br><em style="font-family:'Playfair Display';color:var(--ocre)">Kent</em></h2>
           <div class="adinkra-div"></div>
           <table class="spec-table">
-            <tr><td>Nom botanique</td><td><em>Mangifera indica</em> cv. Kent</td></tr>
-            <tr><td>Origine</td><td>Bénin</td></tr>
-            <tr><td>Calibres</td><td>A (&ge;650 g) · B (450–650 g) · C (350–450 g) · D (250–350 g)</td></tr>
-            <tr><td>Conditionnement</td><td>Carton 4 kg ou 6 kg · Alvéoles individuelles</td></tr>
-            <tr><td>Shelf life</td><td>10–14 jours (transport 10–12 &deg;C)</td></tr>
-            <tr><td>MOQ suggéré</td><td>500 kg (aérien) · 1 conteneur 20' (maritime)</td></tr>
+            <tr><td data-i18n="spec.botanical">Nom botanique</td><td><em>Mangifera indica</em> cv. Kent</td></tr>
+            <tr><td data-i18n="spec.origin2">Origine</td><td data-i18n="origin.benin">Bénin</td></tr>
+            <tr><td data-i18n="spec.calibres">Calibres</td><td>A (&ge;650 g) · B (450–650 g) · C (350–450 g) · D (250–350 g)</td></tr>
+            <tr><td data-i18n="spec.packaging">Conditionnement</td><td data-i18n="mangue.packaging.val">Carton 4 kg ou 6 kg · Alvéoles individuelles</td></tr>
+            <tr><td>Shelf life</td><td data-i18n="mangue.shelf.val">10–14 jours (transport 10–12 &deg;C)</td></tr>
+            <tr><td data-i18n="spec.moq">MOQ suggéré</td><td data-i18n="mangue.moq.val">500 kg (aérien) · 1 conteneur 20' (maritime)</td></tr>
           </table>
-          <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:1.5rem;margin-bottom:.5rem;">Saisonnalité</p>
+          <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:1.5rem;margin-bottom:.5rem;" data-i18n="season.label">Saisonnalité</p>
           <div class="season-bar">
             <div class="season-month off">J</div>
             <div class="season-month off">F</div>
@@ -2135,15 +2171,15 @@
             <div class="season-month off">D</div>
           </div>
           <p style="font-size:.72rem;color:var(--gris);margin-top:.3rem;display:flex;gap:1rem;align-items:center;">
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--ocre);border-radius:2px;display:inline-block;"></span> Pic</span>
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--vert);border-radius:2px;display:inline-block;"></span> Disponible</span>
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:rgba(0,0,0,.08);border-radius:2px;display:inline-block;"></span> Hors saison</span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--ocre);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.peak">Pic</span></span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--vert);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.available">Disponible</span></span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:rgba(0,0,0,.08);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.off">Hors saison</span></span>
           </p>
-          <p class="prod-desc-text" style="margin-top:1.5rem">Variété d'export de référence mondiale. Sa chair fondante, presque dépourvue de fibres, s'associe à un épiderme très résistant qui garantit un transport longue distance sans dommage.</p>
+          <p class="prod-desc-text" style="margin-top:1.5rem" data-i18n="mangue.desc">Variété d'export de référence mondiale. Sa chair fondante, presque dépourvue de fibres, s'associe à un épiderme très résistant qui garantit un transport longue distance sans dommage.</p>
           <div class="prod-tags">
-            <span class="p-tag">Kent</span><span class="p-tag">Chair fondante</span><span class="p-tag">Sans pesticides</span>
+            <span class="p-tag">Kent</span><span class="p-tag" data-i18n="mangue.tag1">Chair fondante</span><span class="p-tag" data-i18n="ananas.tag4">Sans pesticides</span>
           </div>
-          <div style="margin-top:1.5rem"><a class="btn-primary" href="#contact">Demander un devis</a></div>
+          <div style="margin-top:1.5rem"><a class="btn-primary" href="#contact" data-i18n="btn.devis">Demander un devis</a></div>
         </div>
       </div>
     </div>
@@ -2161,18 +2197,18 @@
           </div>
         </div>
         <div class="reveal">
-          <p class="s-label">Fruit d'export</p>
+          <p class="s-label" data-i18n="papaye.label">Fruit d'export</p>
           <h2 class="s-title" style="color:var(--terre)">Papaye<br><em style="font-family:'Playfair Display';color:var(--ocre)">Solo</em></h2>
           <div class="adinkra-div"></div>
           <table class="spec-table">
-            <tr><td>Nom botanique</td><td><em>Carica papaya</em> cv. Solo</td></tr>
-            <tr><td>Origine</td><td>Bénin</td></tr>
-            <tr><td>Poids moyen</td><td>300–500 g (format individuel)</td></tr>
-            <tr><td>Conditionnement</td><td>Carton 4 kg · Alvéoles de protection</td></tr>
-            <tr><td>Shelf life</td><td>7–10 jours (transport 10–12 &deg;C)</td></tr>
-            <tr><td>MOQ suggéré</td><td>300 kg (aérien)</td></tr>
+            <tr><td data-i18n="spec.botanical">Nom botanique</td><td><em>Carica papaya</em> cv. Solo</td></tr>
+            <tr><td data-i18n="spec.origin2">Origine</td><td data-i18n="origin.benin">Bénin</td></tr>
+            <tr><td data-i18n="papaye.weight">Poids moyen</td><td data-i18n="papaye.weight.val">300–500 g (format individuel)</td></tr>
+            <tr><td data-i18n="spec.packaging">Conditionnement</td><td data-i18n="papaye.packaging.val">Carton 4 kg · Alvéoles de protection</td></tr>
+            <tr><td>Shelf life</td><td data-i18n="papaye.shelf.val">7–10 jours (transport 10–12 &deg;C)</td></tr>
+            <tr><td data-i18n="spec.moq">MOQ suggéré</td><td data-i18n="papaye.moq.val">300 kg (aérien)</td></tr>
           </table>
-          <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:1.5rem;margin-bottom:.5rem;">Saisonnalité</p>
+          <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:1.5rem;margin-bottom:.5rem;" data-i18n="season.label">Saisonnalité</p>
           <div class="season-bar">
             <div class="season-month active">J</div>
             <div class="season-month active">F</div>
@@ -2188,15 +2224,15 @@
             <div class="season-month active">D</div>
           </div>
           <p style="font-size:.72rem;color:var(--gris);margin-top:.3rem;display:flex;gap:1rem;align-items:center;">
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--ocre);border-radius:2px;display:inline-block;"></span> Pic</span>
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--vert);border-radius:2px;display:inline-block;"></span> Disponible</span>
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:rgba(0,0,0,.08);border-radius:2px;display:inline-block;"></span> Hors saison</span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--ocre);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.peak">Pic</span></span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--vert);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.available">Disponible</span></span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:rgba(0,0,0,.08);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.off">Hors saison</span></span>
           </p>
-          <p class="prod-desc-text" style="margin-top:1.5rem">Variété compacte prisée pour sa chair orangée très parfumée. Formée pour le transport aérien, elle limite les pertes et s'adapte parfaitement à la consommation individuelle.</p>
+          <p class="prod-desc-text" style="margin-top:1.5rem" data-i18n="papaye.desc">Variété compacte prisée pour sa chair orangée très parfumée. Formée pour le transport aérien, elle limite les pertes et s'adapte parfaitement à la consommation individuelle.</p>
           <div class="prod-tags">
-            <span class="p-tag">Solo</span><span class="p-tag">Format individuel</span><span class="p-tag">Chair orangée</span><span class="p-tag">Export aérien</span>
+            <span class="p-tag">Solo</span><span class="p-tag" data-i18n="papaye.tag1">Format individuel</span><span class="p-tag" data-i18n="papaye.tag2">Chair orangée</span><span class="p-tag" data-i18n="papaye.tag3">Export aérien</span>
           </div>
-          <div style="margin-top:1.5rem"><a class="btn-primary" href="#contact">Demander un devis</a></div>
+          <div style="margin-top:1.5rem"><a class="btn-primary" href="#contact" data-i18n="btn.devis">Demander un devis</a></div>
         </div>
       </div>
     </div>
@@ -2214,19 +2250,19 @@
           </div>
         </div>
         <div class="reveal">
-          <p class="s-label">Fruit sec d'exception</p>
-          <h2 class="s-title" style="color:var(--terre)">Noix de<br><em style="font-family:'Playfair Display';color:var(--ocre)">Cajou</em></h2>
+          <p class="s-label" data-i18n="cajou.label">Fruit sec d'exception</p>
+          <h2 class="s-title" style="color:var(--terre)" data-i18n="cajou.title">Noix de<br><em style="font-family:'Playfair Display';color:var(--ocre)">Cajou</em></h2>
           <div class="adinkra-div"></div>
           <table class="spec-table">
-            <tr><td>Nom botanique</td><td><em>Anacardium occidentale</em></td></tr>
-            <tr><td>Origine</td><td>Bénin</td></tr>
-            <tr><td>Classement</td><td>Cerneaux W240 · Cat&eacute;gorie Extra ou I</td></tr>
-            <tr><td>KOR moyen</td><td>48 (Kernel Output Ratio)</td></tr>
-            <tr><td>Conditionnement</td><td>Sacs 25 kg (brutes) · Cartons 10 kg (cerneaux) · Sous vide</td></tr>
-            <tr><td>Shelf life</td><td>12 mois (cerneaux secs · stock&eacute; &agrave; &lt;25 &deg;C)</td></tr>
-            <tr><td>MOQ suggéré</td><td>1 tonne (brutes) · 500 kg (cerneaux)</td></tr>
+            <tr><td data-i18n="spec.botanical">Nom botanique</td><td><em>Anacardium occidentale</em></td></tr>
+            <tr><td data-i18n="spec.origin2">Origine</td><td data-i18n="origin.benin">Bénin</td></tr>
+            <tr><td data-i18n="cajou.grade">Classement</td><td data-i18n="cajou.grade.val">Cerneaux W240 · Cat&eacute;gorie Extra ou I</td></tr>
+            <tr><td data-i18n="cajou.kor">KOR moyen</td><td data-i18n="cajou.kor.val">48 (Kernel Output Ratio)</td></tr>
+            <tr><td data-i18n="spec.packaging">Conditionnement</td><td data-i18n="cajou.packaging.val">Sacs 25 kg (brutes) · Cartons 10 kg (cerneaux) · Sous vide</td></tr>
+            <tr><td>Shelf life</td><td data-i18n="cajou.shelf.val">12 mois (cerneaux secs · stock&eacute; &agrave; &lt;25 &deg;C)</td></tr>
+            <tr><td data-i18n="spec.moq">MOQ suggéré</td><td data-i18n="cajou.moq.val">1 tonne (brutes) · 500 kg (cerneaux)</td></tr>
           </table>
-          <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:1.5rem;margin-bottom:.5rem;">Campagne</p>
+          <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:1.5rem;margin-bottom:.5rem;" data-i18n="cajou.campagne">Campagne</p>
           <div class="season-bar">
             <div class="season-month off">J</div>
             <div class="season-month peak">F</div>
@@ -2242,15 +2278,15 @@
             <div class="season-month off">D</div>
           </div>
           <p style="font-size:.72rem;color:var(--gris);margin-top:.3rem;display:flex;gap:1rem;align-items:center;">
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--ocre);border-radius:2px;display:inline-block;"></span> Pic</span>
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--vert);border-radius:2px;display:inline-block;"></span> Disponible</span>
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:rgba(0,0,0,.08);border-radius:2px;display:inline-block;"></span> Hors saison</span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--ocre);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.peak">Pic</span></span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--vert);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.available">Disponible</span></span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:rgba(0,0,0,.08);border-radius:2px;display:inline-block;"></span> <span data-i18n="season.off">Hors saison</span></span>
           </p>
-          <p class="prod-desc-text" style="margin-top:1.5rem">Cerneaux crus séchés W240 (Grade Extra/I). Également disponibles en noix brutes (RCN). Goût doux et couleur ivoire pour un produit de snacking premium.</p>
+          <p class="prod-desc-text" style="margin-top:1.5rem" data-i18n="cajou.desc">Cerneaux crus séchés W240 (Grade Extra/I). Également disponibles en noix brutes (RCN). Goût doux et couleur ivoire pour un produit de snacking premium.</p>
           <div class="prod-tags">
-            <span class="p-tag">W240</span><span class="p-tag">KOR 48</span><span class="p-tag">Cerneaux et brutes</span><span class="p-tag">Longue conservation</span>
+            <span class="p-tag">W240</span><span class="p-tag">KOR 48</span><span class="p-tag" data-i18n="cajou.tag1">Cerneaux et brutes</span><span class="p-tag" data-i18n="cajou.tag2">Longue conservation</span>
           </div>
-          <div style="margin-top:1.5rem"><a class="btn-primary" href="#contact">Demander un devis</a></div>
+          <div style="margin-top:1.5rem"><a class="btn-primary" href="#contact" data-i18n="btn.devis">Demander un devis</a></div>
         </div>
       </div>
     </div>
@@ -2268,19 +2304,19 @@
           </div>
         </div>
         <div class="reveal">
-          <p class="s-label">Cosmétique et Agroalimentaire</p>
-          <h2 class="s-title" style="color:var(--terre)">Beurre de<br><em style="font-family:'Playfair Display';color:var(--ocre)">Karité</em></h2>
+          <p class="s-label" data-i18n="karite.label">Cosmétique et Agroalimentaire</p>
+          <h2 class="s-title" style="color:var(--terre)" data-i18n="karite.title">Beurre de<br><em style="font-family:'Playfair Display';color:var(--ocre)">Karité</em></h2>
           <div class="adinkra-div"></div>
           <table class="spec-table">
-            <tr><td>Nom botanique</td><td><em>Vitellaria paradoxa</em></td></tr>
-            <tr><td>Origine</td><td>Nord Bénin</td></tr>
-            <tr><td>Grade</td><td>A (non raffiné, brut) — extraction traditionnelle</td></tr>
-            <tr><td>Usages</td><td>Cosmétique · Pharmacie · Agroalimentaire</td></tr>
-            <tr><td>Conditionnement</td><td>F&ucirc;ts 25 kg, 50 kg ou 200 kg · Sur mesure selon vos besoins</td></tr>
-            <tr><td>Shelf life</td><td>18–24 mois (stock&eacute; au frais, &agrave; l'abri de la lumi&egrave;re)</td></tr>
-            <tr><td>MOQ suggéré</td><td>100 kg</td></tr>
+            <tr><td data-i18n="spec.botanical">Nom botanique</td><td><em>Vitellaria paradoxa</em></td></tr>
+            <tr><td data-i18n="spec.origin2">Origine</td><td data-i18n="karite.origin.val">Nord Bénin</td></tr>
+            <tr><td>Grade</td><td data-i18n="karite.grade.val">A (non raffiné, brut) — extraction traditionnelle</td></tr>
+            <tr><td data-i18n="karite.usages">Usages</td><td data-i18n="karite.usages.val">Cosmétique · Pharmacie · Agroalimentaire</td></tr>
+            <tr><td data-i18n="spec.packaging">Conditionnement</td><td data-i18n="karite.packaging.val">F&ucirc;ts 25 kg, 50 kg ou 200 kg · Sur mesure selon vos besoins</td></tr>
+            <tr><td>Shelf life</td><td data-i18n="karite.shelf.val">18–24 mois (stock&eacute; au frais, &agrave; l'abri de la lumi&egrave;re)</td></tr>
+            <tr><td data-i18n="spec.moq">MOQ suggéré</td><td>100 kg</td></tr>
           </table>
-          <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:1.5rem;margin-bottom:.5rem;">Disponibilité</p>
+          <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:1.5rem;margin-bottom:.5rem;" data-i18n="karite.dispo">Disponibilité</p>
           <div class="season-bar">
             <div class="season-month active" title="Janvier">J</div>
             <div class="season-month active" title="Février">F</div>
@@ -2296,13 +2332,13 @@
             <div class="season-month active" title="Décembre">D</div>
           </div>
           <p style="font-size:.72rem;color:var(--gris);margin-top:.3rem;display:flex;gap:1rem;align-items:center;">
-            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--vert);border-radius:2px;display:inline-block;"></span> Toute l'année</span>
+            <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:10px;height:10px;background:var(--vert);border-radius:2px;display:inline-block;"></span> <span data-i18n="karite.allyear">Toute l'année</span></span>
           </p>
-          <p class="prod-desc-text" style="margin-top:1.5rem">Beurre 100 % pur et brut (Grade A) issu du savoir-faire traditionnel des coopératives féminines. Idéal pour vos formulations cosmétiques ou alimentaires haut de gamme.</p>
+          <p class="prod-desc-text" style="margin-top:1.5rem" data-i18n="karite.desc">Beurre 100 % pur et brut (Grade A) issu du savoir-faire traditionnel des coopératives féminines. Idéal pour vos formulations cosmétiques ou alimentaires haut de gamme.</p>
           <div class="prod-tags" style="margin-top:1.5rem">
-            <span class="p-tag">Grade A</span><span class="p-tag">Non raffiné</span><span class="p-tag">Vit. A et E</span><span class="p-tag">Cosmétique et alimentaire</span><span class="p-tag">Private label</span>
+            <span class="p-tag">Grade A</span><span class="p-tag" data-i18n="karite.tag1">Non raffiné</span><span class="p-tag">Vit. A & E</span><span class="p-tag" data-i18n="karite.tag2">Cosmétique et alimentaire</span><span class="p-tag">Private label</span>
           </div>
-          <div style="margin-top:1.5rem"><a class="btn-primary" href="#contact">Demander un devis</a></div>
+          <div style="margin-top:1.5rem"><a class="btn-primary" href="#contact" data-i18n="btn.devis">Demander un devis</a></div>
         </div>
       </div>
     </div>
@@ -2313,81 +2349,81 @@
   <!-- B2B: LOGISTIQUE renforcée -->
   <section id="logistique">
     <div class="container">
-      <p class="s-label">Logistique et Expédition</p>
-      <h2 class="s-title" style="color:var(--terre)">Du producteur à votre entrepôt</h2>
+      <p class="s-label" data-i18n="log.label">Logistique et Expédition</p>
+      <h2 class="s-title" style="color:var(--terre)" data-i18n="log.title">Du producteur à votre entrepôt</h2>
 
       <!-- B2B: Chaîne logistique visuelle -->
       <div class="supply-chain reveal">
         <div class="sc-step">
           <div class="sc-icon">&#127793;</div>
-          <div class="sc-label">Producteurs<br>partenaires</div>
+          <div class="sc-label" data-i18n="log.sc1">Producteurs<br>partenaires</div>
         </div>
         <div class="sc-arrow">&rarr;</div>
         <div class="sc-step">
           <div class="sc-icon">&#128230;</div>
-          <div class="sc-label">Station de<br>conditionnement</div>
+          <div class="sc-label" data-i18n="log.sc2">Station de<br>conditionnement</div>
         </div>
         <div class="sc-arrow">&rarr;</div>
         <div class="sc-step">
           <div class="sc-icon">&#128270;</div>
-          <div class="sc-label">Contr&ocirc;le<br>qualité</div>
+          <div class="sc-label" data-i18n="log.sc3">Contr&ocirc;le<br>qualité</div>
         </div>
         <div class="sc-arrow">&rarr;</div>
         <div class="sc-step">
           <div class="sc-icon">&#9992;</div>
-          <div class="sc-label">Expédition<br>Cotonou</div>
+          <div class="sc-label" data-i18n="log.sc4">Expédition<br>Cotonou</div>
         </div>
         <div class="sc-arrow">&rarr;</div>
         <div class="sc-step">
           <div class="sc-icon">&#127919;</div>
-          <div class="sc-label">Réception</div>
+          <div class="sc-label" data-i18n="log.sc5">Réception</div>
         </div>
       </div>
 
       <div class="log-grid">
         <div class="log-card reveal">
           <div class="log-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ocre)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.7l-1.3 2.6c-.2.4.1.8.6.9l6.3 1.9L6 14.6l-2.4-.8c-.4-.1-.8.1-1 .5l-.8 1.6c-.2.4.1.8.6.9l4.5 1 1 4.5c.1.5.5.8.9.6l1.6-.8c.4-.2.6-.6.5-1l-.8-2.4 3.3-3.3 1.9 6.3c.1.5.5.8.9.6l2.6-1.3c.5-.2.8-.6.7-1.1Z" /></svg></div>
-          <div class="log-title">Transport Aérien</div>
+          <div class="log-title" data-i18n="log.air.title">Transport Aérien</div>
           <ul class="log-list">
-            <li>Départ : Aéroport de Cotonou (COO)</li>
+            <li data-i18n="log.air.1">Départ : Aéroport de Cotonou (COO)</li>
 
-            <li>Ananas et Mangue : livraison en 3 &agrave; 5 jours</li>
-            <li>Chaîne du froid maintenue de bout en bout</li>
-            <li>Recommandé pour commandes &lt; 5 tonnes</li>
+            <li data-i18n="log.air.2">Ananas et Mangue : livraison en 3 &agrave; 5 jours</li>
+            <li data-i18n="log.air.3">Chaîne du froid maintenue de bout en bout</li>
+            <li data-i18n="log.air.4">Recommandé pour commandes &lt; 5 tonnes</li>
           </ul>
         </div>
         <div class="log-card reveal">
           <div class="log-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ocre)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76" /><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6" /><path d="M12 10v4" /><path d="M12 2v3" /></svg></div>
-          <div class="log-title">Transport Maritime</div>
+          <div class="log-title" data-i18n="log.sea.title">Transport Maritime</div>
           <ul class="log-list">
-            <li>Départ : Port de Cotonou</li>
+            <li data-i18n="log.sea.1">Départ : Port de Cotonou</li>
 
-            <li>Conteneur réfrigéré &agrave; &plusmn;8 &deg;C · ventilation 20 %</li>
-            <li>Ananas : 11 &agrave; 15 jours · jusqu'&agrave; 1 800 cartons</li>
-            <li>Solution économique pour volumes &gt; 5 tonnes</li>
+            <li data-i18n="log.sea.2">Conteneur réfrigéré &agrave; &plusmn;8 &deg;C · ventilation 20 %</li>
+            <li data-i18n="log.sea.3">Ananas : 11 &agrave; 15 jours · jusqu'&agrave; 1 800 cartons</li>
+            <li data-i18n="log.sea.4">Solution économique pour volumes &gt; 5 tonnes</li>
           </ul>
         </div>
         <div class="log-card reveal">
           <div class="log-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ocre)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15" /><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" /></svg></div>
-          <div class="log-title">Conditionnement et Calibrage</div>
+          <div class="log-title" data-i18n="log.pack.title">Conditionnement et Calibrage</div>
           <ul class="log-list">
-            <li>Cartons de 4 kg, 6 kg ou 12 kg selon le fruit</li>
-            <li>Calibres au choix &agrave; la commande (A, B, C, D)</li>
-            <li>Emballages rigides pour transport international</li>
-            <li>&Eacute;tiquetage personnalis&eacute; / private label possible</li>
-            <li>Karité : conditionnement sur mesure (f&ucirc;ts, IBC)</li>
+            <li data-i18n="log.pack.1">Cartons de 4 kg, 6 kg ou 12 kg selon le fruit</li>
+            <li data-i18n="log.pack.2">Calibres au choix &agrave; la commande (A, B, C, D)</li>
+            <li data-i18n="log.pack.3">Emballages rigides pour transport international</li>
+            <li data-i18n="log.pack.4">&Eacute;tiquetage personnalis&eacute; / private label possible</li>
+            <li data-i18n="log.pack.5">Karité : conditionnement sur mesure (f&ucirc;ts, IBC)</li>
           </ul>
         </div>
         <div class="log-card reveal">
           <div class="log-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--ocre)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2-1 4-2 7-2 2.9 0 5 1 7 2a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg></div>
           <!-- B2B: Incoterms et documentation -->
-          <div class="log-title">Incoterms et Documentation</div>
+          <div class="log-title" data-i18n="log.inco.title">Incoterms et Documentation</div>
           <ul class="log-list">
-            <li>Incoterms proposés : FOB Cotonou · CIF · DDP</li>
-            <li>Paiement : virement bancaire · L/C pour grands volumes</li>
-            <li>Documents fournis : certificat phytosanitaire, certificat d'origine, packing list, facture pro forma</li>
-            <li>Suivi température en temps réel (data logger)</li>
-            <li>Assurance transport disponible sur demande</li>
+            <li data-i18n="log.inco.1">Incoterms proposés : FOB Cotonou · CIF · DDP</li>
+            <li data-i18n="log.inco.2">Paiement : virement bancaire · L/C pour grands volumes</li>
+            <li data-i18n="log.inco.3">Documents fournis : certificat phytosanitaire, certificat d'origine, packing list, facture pro forma</li>
+            <li data-i18n="log.inco.4">Suivi température en temps réel (data logger)</li>
+            <li data-i18n="log.inco.5">Assurance transport disponible sur demande</li>
           </ul>
         </div>
       </div>
@@ -2399,32 +2435,32 @@
   <!-- B2B: FAQ professionnelle -->
   <section id="faq">
     <div class="container">
-      <p class="s-label">Questions fréquentes</p>
-      <h2 class="s-title" style="color:var(--terre)">FAQ professionnelle</h2>
+      <p class="s-label" data-i18n="faq.label">Questions fréquentes</p>
+      <h2 class="s-title" style="color:var(--terre)" data-i18n="faq.title">FAQ professionnelle</h2>
       <div class="faq-grid">
         <div class="faq-item reveal">
-          <div class="faq-q">Quels sont vos délais de livraison ?</div>
-          <div class="faq-a">Par fret aérien : 3 à 5 jours ouvrés pour les fruits frais (ananas, mangue, papaye). Par voie maritime : 11 à 15 jours pour les conteneurs réfrigérés. Noix de cajou et karité : 15 à 30 jours selon le mode de transport.</div>
+          <div class="faq-q" data-i18n="faq.1.q">Quels sont vos délais de livraison ?</div>
+          <div class="faq-a" data-i18n="faq.1.a">Par fret aérien : 3 à 5 jours ouvrés pour les fruits frais (ananas, mangue, papaye). Par voie maritime : 11 à 15 jours pour les conteneurs réfrigérés. Noix de cajou et karité : 15 à 30 jours selon le mode de transport.</div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-q">Quel est le minimum de commande (MOQ) ?</div>
-          <div class="faq-a">Le MOQ varie selon le produit et le mode de transport. En aérien : à partir de 300 kg. En maritime : à partir d'une palette ou d'un conteneur 20'. Contactez-nous pour un devis adapté à vos volumes.</div>
+          <div class="faq-q" data-i18n="faq.2.q">Quel est le minimum de commande (MOQ) ?</div>
+          <div class="faq-a" data-i18n="faq.2.a">Le MOQ varie selon le produit et le mode de transport. En aérien : à partir de 300 kg. En maritime : à partir d'une palette ou d'un conteneur 20'. Contactez-nous pour un devis adapté à vos volumes.</div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-q">Fournissez-vous les documents phytosanitaires ?</div>
-          <div class="faq-a">Oui. Nous fournissons systématiquement : certificat phytosanitaire, certificat d'origine, packing list détaillée, et facture pro forma. Tous les documents nécessaires au dédouanement en UE sont inclus.</div>
+          <div class="faq-q" data-i18n="faq.3.q">Fournissez-vous les documents phytosanitaires ?</div>
+          <div class="faq-a" data-i18n="faq.3.a">Oui. Nous fournissons systématiquement : certificat phytosanitaire, certificat d'origine, packing list détaillée, et facture pro forma. Tous les documents nécessaires au dédouanement en UE sont inclus.</div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-q">Quels Incoterms proposez-vous ?</div>
-          <div class="faq-a">Nous travaillons principalement en FOB Cotonou, CIF (port/aéroport de destination) et DDP (livré droits acquittés). L'Incoterm est défini lors de l'établissement du devis en fonction de vos préférences.</div>
+          <div class="faq-q" data-i18n="faq.4.q">Quels Incoterms proposez-vous ?</div>
+          <div class="faq-a" data-i18n="faq.4.a">Nous travaillons principalement en FOB Cotonou, CIF (port/aéroport de destination) et DDP (livré droits acquittés). L'Incoterm est défini lors de l'établissement du devis en fonction de vos préférences.</div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-q">Proposez-vous du private label / marque blanche ?</div>
-          <div class="faq-a">Oui. Nous réalisons l'étiquetage personnalisé selon votre cahier des charges : marque, design, mentions réglementaires, codes-barres. Le conditionnement peut également être adapté à vos formats.</div>
+          <div class="faq-q" data-i18n="faq.5.q">Proposez-vous du private label / marque blanche ?</div>
+          <div class="faq-a" data-i18n="faq.5.a">Oui. Nous réalisons l'étiquetage personnalisé selon votre cahier des charges : marque, design, mentions réglementaires, codes-barres. Le conditionnement peut également être adapté à vos formats.</div>
         </div>
         <div class="faq-item reveal">
-          <div class="faq-q">Comment sont gérés les litiges qualité ?</div>
-          <div class="faq-a">Chaque lot est contrôlé avant expédition (calibre, maturité, absence de défauts). En cas de non-conformité constatée à réception, nous traitons la réclamation sous 48h avec expertise photos et proposons un avoir ou un remplacement selon les cas.</div>
+          <div class="faq-q" data-i18n="faq.6.q">Comment sont gérés les litiges qualité ?</div>
+          <div class="faq-a" data-i18n="faq.6.a">Chaque lot est contrôlé avant expédition (calibre, maturité, absence de défauts). En cas de non-conformité constatée à réception, nous traitons la réclamation sous 48h avec expertise photos et proposons un avoir ou un remplacement selon les cas.</div>
         </div>
       </div>
     </div>
@@ -2438,17 +2474,17 @@
       <div class="contact-grid">
         <div class="reveal">
           <div class="contact-logo"><img src="logo.png" alt="AST Trade International" /></div>
-          <p class="s-label" style="color:var(--ocre)">Parlons business</p>
-          <h2 class="s-title" style="color:var(--blanc)">Demandez votre devis professionnel</h2>
+          <p class="s-label" style="color:var(--ocre)" data-i18n="contact.label">Parlons business</p>
+          <h2 class="s-title" style="color:var(--blanc)" data-i18n="contact.title">Demandez votre devis professionnel</h2>
           <div class="adinkra-div"></div>
-          <p class="contact-lead">Échantillons, volumes et plannings saisonniers : notre équipe vous répond en 24h ouvrées. Commande en 6 étapes simples jusqu'à livraison.</p>
+          <p class="contact-lead" data-i18n="contact.lead">Échantillons, volumes et plannings saisonniers : notre équipe vous répond en 24h ouvrées. Commande en 6 étapes simples jusqu'à livraison.</p>
           <div class="contact-items">
             <div class="c-item">
               <div class="c-icon">&#128222;</div>
               <div>
-                <div class="c-label">Téléphone / WhatsApp</div>
+                <div class="c-label" data-i18n="contact.phone">Téléphone / WhatsApp</div>
                 <a class="c-value" href="tel:+33785228514">+33 7 85 22 85 14</a>
-                <span class="c-value" style="font-size:.82rem;color:rgba(255,255,255,.38)">+41 78 309 53 17 (Suisse)</span>
+                <span class="c-value" style="font-size:.82rem;color:rgba(255,255,255,.38)" data-i18n="contact.swiss">+41 78 309 53 17 (Suisse)</span>
               </div>
             </div>
             <div class="c-item">
@@ -2461,83 +2497,83 @@
             <div class="c-item">
               <div class="c-icon">&#128205;</div>
               <div>
-                <div class="c-label">Siège social</div>
-                <div class="c-value">40, rue de Ménilmontant &middot; 75020 Paris</div>
+                <div class="c-label" data-i18n="contact.hq">Siège social</div>
+                <div class="c-value" data-i18n="contact.address">40, rue de Ménilmontant &middot; 75020 Paris</div>
               </div>
             </div>
           </div>
           <!-- B2B: Documents téléchargeables -->
           <div class="download-row">
-            <a href="#" class="dl-btn">&#128196; T&eacute;l&eacute;charger le catalogue produits (PDF)</a>
-            <a href="#" class="dl-btn">&#128196; T&eacute;l&eacute;charger les conditions g&eacute;n&eacute;rales de vente</a>
+            <a href="#" class="dl-btn" data-i18n="contact.dl1">&#128196; T&eacute;l&eacute;charger le catalogue produits (PDF)</a>
+            <a href="#" class="dl-btn" data-i18n="contact.dl2">&#128196; T&eacute;l&eacute;charger les conditions g&eacute;n&eacute;rales de vente</a>
           </div>
         </div>
         <div class="reveal">
           <!-- B2B: Formulaire de contact professionnel -->
           <form class="contact-form"
             onsubmit="event.preventDefault(); alert('Merci pour votre demande\u00A0! Notre \u00E9quipe commerciale vous r\u00E9pondra sous 24 heures.');">
-            <div class="form-h">Votre demande professionnelle</div>
+            <div class="form-h" data-i18n="form.title">Votre demande professionnelle</div>
             <!-- Honeypot anti-spam -->
             <div style="position:absolute;left:-9999px;"><label for="website">Ne pas remplir</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off" /></div>
             <div class="form-2col">
-              <div class="fg"><label for="societe">Société *</label><input type="text" id="societe" name="societe" placeholder="Nom de votre entreprise" required /></div>
-              <div class="fg"><label for="fonction">Fonction / Poste</label><input type="text" id="fonction" name="fonction" placeholder="Directeur des achats, etc." /></div>
+              <div class="fg"><label for="societe" data-i18n="form.company">Société *</label><input type="text" id="societe" name="societe" data-i18n-placeholder="form.company.ph" placeholder="Nom de votre entreprise" required /></div>
+              <div class="fg"><label for="fonction" data-i18n="form.position">Fonction / Poste</label><input type="text" id="fonction" name="fonction" data-i18n-placeholder="form.position.ph" placeholder="Directeur des achats, etc." /></div>
             </div>
             <div class="form-2col">
-              <div class="fg"><label for="prenom">Prénom *</label><input type="text" id="prenom" name="prenom" placeholder="Jean" required /></div>
-              <div class="fg"><label for="nom">Nom *</label><input type="text" id="nom" name="nom" placeholder="Dupont" required /></div>
+              <div class="fg"><label for="prenom" data-i18n="form.firstname">Prénom *</label><input type="text" id="prenom" name="prenom" placeholder="Jean" required /></div>
+              <div class="fg"><label for="nom" data-i18n="form.lastname">Nom *</label><input type="text" id="nom" name="nom" placeholder="Dupont" required /></div>
             </div>
             <div class="form-2col">
-              <div class="fg"><label for="email">Email professionnel *</label><input type="email" id="email" name="email" placeholder="jean@entreprise.com" required /></div>
-              <div class="fg"><label for="telephone">Téléphone</label><input type="tel" id="telephone" name="telephone" placeholder="+33 6 00 00 00 00" /></div>
+              <div class="fg"><label for="email" data-i18n="form.email">Email professionnel *</label><input type="email" id="email" name="email" placeholder="jean@entreprise.com" required /></div>
+              <div class="fg"><label for="telephone" data-i18n="form.phone">Téléphone</label><input type="tel" id="telephone" name="telephone" placeholder="+33 6 00 00 00 00" /></div>
             </div>
             <div class="form-3col">
-              <div class="fg"><label for="pays">Pays</label>
+              <div class="fg"><label for="pays" data-i18n="form.country">Pays</label>
                 <select id="pays" name="pays">
-                  <option value="">Sélectionner</option>
+                  <option value="" data-i18n="form.select">Sélectionner</option>
                   <option>France</option>
-                  <option>Suisse</option>
-                  <option>Belgique</option>
-                  <option>Pays-Bas</option>
+                  <option data-i18n="form.pays.suisse">Suisse</option>
+                  <option data-i18n="form.pays.belgique">Belgique</option>
+                  <option data-i18n="form.pays.paysbas">Pays-Bas</option>
                   <option>Luxembourg</option>
-                  <option>Allemagne</option>
-                  <option>Italie</option>
-                  <option>Autre</option>
+                  <option data-i18n="form.pays.allemagne">Allemagne</option>
+                  <option data-i18n="form.pays.italie">Italie</option>
+                  <option data-i18n="form.pays.autre">Autre</option>
                 </select>
               </div>
-              <div class="fg"><label for="volume">Volume estimé</label>
+              <div class="fg"><label for="volume" data-i18n="form.volume">Volume estimé</label>
                 <select id="volume" name="volume">
-                  <option value="">Sélectionner</option>
+                  <option value="" data-i18n="form.select">Sélectionner</option>
                   <option>&lt; 1 tonne</option>
                   <option>1 – 5 tonnes</option>
                   <option>5 – 20 tonnes</option>
                   <option>&gt; 20 tonnes</option>
                 </select>
               </div>
-              <div class="fg"><label for="frequence">Fréquence</label>
+              <div class="fg"><label for="frequence" data-i18n="form.frequency">Fréquence</label>
                 <select id="frequence" name="frequence">
-                  <option value="">Sélectionner</option>
-                  <option>Ponctuel / Essai</option>
-                  <option>Mensuel</option>
-                  <option>Hebdomadaire</option>
+                  <option value="" data-i18n="form.select">Sélectionner</option>
+                  <option data-i18n="form.freq.once">Ponctuel / Essai</option>
+                  <option data-i18n="form.freq.monthly">Mensuel</option>
+                  <option data-i18n="form.freq.weekly">Hebdomadaire</option>
                 </select>
               </div>
             </div>
-            <div class="fg"><label for="produit">Produit(s) souhaité(s) *</label>
+            <div class="fg"><label for="produit" data-i18n="form.product">Produit(s) souhaité(s) *</label>
               <select id="produit" name="produit" required>
-                <option value="">Sélectionner un produit</option>
+                <option value="" data-i18n="form.selectproduct">Sélectionner un produit</option>
                 <option>Ananas Pain de Sucre (IGP)</option>
-                <option>Mangue Kent</option>
+                <option data-i18n="form.prod.mangue">Mangue Kent</option>
                 <option>Papaye Solo</option>
-                <option>Noix de Cajou</option>
-                <option>Beurre de Karité</option>
-                <option>Plusieurs produits</option>
+                <option data-i18n="form.prod.cajou">Noix de Cajou</option>
+                <option data-i18n="form.prod.karite">Beurre de Karité</option>
+                <option data-i18n="form.prod.multi">Plusieurs produits</option>
               </select>
             </div>
-            <div class="fg"><label for="message">Votre message</label><textarea id="message" name="message"
-                placeholder="Calibres souhaités, Incoterm préféré, contraintes de conditionnement, questions techniques..."></textarea>
+            <div class="fg"><label for="message" data-i18n="form.message">Votre message</label><textarea id="message" name="message"
+                data-i18n-placeholder="form.message.ph" placeholder="Calibres souhaités, Incoterm préféré, contraintes de conditionnement, questions techniques..."></textarea>
             </div>
-            <button type="submit" class="form-submit">Envoyer ma demande de devis &rarr;</button>
+            <button type="submit" class="form-submit" data-i18n="form.submit">Envoyer ma demande de devis &rarr;</button>
           </form>
         </div>
       </div>
@@ -2560,7 +2596,7 @@
         </div>
         <div class="footer-legal">
           SIRET 98040601100026 &middot; TVA FR50980406011<br>
-          <a href="#">Mentions l&eacute;gales</a> &middot; <a href="#">CGV</a> &middot; <a href="#">Politique de confidentialit&eacute;</a><br>
+          <a href="#" data-i18n="footer.legal">Mentions l&eacute;gales</a> &middot; <a href="#" data-i18n="footer.cgv">CGV</a> &middot; <a href="#" data-i18n="footer.privacy">Politique de confidentialit&eacute;</a><br>
           &copy; <span id="copyYear">2025</span> AST Trade International SARL
         </div>
       </div>
@@ -2614,6 +2650,304 @@
     // Copyright year
     const y = document.getElementById('copyYear');
     if (y) y.textContent = new Date().getFullYear();
+
+    // ═══════════════ LANGUAGE SWITCHER ═══════════════
+    const translations = {
+      en: {
+        // Skip & Nav
+        'skip': 'Skip to main content',
+        'nav.about': 'About',
+        'nav.avantages': 'Why us',
+        'nav.produits': 'Products',
+        'nav.logistique': 'Logistics',
+        'nav.cta': 'Request a quote',
+
+        // Hero
+        'hero.title': 'Your partner<br>for premium tropical<br>fruit imports',
+        'hero.sub': 'Direct supply chain from West Africa, premium products including: Pineapple PGI, Kent Mango, Solo Papaya, Cashew, Shea Butter. Certified quality, tailored support and international delivery.',
+        'hero.cta': 'Request a quote',
+        'hero.products': 'View our products',
+
+        // Key figures
+        'chiffres.1': 'Tonnes of export capacity / year',
+        'chiffres.2': 'Qualified partner cooperatives',
+        'chiffres.3.num': '3–5d',
+        'chiffres.3': 'Average air freight delivery time',
+        'chiffres.4': 'Premium product ranges from Benin',
+
+        // About
+        'about.label': 'The company',
+        'about.title': 'Our expertise',
+        'about.lead': 'Expert in premium agricultural exports from West Africa, partner to professionals worldwide.',
+        'about.body': 'Based in Paris, AST Trade International connects the finest West African producers with international B2B buyers. With no intermediaries, we control every step of the value chain, from harvest to shipment.<br><br>Absolute guarantee: impeccable quality, rigorous traceability, and strict compliance with international phytosanitary and safety standards.',
+        'about.v1.name': 'Direct supply chain',
+        'about.v1.desc': 'No intermediary between our producers and your warehouse. Competitive pricing and guaranteed traceability.',
+        'about.v2.name': 'Consistent quality',
+        'about.v2.desc': 'Quality control at every stage: harvest, sorting, packaging, shipping. High compliance rate.',
+        'about.v3.name': 'Global logistics',
+        'about.v3.desc': 'International shipping by air and sea. Managed from our offices in France (Paris) and Switzerland.',
+        'about.quote': 'We build lasting partnerships with European professionals, providing them with reliable access to exceptional products from Beninese agriculture.',
+        'about.cert1': '&#9745; PGI Designation',
+        'about.cert2': '&#9745; Phytosanitary compliant',
+        'about.cert3': '&#9745; Pesticide-free farming',
+
+        // Advantages
+        'av.label': 'Why choose us',
+        'av.title': 'Why AST?',
+        'av.1.title': 'Direct supply, best price',
+        'av.1.text': 'No intermediary between our partner producers and your warehouse. You benefit from competitive pricing and full traceability from plot to delivery.',
+        'av.2.title': 'Consistent, compliant quality',
+        'av.2.text': 'Rigorous quality control at every stage. Phytosanitary and customs documentation provided. Compliance with international fresh produce import standards.',
+        'av.3.title': 'Custom packaging',
+        'av.3.text': 'Boxes in your choice of sizes, private label available, customised labelling. We adapt packaging to your exact specifications.',
+        'av.4.title': 'Responsiveness & dedicated contact',
+        'av.4.text': 'Quotation within 24 hours. A single point of contact for frictionless commercial follow-up.',
+        'av.5.title': 'Complete documentation',
+        'av.5.text': 'Phytosanitary certificates, certificates of origin, packing lists, pro forma invoices — all documents required for seamless customs clearance.',
+        'av.6.title': 'Supply regularity',
+        'av.6.text': 'Campaign planning with our producers to guarantee regular volumes. Availability calendar communicated ahead of each season.',
+
+        // Ananas
+        'ananas.label': 'Flagship product &middot; PGI Label',
+        'ananas.tagline': 'Protected Geographical Indication from Allada. White flesh, low acidity, high sugar content. The premium of Beninese pineapple.',
+        'ananas.badge1': '&#127942; PGI Designation',
+        'ananas.badge2': '&#128230; Sizes A to D',
+        'price.devis': 'On request',
+        'price.label': 'Price based on volume and Incoterm',
+        'spec.title': 'Technical sheet',
+        'spec.commercial': 'Trade name',
+        'spec.botanical': 'Botanical name',
+        'spec.origin': 'Origin / Terroir',
+        'spec.calibres': 'Sizes',
+        'spec.packaging': 'Packaging',
+        'spec.moq': 'Suggested MOQ',
+        'spec.certif': 'Certifications',
+        'spec.origin2': 'Origin',
+        'ananas.origin.val': 'Benin — PGI Label',
+        'ananas.packaging.val': 'Box 6 kg or 12 kg · Rigid export packaging',
+        'ananas.shelf.val': '14–21 days after harvest (optimal conditions)',
+        'ananas.transport.val': '8–10 °C · Humidity 85–90% · Ventilation required',
+        'ananas.moq.val': '500 kg (air) · 1 pallet (sea)',
+        'ananas.certif.val': 'PGI Designation · Phytosanitary compliant',
+        'season.label': 'Seasonality',
+        'season.peak': 'Peak',
+        'season.available': 'Available',
+        'season.off': 'Off season',
+        'ananas.tag1': 'PGI Designation',
+        'ananas.tag2': 'White flesh',
+        'ananas.tag3': 'Low acidity',
+        'ananas.tag4': 'Pesticide-free',
+        'btn.devis': 'Request a quote',
+        'ananas.desc.title': 'Product description',
+        'ananas.desc.text': 'Rare PGI variety: its white flesh offers exceptional natural sweetness (Brix >14) with virtually no acidity.<br>Traditionally grown without pesticides, our premium selection guarantees uniform sizing and extended shelf life.',
+        'ananas.atouts.title': 'Commercial advantages',
+        'ananas.atouts.text': 'Shelf differentiation with PGI label · Superior shelf life vs. Cayenne · High demand in organic and premium segments · Low rejection rate',
+
+        // Mangue
+        'mangue.label': 'Export mango',
+        'origin.benin': 'Benin',
+        'mangue.packaging.val': 'Box 4 kg or 6 kg · Individual trays',
+        'mangue.shelf.val': '10–14 days (transport 10–12 °C)',
+        'mangue.moq.val': '500 kg (air) · 1 x 20\' container (sea)',
+        'mangue.desc': 'World-reference export variety. Its melt-in-the-mouth flesh, almost fibre-free, combines with highly resilient skin that ensures damage-free long-distance transport.',
+        'mangue.tag1': 'Melting flesh',
+
+        // Papaye
+        'papaye.label': 'Export fruit',
+        'papaye.weight': 'Average weight',
+        'papaye.weight.val': '300–500 g (individual format)',
+        'papaye.packaging.val': 'Box 4 kg · Protective trays',
+        'papaye.shelf.val': '7–10 days (transport 10–12 °C)',
+        'papaye.moq.val': '300 kg (air)',
+        'papaye.desc': 'Compact variety prized for its highly fragrant orange flesh. Shaped for air transport, it minimises losses and is perfectly suited for individual consumption.',
+        'papaye.tag1': 'Individual format',
+        'papaye.tag2': 'Orange flesh',
+        'papaye.tag3': 'Air export',
+
+        // Cajou
+        'cajou.label': 'Exceptional dried fruit',
+        'cajou.title': 'Cashew<br><em style="font-family:\'Playfair Display\';color:var(--ocre)">Nuts</em>',
+        'cajou.grade': 'Grade',
+        'cajou.grade.val': 'Kernels W240 · Extra or Grade I',
+        'cajou.kor': 'Average KOR',
+        'cajou.kor.val': '48 (Kernel Output Ratio)',
+        'cajou.packaging.val': 'Bags 25 kg (raw) · Boxes 10 kg (kernels) · Vacuum-sealed',
+        'cajou.shelf.val': '12 months (dried kernels · stored at <25 °C)',
+        'cajou.moq.val': '1 tonne (raw) · 500 kg (kernels)',
+        'cajou.campagne': 'Harvest season',
+        'cajou.desc': 'Raw dried W240 kernels (Grade Extra/I). Also available as raw cashew nuts (RCN). Mild taste and ivory colour for a premium snacking product.',
+        'cajou.tag1': 'Kernels and raw',
+        'cajou.tag2': 'Long shelf life',
+
+        // Karité
+        'karite.label': 'Cosmetics & Food',
+        'karite.title': 'Shea<br><em style="font-family:\'Playfair Display\';color:var(--ocre)">Butter</em>',
+        'karite.origin.val': 'Northern Benin',
+        'karite.grade.val': 'A (unrefined, raw) — traditional extraction',
+        'karite.usages': 'Applications',
+        'karite.usages.val': 'Cosmetics · Pharmaceuticals · Food industry',
+        'karite.packaging.val': 'Drums 25 kg, 50 kg or 200 kg · Custom sizes available',
+        'karite.shelf.val': '18–24 months (stored cool, away from light)',
+        'karite.dispo': 'Availability',
+        'karite.allyear': 'Year-round',
+        'karite.desc': '100% pure raw butter (Grade A) from the traditional expertise of women\'s cooperatives. Ideal for your high-end cosmetic or food formulations.',
+        'karite.tag1': 'Unrefined',
+        'karite.tag2': 'Cosmetic & food grade',
+
+        // Logistique
+        'log.label': 'Logistics & Shipping',
+        'log.title': 'From producer to your warehouse',
+        'log.sc1': 'Partner<br>producers',
+        'log.sc2': 'Packing<br>station',
+        'log.sc3': 'Quality<br>control',
+        'log.sc4': 'Shipping<br>Cotonou',
+        'log.sc5': 'Reception',
+        'log.air.title': 'Air Freight',
+        'log.air.1': 'Departure: Cotonou Airport (COO)',
+        'log.air.2': 'Pineapple and Mango: delivery in 3 to 5 days',
+        'log.air.3': 'Cold chain maintained end-to-end',
+        'log.air.4': 'Recommended for orders < 5 tonnes',
+        'log.sea.title': 'Sea Freight',
+        'log.sea.1': 'Departure: Port of Cotonou',
+        'log.sea.2': 'Refrigerated container at ±8 °C · 20% ventilation',
+        'log.sea.3': 'Pineapple: 11 to 15 days · up to 1,800 boxes',
+        'log.sea.4': 'Cost-effective solution for volumes > 5 tonnes',
+        'log.pack.title': 'Packaging & Sizing',
+        'log.pack.1': 'Boxes of 4 kg, 6 kg or 12 kg depending on the fruit',
+        'log.pack.2': 'Sizes to choose at order (A, B, C, D)',
+        'log.pack.3': 'Rigid packaging for international transport',
+        'log.pack.4': 'Custom labelling / private label available',
+        'log.pack.5': 'Shea butter: custom packaging (drums, IBC)',
+        'log.inco.title': 'Incoterms & Documentation',
+        'log.inco.1': 'Incoterms offered: FOB Cotonou · CIF · DDP',
+        'log.inco.2': 'Payment: bank transfer · L/C for large volumes',
+        'log.inco.3': 'Documents provided: phytosanitary certificate, certificate of origin, packing list, pro forma invoice',
+        'log.inco.4': 'Real-time temperature tracking (data logger)',
+        'log.inco.5': 'Transport insurance available on request',
+
+        // FAQ
+        'faq.label': 'Frequently asked questions',
+        'faq.title': 'Professional FAQ',
+        'faq.1.q': 'What are your delivery lead times?',
+        'faq.1.a': 'By air freight: 3 to 5 business days for fresh fruit (pineapple, mango, papaya). By sea: 11 to 15 days for refrigerated containers. Cashew nuts and shea butter: 15 to 30 days depending on transport mode.',
+        'faq.2.q': 'What is the minimum order quantity (MOQ)?',
+        'faq.2.a': 'The MOQ varies by product and transport mode. Air freight: from 300 kg. Sea freight: from one pallet or one 20\' container. Contact us for a quote tailored to your volumes.',
+        'faq.3.q': 'Do you provide phytosanitary documents?',
+        'faq.3.a': 'Yes. We systematically provide: phytosanitary certificate, certificate of origin, detailed packing list, and pro forma invoice. All documents required for EU customs clearance are included.',
+        'faq.4.q': 'Which Incoterms do you offer?',
+        'faq.4.a': 'We mainly work with FOB Cotonou, CIF (destination port/airport) and DDP (delivered duty paid). The Incoterm is defined when preparing the quotation based on your preferences.',
+        'faq.5.q': 'Do you offer private label / white label?',
+        'faq.5.a': 'Yes. We provide custom labelling according to your specifications: brand, design, regulatory information, barcodes. Packaging can also be adapted to your formats.',
+        'faq.6.q': 'How are quality disputes handled?',
+        'faq.6.a': 'Each lot is inspected before shipping (size, ripeness, defect-free). In case of non-conformity observed upon receipt, we process the claim within 48h with photo evidence and offer a credit note or replacement as appropriate.',
+
+        // Contact
+        'contact.label': 'Let\'s talk business',
+        'contact.title': 'Request your professional quote',
+        'contact.lead': 'Samples, volumes and seasonal planning: our team responds within 24 business hours. Order in 6 simple steps through to delivery.',
+        'contact.phone': 'Phone / WhatsApp',
+        'contact.swiss': '+41 78 309 53 17 (Switzerland)',
+        'contact.hq': 'Headquarters',
+        'contact.address': '40, rue de Ménilmontant · 75020 Paris',
+        'contact.dl1': '&#128196; Download product catalogue (PDF)',
+        'contact.dl2': '&#128196; Download general terms of sale',
+
+        // Form
+        'form.title': 'Your professional enquiry',
+        'form.company': 'Company *',
+        'form.company.ph': 'Your company name',
+        'form.position': 'Position / Title',
+        'form.position.ph': 'Purchasing Director, etc.',
+        'form.firstname': 'First name *',
+        'form.lastname': 'Last name *',
+        'form.email': 'Professional email *',
+        'form.phone': 'Phone',
+        'form.country': 'Country',
+        'form.select': 'Select',
+        'form.pays.suisse': 'Switzerland',
+        'form.pays.belgique': 'Belgium',
+        'form.pays.paysbas': 'Netherlands',
+        'form.pays.allemagne': 'Germany',
+        'form.pays.italie': 'Italy',
+        'form.pays.autre': 'Other',
+        'form.volume': 'Estimated volume',
+        'form.frequency': 'Frequency',
+        'form.freq.once': 'One-off / Trial',
+        'form.freq.monthly': 'Monthly',
+        'form.freq.weekly': 'Weekly',
+        'form.product': 'Desired product(s) *',
+        'form.selectproduct': 'Select a product',
+        'form.prod.mangue': 'Kent Mango',
+        'form.prod.cajou': 'Cashew Nuts',
+        'form.prod.karite': 'Shea Butter',
+        'form.prod.multi': 'Multiple products',
+        'form.message': 'Your message',
+        'form.message.ph': 'Desired sizes, preferred Incoterm, packaging constraints, technical questions...',
+        'form.submit': 'Send my quote request &rarr;',
+
+        // Footer
+        'footer.legal': 'Legal notice',
+        'footer.cgv': 'T&C',
+        'footer.privacy': 'Privacy policy',
+      }
+    };
+
+    // Store original FR texts
+    const frTexts = {};
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      frTexts[el.getAttribute('data-i18n')] = el.innerHTML;
+    });
+    const frPlaceholders = {};
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      frPlaceholders[el.getAttribute('data-i18n-placeholder')] = el.getAttribute('placeholder');
+    });
+
+    function setLang(lang) {
+      const html = document.getElementById('htmlRoot');
+      html.setAttribute('lang', lang);
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (lang === 'en' && translations.en[key]) {
+          el.innerHTML = translations.en[key];
+        } else if (lang === 'fr' && frTexts[key]) {
+          el.innerHTML = frTexts[key];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (lang === 'en' && translations.en[key]) {
+          el.setAttribute('placeholder', translations.en[key]);
+        } else if (lang === 'fr' && frPlaceholders[key]) {
+          el.setAttribute('placeholder', frPlaceholders[key]);
+        }
+      });
+
+      // Update form alert
+      const form = document.querySelector('.contact-form');
+      if (form) {
+        if (lang === 'en') {
+          form.setAttribute('onsubmit', "event.preventDefault(); alert('Thank you for your enquiry! Our sales team will respond within 24 hours.');");
+        } else {
+          form.setAttribute('onsubmit', "event.preventDefault(); alert('Merci pour votre demande\\u00A0! Notre \\u00E9quipe commerciale vous r\\u00E9pondra sous 24 heures.');");
+        }
+      }
+
+      // Toggle active button state
+      document.getElementById('btnFR').classList.toggle('active', lang === 'fr');
+      document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+
+      localStorage.setItem('ast-lang', lang);
+    }
+
+    // Language switcher listeners
+    document.getElementById('btnFR').addEventListener('click', () => setLang('fr'));
+    document.getElementById('btnEN').addEventListener('click', () => setLang('en'));
+
+    // Load saved language preference
+    const savedLang = localStorage.getItem('ast-lang');
+    if (savedLang && savedLang === 'en') setLang('en');
   </script>
 
 </body>
