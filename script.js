@@ -328,7 +328,7 @@
 
         // FAQ
         'faq.label': 'Frequently asked questions',
-        'faq.title': 'Professional FAQ',
+        'faq.title': 'FAQ',
         'faq.1.q': 'What are your delivery lead times?',
         'faq.1.a': 'By air freight: 3 to 5 business days for fresh fruit (pineapple, mango, papaya). By sea: 11 to 15 days for refrigerated containers. Cashew nuts and shea butter: 15 to 30 days depending on transport mode.',
         'faq.2.q': 'What is the minimum order quantity (MOQ)?',
@@ -344,7 +344,7 @@
 
         // Contact
         'contact.label': 'Let\'s talk business',
-        'contact.title': 'Request your professional quote',
+        'contact.title': 'Request your quote',
         'contact.lead': 'Samples, volumes and seasonal planning: our team responds within 24 business hours. Order in 6 simple steps through to delivery.',
         'contact.phone': 'Phone / WhatsApp',
         'contact.swiss': '+41 78 309 53 17 (Switzerland)',
@@ -354,14 +354,14 @@
         'contact.dl2': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download general terms of sale',
 
         // Form
-        'form.title': 'Your professional enquiry',
+        'form.title': 'Your enquiry',
         'form.company': 'Company *',
         'form.company.ph': 'Your company name',
         'form.position': 'Position / Title',
         'form.position.ph': 'Purchasing Director, etc.',
         'form.firstname': 'First name *',
         'form.lastname': 'Last name *',
-        'form.email': 'Professional email *',
+        'form.email': 'Email *',
         'form.phone': 'Phone',
         'form.country': 'Country',
         'form.select': 'Select',
