@@ -403,6 +403,7 @@
         'preview.karite.name': 'Shea Butter',
         'preview.karite.desc': '100% pure unrefined Grade A butter from women\'s cooperatives. Cosmetic and food grade.',
         'preview.cta': 'View full product sheet →',
+        'products.title': 'Our premium products',
         'breadcrumb.home': 'Home',
         'breadcrumb.products': 'Products',
       }
