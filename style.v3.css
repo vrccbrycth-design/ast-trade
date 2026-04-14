@@ -1786,7 +1786,7 @@
     }
 
     /* RESPONSIVE */
-    @media(max-width:960px) {
+    @media(max-width:1080px) {
       .nav-inner {
         padding: 1rem 1.5rem
       }
@@ -1885,7 +1885,7 @@
       }
 
       .avantages-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: repeat(2, 1fr)
       }
 
       .chiffres-grid {
@@ -1903,11 +1903,15 @@
       }
 
       .log-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: repeat(2, 1fr)
       }
 
       .faq-grid {
         grid-template-columns: 1fr;
+      }
+
+      .form-2col {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .process-timeline {
@@ -1948,6 +1952,30 @@
       .ref-placeholder {
         flex-wrap: wrap;
         gap: 1.5rem;
+      }
+    }
+
+    /* Tablet — smaller product card buttons */
+    @media(max-width:1080px) and (min-width:769px) {
+      .product-card .btn-primary {
+        font-size: .75rem;
+        padding: .7rem 1rem;
+      }
+      .product-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Tablet small / large phone — stack grids */
+    @media(max-width:768px) {
+      .avantages-grid {
+        grid-template-columns: 1fr;
+      }
+      .log-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-2col {
+        grid-template-columns: 1fr;
       }
     }
 
