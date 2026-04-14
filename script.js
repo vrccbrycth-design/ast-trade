@@ -106,7 +106,12 @@
             backToTop.style.opacity = '0';
             backToTop.style.visibility = 'hidden';
           }
-          if (navInner) navInner.style.padding = window.scrollY > 60 ? '.75rem 5rem' : '1rem 5rem';
+          if (navInner) {
+            const isDesktop = window.innerWidth > 1080;
+            navInner.style.padding = isDesktop
+              ? (window.scrollY > 60 ? '.75rem 5rem' : '1rem 5rem')
+              : (window.scrollY > 60 ? '.65rem 1.5rem' : '1rem 1.5rem');
+          }
           ticking = false;
         });
         ticking = true;
