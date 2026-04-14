@@ -196,17 +196,7 @@
             </div>
             <div class="form-3col">
               <div class="fg"><label for="pays" data-i18n="form.country">Pays</label>
-                <select id="pays" name="pays">
-                  <option value="" data-i18n="form.select">Sélectionner</option>
-                  <option>France</option>
-                  <option data-i18n="form.pays.suisse">Suisse</option>
-                  <option data-i18n="form.pays.belgique">Belgique</option>
-                  <option data-i18n="form.pays.paysbas">Pays-Bas</option>
-                  <option>Luxembourg</option>
-                  <option data-i18n="form.pays.allemagne">Allemagne</option>
-                  <option data-i18n="form.pays.italie">Italie</option>
-                  <option data-i18n="form.pays.autre">Autre</option>
-                </select>
+                <input type="text" id="pays" name="pays" data-i18n-placeholder="form.country.ph" placeholder="Ex : France, Belgique, Suisse..." />
               </div>
               <div class="fg"><label for="volume" data-i18n="form.volume">Volume estimé</label>
                 <select id="volume" name="volume">
@@ -229,12 +219,13 @@
             <div class="fg"><label for="produit" data-i18n="form.product">Produit(s) souhaité(s) *</label>
               <select id="produit" name="produit" required>
                 <option value="" data-i18n="form.selectproduct">Sélectionner un produit</option>
-                <option>Ananas Pain de Sucre (IGP)</option>
+                <option data-i18n="form.prod.ananas">Ananas Pain de Sucre</option>
                 <option data-i18n="form.prod.mangue">Mangue Kent</option>
                 <option data-i18n="form.prod.papaye">Papaye Solo</option>
                 <option data-i18n="form.prod.cajou">Noix de cajou</option>
                 <option selected data-i18n="form.prod.karite">Beurre de karité</option>
                 <option data-i18n="form.prod.multi">Plusieurs produits</option>
+                <option data-i18n="form.prod.autre">Autre</option>
               </select>
             </div>
             <div class="fg"><label for="message" data-i18n="form.message">Votre message</label><textarea id="message" name="message"

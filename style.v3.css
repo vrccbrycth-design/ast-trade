@@ -1681,7 +1681,12 @@
     .form-3col {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 1rem
+      gap: 1rem;
+      align-items: end
+    }
+
+    .form-3col .fg {
+      margin-bottom: 0
     }
 
     .form-submit {
