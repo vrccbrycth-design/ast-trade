@@ -714,6 +714,16 @@
       font-style: normal
     }
 
+    .about-quote::after {
+      content: '\201D';
+      font-size: 3rem;
+      color: var(--ocre);
+      line-height: 0;
+      vertical-align: -.6rem;
+      font-style: normal;
+      margin-left: .15rem
+    }
+
     /* B2B: Certifications row */
     .certif-row {
       display: flex;
