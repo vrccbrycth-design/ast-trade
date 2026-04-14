@@ -142,6 +142,112 @@
       color: var(--ocre2)
     }
 
+    /* ═══════════════ DROPDOWN PRODUITS — DESKTOP ═══════════════ */
+
+    /* Conteneur relatif pour positionner le sous-menu */
+    .nav-dropdown {
+      position: relative;
+    }
+
+    /* Bouton-toggle stylisé comme les autres liens nav */
+    .nav-dropdown-toggle {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, .78);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: 0;
+      transition: color .25s;
+    }
+
+    .nav-dropdown-toggle:hover,
+    .nav-dropdown[aria-expanded="true"] .nav-dropdown-toggle {
+      color: var(--ocre2);
+    }
+
+    /* Chevron rotation quand ouvert */
+    .nav-chevron {
+      transition: transform .3s ease;
+    }
+    .nav-dropdown[aria-expanded="true"] .nav-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Sous-menu déroulant — invisible par défaut */
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + .75rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      min-width: 220px;
+      background: rgba(13, 42, 20, .98);
+      border: 1px solid rgba(196, 130, 58, .25);
+      border-radius: 6px;
+      padding: .5rem 0;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .3s ease, transform .3s ease, visibility .3s;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, .45);
+      z-index: 300;
+    }
+
+    /* Petit triangle indicateur en haut */
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 6px;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      background: rgba(13, 42, 20, .98);
+    }
+
+    /* Ouverture : hover desktop OU aria-expanded (JS) */
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown[aria-expanded="true"] .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Liens du sous-menu */
+    .nav-dropdown-menu a {
+      display: block;
+      padding: .6rem 1.4rem;
+      color: rgba(255, 255, 255, .72);
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 400;
+      white-space: nowrap;
+      transition: background .2s, color .2s, padding-left .2s;
+    }
+
+    .nav-dropdown-menu a:hover,
+    .nav-dropdown-menu a:focus-visible {
+      background: rgba(196, 130, 58, .12);
+      color: var(--ocre2);
+      padding-left: 1.7rem;
+    }
+
+    /* Séparateur visuel subtil entre items */
+    .nav-dropdown-menu li + li {
+      border-top: 1px solid rgba(255, 255, 255, .06);
+    }
+
     .nav-cta {
       background: var(--ocre);
       color: var(--terre);
@@ -1750,6 +1856,62 @@
         display: flex
       }
 
+      /* ═══ DROPDOWN PRODUITS — MOBILE (accordéon) ═══ */
+      .nav-dropdown-menu {
+        /* Reset du positionnement absolu desktop */
+        position: static;
+        transform: none;
+        min-width: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+        /* Accordéon : hauteur collée par défaut */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition: max-height .35s ease, opacity .25s ease;
+      }
+
+      .nav-dropdown-menu::before {
+        display: none; /* Pas de triangle en mobile */
+      }
+
+      /* Ouverture accordéon au tap */
+      .nav-dropdown[aria-expanded="true"] .nav-dropdown-menu {
+        max-height: 400px; /* suffisant pour 5 items */
+        transform: none;
+      }
+
+      /* Sous-items indentés en mobile */
+      .nav-dropdown-menu a {
+        padding: .55rem 0 .55rem 1.2rem;
+        font-size: .75rem;
+        border-left: 2px solid rgba(196, 130, 58, .3);
+        margin-left: .3rem;
+      }
+
+      .nav-dropdown-menu a:hover,
+      .nav-dropdown-menu a:focus-visible {
+        padding-left: 1.5rem;
+        border-left-color: var(--ocre2);
+      }
+
+      .nav-dropdown-menu li + li {
+        border-top: none;
+      }
+
+      /* On désactive le hover desktop en mobile */
+      .nav-dropdown:hover .nav-dropdown-menu {
+        max-height: 0;
+      }
+      .nav-dropdown:hover[aria-expanded="true"] .nav-dropdown-menu {
+        max-height: 400px;
+      }
+
       .nav-cta {
         display: none
       }
@@ -1907,7 +2069,22 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#about" data-i18n="nav.about">L'entreprise</a></li>
         <li><a href="#avantages" data-i18n="nav.avantages">Nos atouts</a></li>
-        <li><a href="#ananas" data-i18n="nav.produits">Produits</a></li>
+        <!-- DROPDOWN PRODUITS — <li> avec rôle de conteneur dropdown -->
+        <li class="nav-dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="nav-dropdown-toggle" data-i18n="nav.produits" aria-expanded="false">
+            Produits
+            <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a role="menuitem" href="#ananas" data-i18n="nav.prod.ananas">Ananas Pain de Sucre</a></li>
+            <li role="none"><a role="menuitem" href="#mangue" data-i18n="nav.prod.mangue">Mangue Kent</a></li>
+            <li role="none"><a role="menuitem" href="#papaye" data-i18n="nav.prod.papaye">Papaye Solo</a></li>
+            <li role="none"><a role="menuitem" href="#cajou" data-i18n="nav.prod.cajou">Noix de Cajou</a></li>
+            <li role="none"><a role="menuitem" href="#karite" data-i18n="nav.prod.karite">Beurre de Karité</a></li>
+          </ul>
+        </li>
         <li><a href="#logistique" data-i18n="nav.logistique">Logistique</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -2615,8 +2792,78 @@
     const navLinks = document.getElementById('navLinks');
     if (mobileToggle && navLinks) {
       mobileToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-      navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('active')));
+      // Fermer le menu mobile quand on clique un lien (sauf le toggle dropdown)
+      navLinks.querySelectorAll('a:not(.nav-dropdown-toggle)').forEach(l => {
+        l.addEventListener('click', () => navLinks.classList.remove('active'));
+      });
     }
+
+    // ══════════ DROPDOWN PRODUITS — Toggle & accessibilité ══════════
+    (function() {
+      const dropdown = document.querySelector('.nav-dropdown');
+      const toggle = document.querySelector('.nav-dropdown-toggle');
+      if (!dropdown || !toggle) return;
+
+      // Toggle au clic (mobile tap + desktop clic)
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const expanded = dropdown.getAttribute('aria-expanded') === 'true';
+        dropdown.setAttribute('aria-expanded', String(!expanded));
+        toggle.setAttribute('aria-expanded', String(!expanded));
+      });
+
+      // Fermer quand on clique un sous-lien
+      dropdown.querySelectorAll('.nav-dropdown-menu a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          dropdown.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-expanded', 'false');
+          // Fermer aussi le menu mobile
+          if (navLinks) navLinks.classList.remove('active');
+        });
+      });
+
+      // Fermer quand on clique en dehors (desktop)
+      document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+          dropdown.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Navigation clavier : Escape pour fermer, flèches pour naviguer
+      dropdown.addEventListener('keydown', function(e) {
+        var items = dropdown.querySelectorAll('.nav-dropdown-menu a');
+        var idx = Array.prototype.indexOf.call(items, document.activeElement);
+
+        if (e.key === 'Escape') {
+          dropdown.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+          e.preventDefault();
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (dropdown.getAttribute('aria-expanded') !== 'true') {
+            dropdown.setAttribute('aria-expanded', 'true');
+            toggle.setAttribute('aria-expanded', 'true');
+          }
+          var next = idx < items.length - 1 ? idx + 1 : 0;
+          items[next].focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (idx <= 0) {
+            toggle.focus();
+          } else {
+            items[idx - 1].focus();
+          }
+        } else if (e.key === 'Enter' && document.activeElement === toggle) {
+          // Enter sur le toggle ouvre le menu
+          e.preventDefault();
+          dropdown.setAttribute('aria-expanded', 'true');
+          toggle.setAttribute('aria-expanded', 'true');
+          items[0].focus();
+        }
+      });
+    })();
 
     // Throttled scroll handler
     let ticking = false;
@@ -2662,6 +2909,11 @@
         'nav.about': 'About',
         'nav.avantages': 'Why us',
         'nav.produits': 'Products',
+        'nav.prod.ananas': 'Sugar Loaf Pineapple',
+        'nav.prod.mangue': 'Kent Mango',
+        'nav.prod.papaye': 'Solo Papaya',
+        'nav.prod.cajou': 'Cashew Nuts',
+        'nav.prod.karite': 'Shea Butter',
         'nav.logistique': 'Logistics',
         'nav.cta': 'Request a quote',
 
