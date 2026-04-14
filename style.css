@@ -1869,10 +1869,7 @@
       }
 
       .nav-cta {
-        display: block;
-        text-align: center;
-        margin: 1rem 1.5rem;
-        padding: .8rem 1.5rem
+        display: none !important;
       }
 
       #hero .hero-content {
