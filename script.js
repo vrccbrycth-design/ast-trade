@@ -153,7 +153,7 @@
         'nav.cta': 'Request a quote',
 
         // Hero
-        'hero.title': 'Your partner<br>for premium tropical<br>fruit imports',
+        'hero.title': 'Your partner<br>for tropical fruits',
         'hero.sub': 'Direct supply chain from West Africa, premium products including: Pineapple PGI, Kent Mango, Solo Papaya, Cashew, Shea Butter. Certified quality, tailored support and international delivery.',
         'hero.cta': 'Request a quote',
         'hero.products': 'View our products',
