@@ -1613,6 +1613,16 @@
       background: rgba(196,130,58,.2);
       border-color: var(--ocre);
     }
+    .dl-btn--soon {
+      opacity: .6;
+      cursor: default;
+      pointer-events: none;
+      font-style: italic;
+    }
+    .dl-btn--soon:hover {
+      background: rgba(196,130,58,.1);
+      border-color: rgba(196,130,58,.3);
+    }
 
     .contact-form {
       background: rgba(255, 255, 255, .05);
