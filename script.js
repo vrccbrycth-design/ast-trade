@@ -383,7 +383,7 @@
 
         // Footer
         'footer.legal': 'Legal notice',
-        'footer.cgv': 'T&C',
+        'footer.cgv': 'General terms',
         'footer.privacy': 'Privacy policy',
 
         // Product preview cards (landing page)
