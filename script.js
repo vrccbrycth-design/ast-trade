@@ -184,7 +184,7 @@
         'about.quote': 'We build lasting partnerships with professionals worldwide, providing them with reliable access to exceptional products from West African agriculture.',
         'about.cert1': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>PGI Designation',
         'about.cert2': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Phytosanitary compliant',
-        'about.cert3': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Pesticide-free farming',
+        'about.cert3': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Controlled farming practices',
 
         // Advantages
         'av.label': 'Why choose us',
@@ -234,12 +234,12 @@
         'ananas.tag1': 'PGI Designation',
         'ananas.tag2': 'White flesh',
         'ananas.tag3': 'Low acidity',
-        'ananas.tag4': 'Pesticide-free',
+        'ananas.tag4': 'Controlled farming practices',
         'btn.devis': 'Request a quote',
         'ananas.desc.title': 'Product description',
-        'ananas.desc.text': 'Rare PGI variety: its white flesh offers exceptional natural sweetness (Brix >14) with virtually no acidity.<br>Traditionally grown without pesticides, our premium selection guarantees uniform sizing and extended shelf life.',
+        'ananas.desc.text': 'Rare PGI variety: its white flesh offers marked natural sweetness (target Brix >14) with very low acidity.<br>Grown using controlled farming practices, our selection aims for uniform sizing and good shelf-life performance.',
         'ananas.atouts.title': 'Commercial advantages',
-        'ananas.atouts.text': 'Shelf differentiation with PGI label · Superior shelf life vs. Cayenne · High demand in organic and premium segments · Low rejection rate',
+        'ananas.atouts.text': 'Shelf differentiation with PGI label · Superior shelf life vs. Cayenne · Premium positioning · Low rejection rate',
 
         // Mangue
         'mangue.label': 'Export mango',
@@ -291,7 +291,7 @@
         'karite.shelf.val': '18–24 months (stored cool, away from light)',
         'karite.dispo': 'Availability',
         'karite.allyear': 'Year-round',
-        'karite.desc': '100% pure raw butter (Grade A) from the traditional expertise of women\'s cooperatives. Ideal for your high-end cosmetic or food formulations.',
+        'karite.desc': 'Raw unrefined shea butter (Grade A) from the traditional expertise of women\'s cooperatives. Suitable for cosmetic or food-grade formulations, without added blends when specified at order time.',
         'karite.tag1': 'Unrefined',
         'karite.tag2': 'Cosmetic and food grade',
 
@@ -396,7 +396,7 @@
         'preview.cajou.name': 'Cashew Nuts',
         'preview.cajou.desc': 'W240 raw dried kernels (Extra/Grade I). Mild taste, ivory colour, premium snacking.',
         'preview.karite.name': 'Shea Butter',
-        'preview.karite.desc': '100% pure unrefined Grade A butter from women\'s cooperatives. Cosmetic and food grade.',
+        'preview.karite.desc': 'Raw unrefined Grade A butter from women\'s cooperatives. Cosmetic and food grade.',
         'preview.cta': 'View full product sheet →',
         'products.title': 'Our premium products',
         'breadcrumb.home': 'Home',
