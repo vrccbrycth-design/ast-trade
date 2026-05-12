@@ -5,9 +5,9 @@
     http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://ast-trade.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://ast-trade.com/ananas.html</loc><priority>0.8</priority></url>
-  <url><loc>https://ast-trade.com/mangue.html</loc><priority>0.8</priority></url>
-  <url><loc>https://ast-trade.com/papaye.html</loc><priority>0.8</priority></url>
-  <url><loc>https://ast-trade.com/cajou.html</loc><priority>0.8</priority></url>
-  <url><loc>https://ast-trade.com/karite.html</loc><priority>0.8</priority></url>
+  <url><loc>https://ast-trade.com/ananas</loc><priority>0.8</priority></url>
+  <url><loc>https://ast-trade.com/mangue</loc><priority>0.8</priority></url>
+  <url><loc>https://ast-trade.com/papaye</loc><priority>0.8</priority></url>
+  <url><loc>https://ast-trade.com/cajou</loc><priority>0.8</priority></url>
+  <url><loc>https://ast-trade.com/karite</loc><priority>0.8</priority></url>
 </urlset>
