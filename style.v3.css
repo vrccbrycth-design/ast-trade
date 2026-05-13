@@ -2233,3 +2233,119 @@
   .product-preview-grid { grid-template-columns: 1fr; padding: 2rem 1rem; }
   .breadcrumb { padding: 1rem 1.5rem; }
 }
+
+/* ═══════════════ COOKIE CONSENT BANNER ═══════════════ */
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  background: var(--vert3, #0d2a14);
+  color: #fff;
+  border: 1px solid rgba(196, 130, 58, 0.45);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  padding: 1rem 1.25rem;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  animation: cookie-rise 0.35s ease-out;
+}
+@keyframes cookie-rise {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.cookie-banner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cookie-banner-text {
+  flex: 1 1 320px;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #f4ece1;
+}
+.cookie-banner-text a {
+  color: var(--ocre2, #e0a855);
+  text-decoration: underline;
+}
+.cookie-banner-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.cookie-btn {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.cookie-btn-accept {
+  background: var(--ocre, #c4823a);
+  color: #fff;
+}
+.cookie-btn-accept:hover,
+.cookie-btn-accept:focus {
+  background: var(--ocre2, #e0a855);
+  outline: 2px solid var(--ocre2, #e0a855);
+  outline-offset: 2px;
+}
+.cookie-btn-refuse {
+  background: transparent;
+  color: #f4ece1;
+  border-color: rgba(244, 236, 225, 0.5);
+}
+.cookie-btn-refuse:hover,
+.cookie-btn-refuse:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #f4ece1;
+  outline: none;
+}
+@media (max-width: 600px) {
+  .cookie-banner { left: 8px; right: 8px; bottom: 8px; padding: 0.85rem 1rem; }
+  .cookie-banner-inner { gap: 0.85rem; }
+  .cookie-banner-text { font-size: 0.88rem; flex-basis: 100%; }
+  .cookie-banner-actions { width: 100%; }
+  .cookie-btn { flex: 1; padding: 0.65rem 0.5rem; }
+}
+
+/* ═══════════════ RGPD CONSENT CHECKBOX (forms) ═══════════════ */
+.fg-consent {
+  margin: 0.5rem 0 1rem;
+}
+.consent-label {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  cursor: pointer;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: inherit;
+}
+.consent-checkbox {
+  flex: 0 0 auto;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.2rem;
+  accent-color: var(--ocre, #c4823a);
+  cursor: pointer;
+}
+.consent-text {
+  flex: 1 1 auto;
+}
+.consent-text a {
+  color: var(--ocre, #c4823a);
+  text-decoration: underline;
+}
+.consent-text a:hover {
+  color: var(--ocre2, #e0a855);
+}

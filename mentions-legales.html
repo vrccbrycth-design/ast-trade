@@ -21,14 +21,28 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,opsz,wght@0,5..1200,400..700;1,5..1200,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="style.v3.css?v=2" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJX42G51Q4"></script>
+  <link rel="stylesheet" href="style.v3.css?v=3" />
+  <!-- Google tag (gtag.js) with Consent Mode v2 — default denied until user consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    try {
+      var astConsent = localStorage.getItem('ast-cookie-consent');
+      if (astConsent === 'granted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch(e) {}
     gtag('js', new Date());
-    gtag('config', 'G-KJX42G51Q4');
+    gtag('config', 'G-KJX42G51Q4', { 'anonymize_ip': true });
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJX42G51Q4"></script>
 </head>
 
 <body style="scroll-padding-top:80px">
@@ -152,6 +166,6 @@
   <a href="#" id="backToTop"
     style="position:fixed;bottom:2rem;right:2rem;opacity:0;visibility:hidden;z-index:900;background:var(--ocre);color:var(--blanc);border:none;border-radius:50%;width:44px;height:44px;display:flex;justify-content:center;align-items:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:all .3s;text-decoration:none;">&uarr;</a>
 
-  <script src="script.js?v=3" defer></script>
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>

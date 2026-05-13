@@ -79,16 +79,28 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="style.v3.css?v=2" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJX42G51Q4"></script>
+  <link rel="stylesheet" href="style.v3.css?v=3" />
+  <!-- Google tag (gtag.js) with Consent Mode v2 — default denied until user consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    try {
+      var astConsent = localStorage.getItem('ast-cookie-consent');
+      if (astConsent === 'granted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch(e) {}
     gtag('js', new Date());
-
-    gtag('config', 'G-KJX42G51Q4');
+    gtag('config', 'G-KJX42G51Q4', { 'anonymize_ip': true });
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJX42G51Q4"></script>
 </head>
 
 <body style="scroll-padding-top:80px">
@@ -341,6 +353,12 @@
             <div class="fg"><label for="message" data-i18n="form.message">Votre message</label><textarea id="message" name="message"
                 data-i18n-placeholder="form.message.ph" placeholder="Calibres souhaités, Incoterm préféré, contraintes de conditionnement, questions techniques..."></textarea>
             </div>
+            <div class="fg fg-consent">
+              <label class="consent-label">
+                <input type="checkbox" name="rgpd_consent" value="oui" class="consent-checkbox" required />
+                <span class="consent-text" data-i18n="form.consent">J’accepte que mes données soient utilisées pour répondre à ma demande, conformément à la <a href="/politique-confidentialite">politique de confidentialité</a>.</span>
+              </label>
+            </div>
             <button type="submit" class="form-submit" data-i18n="form.submit">Envoyer ma demande de devis &rarr;</button>
           </form>
         </div>
@@ -374,7 +392,7 @@
   <a href="#" id="backToTop"
     style="position:fixed;bottom:2rem;right:2rem;opacity:0;visibility:hidden;z-index:900;background:var(--ocre);color:var(--blanc);border:none;border-radius:50%;width:44px;height:44px;display:flex;justify-content:center;align-items:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:all .3s;text-decoration:none;">&uarr;</a>
 
-  <script src="script.js?v=3" defer></script>
+  <script src="script.js?v=4" defer></script>
 <script data-pplx-inline-edit>
 (function(){
   if(window===window.top)return;

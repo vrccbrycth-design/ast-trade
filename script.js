@@ -401,6 +401,12 @@
         'products.title': 'Our premium products',
         'breadcrumb.home': 'Home',
         'breadcrumb.products': 'Products',
+
+        // RGPD / Cookie consent
+        'form.consent': 'I agree that my data may be used to respond to my request, in accordance with the <a href="/politique-confidentialite">privacy policy</a>.',
+        'cookie.text': 'We use audience measurement cookies to improve the site. You can accept or refuse them. See our <a href="/politique-confidentialite">privacy policy</a>.',
+        'cookie.accept': 'Accept',
+        'cookie.refuse': 'Refuse',
       }
     };
 
@@ -513,5 +519,115 @@
             btn.style.color = '';
           }, 4000);
         });
+      });
+    })();
+
+    // ═══════════════ COOKIE CONSENT BANNER (RGPD) ═══════════════
+    (function() {
+      function currentLang() {
+        try {
+          var root = document.getElementById('htmlRoot') || document.documentElement;
+          return root.getAttribute('lang') === 'en' ? 'en' : 'fr';
+        } catch(e) { return 'fr'; }
+      }
+
+      var COPY = {
+        fr: {
+          text: 'Nous utilisons des cookies de mesure d’audience pour améliorer le site. Vous pouvez les accepter ou les refuser. Voir notre <a href="/politique-confidentialite">politique de confidentialité</a>.',
+          accept: 'Accepter',
+          refuse: 'Refuser'
+        },
+        en: {
+          text: 'We use audience measurement cookies to improve the site. You can accept or refuse them. See our <a href="/politique-confidentialite">privacy policy</a>.',
+          accept: 'Accept',
+          refuse: 'Refuse'
+        }
+      };
+
+      function getStored() {
+        try { return localStorage.getItem('ast-cookie-consent'); } catch(e) { return null; }
+      }
+      function setStored(v) {
+        try { localStorage.setItem('ast-cookie-consent', v); } catch(e) {}
+      }
+
+      function updateConsent(granted) {
+        if (typeof window.gtag === 'function') {
+          window.gtag('consent', 'update', {
+            'analytics_storage': granted ? 'granted' : 'denied'
+          });
+        }
+      }
+
+      function buildBanner() {
+        var lang = currentLang();
+        var copy = COPY[lang] || COPY.fr;
+        var banner = document.createElement('div');
+        banner.id = 'cookie-banner';
+        banner.className = 'cookie-banner';
+        banner.setAttribute('role', 'dialog');
+        banner.setAttribute('aria-live', 'polite');
+        banner.setAttribute('aria-label', lang === 'en' ? 'Cookie consent' : 'Consentement aux cookies');
+        banner.innerHTML =
+          '<div class="cookie-banner-inner">' +
+            '<p class="cookie-banner-text" data-i18n="cookie.text">' + copy.text + '</p>' +
+            '<div class="cookie-banner-actions">' +
+              '<button type="button" class="cookie-btn cookie-btn-refuse" id="cookieRefuse" data-i18n="cookie.refuse">' + copy.refuse + '</button>' +
+              '<button type="button" class="cookie-btn cookie-btn-accept" id="cookieAccept" data-i18n="cookie.accept">' + copy.accept + '</button>' +
+            '</div>' +
+          '</div>';
+        document.body.appendChild(banner);
+
+        document.getElementById('cookieAccept').addEventListener('click', function() {
+          setStored('granted');
+          updateConsent(true);
+          banner.remove();
+        });
+        document.getElementById('cookieRefuse').addEventListener('click', function() {
+          setStored('denied');
+          updateConsent(false);
+          // Best-effort: remove any GA cookies that may have slipped through
+          try {
+            document.cookie.split(';').forEach(function(c) {
+              var n = c.split('=')[0].trim();
+              if (n.indexOf('_ga') === 0 || n === '_gid' || n === '_gat') {
+                document.cookie = n + '=; Max-Age=0; path=/';
+                document.cookie = n + '=; Max-Age=0; path=/; domain=' + location.hostname;
+                document.cookie = n + '=; Max-Age=0; path=/; domain=.' + location.hostname;
+              }
+            });
+          } catch(e) {}
+          banner.remove();
+        });
+      }
+
+      // Only show banner if choice not yet made
+      if (!getStored()) {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', buildBanner);
+        } else {
+          buildBanner();
+        }
+      }
+    })();
+
+    // ═══════════════ RGPD CHECKBOX — Block submit if unchecked ═══════════════
+    (function() {
+      document.querySelectorAll('form.contact-form').forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+          var cb = form.querySelector('input[name="rgpd_consent"]');
+          if (cb && !cb.checked) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            cb.focus();
+            var lang = (document.getElementById('htmlRoot') || document.documentElement).getAttribute('lang') === 'en' ? 'en' : 'fr';
+            cb.setCustomValidity(lang === 'en'
+              ? 'You must agree to the privacy policy.'
+              : 'Vous devez accepter la politique de confidentialité.');
+            cb.reportValidity();
+          } else if (cb) {
+            cb.setCustomValidity('');
+          }
+        }, true);
       });
     })();
