@@ -606,13 +606,22 @@
       localStorage.setItem('ast-lang', lang);
     }
 
-    // Language switcher listeners
-    document.getElementById('btnFR').addEventListener('click', () => setLang('fr'));
-    document.getElementById('btnEN').addEventListener('click', () => setLang('en'));
-
-    // Load saved language preference
-    const savedLang = localStorage.getItem('ast-lang');
-    if (savedLang && savedLang === 'en') setLang('en');
+    // Language switcher: btnFR / btnEN are now cross-page anchor links pointing to
+    // the /en/... or French slug. Navigation handles the language change, so we no
+    // longer toggle content in place. setLang() is retained so any external caller
+    // can still trigger it, but no auto-apply runs on load — the page is already in
+    // the correct language matching its URL.
+    (function() {
+      const btnFR = document.getElementById('btnFR');
+      const btnEN = document.getElementById('btnEN');
+      // If buttons (legacy markup), keep in-place toggle; if anchors, do nothing.
+      if (btnFR && btnFR.tagName === 'BUTTON') {
+        btnFR.addEventListener('click', () => setLang('fr'));
+      }
+      if (btnEN && btnEN.tagName === 'BUTTON') {
+        btnEN.addEventListener('click', () => setLang('en'));
+      }
+    })();
 
 
     (function() {
