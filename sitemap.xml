@@ -4,10 +4,96 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
     http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://ast-trade.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://ast-trade.com/ananas</loc><priority>0.8</priority></url>
-  <url><loc>https://ast-trade.com/mangue</loc><priority>0.8</priority></url>
-  <url><loc>https://ast-trade.com/papaye</loc><priority>0.8</priority></url>
-  <url><loc>https://ast-trade.com/cajou</loc><priority>0.8</priority></url>
-  <url><loc>https://ast-trade.com/karite</loc><priority>0.8</priority></url>
+
+  <url>
+    <loc>https://ast-trade.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/" />
+  </url>
+  <url>
+    <loc>https://ast-trade.com/en/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/" />
+  </url>
+
+  <url>
+    <loc>https://ast-trade.com/ananas</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/ananas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/pineapple" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/ananas" />
+  </url>
+  <url>
+    <loc>https://ast-trade.com/en/pineapple</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/ananas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/pineapple" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/ananas" />
+  </url>
+
+  <url>
+    <loc>https://ast-trade.com/mangue</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/mangue" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/mango" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/mangue" />
+  </url>
+  <url>
+    <loc>https://ast-trade.com/en/mango</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/mangue" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/mango" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/mangue" />
+  </url>
+
+  <url>
+    <loc>https://ast-trade.com/papaye</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/papaye" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/papaya" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/papaye" />
+  </url>
+  <url>
+    <loc>https://ast-trade.com/en/papaya</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/papaye" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/papaya" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/papaye" />
+  </url>
+
+  <url>
+    <loc>https://ast-trade.com/cajou</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/cajou" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/cashew" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/cajou" />
+  </url>
+  <url>
+    <loc>https://ast-trade.com/en/cashew</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/cajou" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/cashew" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/cajou" />
+  </url>
+
+  <url>
+    <loc>https://ast-trade.com/karite</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/karite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/shea-butter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/karite" />
+  </url>
+  <url>
+    <loc>https://ast-trade.com/en/shea-butter</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ast-trade.com/karite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ast-trade.com/en/shea-butter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ast-trade.com/karite" />
+  </url>
 </urlset>
