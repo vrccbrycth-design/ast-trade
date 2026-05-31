@@ -99,5 +99,26 @@ for (const url of requiredUrls) {
 check(`sitemap declares xhtml namespace`, sitemap.includes('xmlns:xhtml="http://www.w3.org/1999/xhtml"'));
 check(`sitemap has hreflang annotations`, sitemap.includes('<xhtml:link rel="alternate" hreflang='));
 
+// Pricing is never public on this B2B export site, so Product/Offer structured
+// data that requires a price must never reappear — it triggers a Google
+// "missing price/priceSpecification.price in offers" rich-result error.
+console.log('\n=== Structured data: no price-requiring schema ===');
+const FORBIDDEN_SCHEMA = [
+  /"@type"\s*:\s*"Product"/,
+  /"@type"\s*:\s*"Offer"/,
+  /"offers"\s*:/,
+  /"priceSpecification"/,
+  /"price"\s*:/,
+  /property="og:price/,
+  /property="product:price/,
+];
+for (const p of PAGES) {
+  for (const rel of [p.fr, p.en]) {
+    const h = fs.readFileSync(path.join(REPO, rel), 'utf8');
+    const hit = FORBIDDEN_SCHEMA.find((re) => re.test(h));
+    check(`${rel} has no Product/Offer/price schema`, !hit, hit ? `matched ${hit}` : '');
+  }
+}
+
 console.log(`\n=== Summary: ${passed} passed, ${failed} failed ===`);
 process.exit(failed ? 1 : 0);
