@@ -63,8 +63,8 @@ const META = {
   '/': {
     title: 'AST Trade International — Tropical produce export from Benin to Europe',
     description: 'AST Trade International helps importers, wholesalers and distributors source tropical produce from Benin: pineapple, mango, papaya, cashew and shea butter.',
-    ogTitle: 'AST Trade International — Your tropical fruit import partner from West Africa',
-    ogDescription: 'Direct supply chain from West Africa: Sugarloaf pineapple, Kent mango, cashew, shea butter. Certified quality, controlled delivery.',
+    ogTitle: 'AST Trade International — Tropical produce from Benin for B2B buyers',
+    ogDescription: 'Pineapple, mango, papaya, cashew and shea butter from Benin. Sourcing, packaging and logistics assessed for each enquiry.',
     twitterTitle: 'AST Trade International — West Africa tropical fruit export',
     twitterDescription: 'B2B exporter of premium West African agricultural produce to the world.',
   },
@@ -136,6 +136,23 @@ function escapeHtmlAttr(s) {
 function translateHtml(html, page) {
   // 1. Set <html lang="en">
   html = html.replace(/<html\s+lang="fr"/i, '<html lang="en"');
+  const imageAlt = {
+    "Champ d'Ananas Pain de Sucre en Afrique de l'Ouest": 'Sugarloaf pineapple field in West Africa',
+    'Ananas Pain de Sucre sur fond blanc': 'Sugarloaf pineapple on a white background',
+    'Ananas Pain de Sucre IGP': 'PGI Sugarloaf pineapple',
+    'Beurre de karité': 'Shea butter',
+    'Mangue Kent du Bénin': 'Kent mango from Benin',
+    'Noix de cajou du Bénin': 'Cashew nuts from Benin',
+    'Papaye Solo': 'Solo papaya',
+  };
+  html = html.replace(/alt="([^"]*)"/g, (match, value) => imageAlt[value] ? `alt="${imageAlt[value]}"` : match);
+  const months = { Janvier: 'January', Février: 'February', Mars: 'March', Avril: 'April', Mai: 'May', Juin: 'June', Juillet: 'July', Août: 'August', Septembre: 'September', Octobre: 'October', Novembre: 'November', Décembre: 'December' };
+  html = html.replace(/(title|aria-label)="([^"]*)"/g, (match, attr, value) => {
+    for (const [fr, en] of Object.entries(months)) value = value.replace(fr, en);
+    value = value.replace('Pic de saison', 'Peak season').replace('Disponible', 'Available').replace('Hors saison', 'Off season');
+    return `${attr}="${value}"`;
+  });
+  html = html.replace(/(<input type="hidden" name="_language" value=")fr("[^>]*>)/g, '$1en$2');
 
   // 2. Replace [data-i18n] elements' inner HTML with EN translations.
   // Handles <tag ... data-i18n="key" ...>...</tag>
@@ -242,7 +259,7 @@ function translateHtml(html, page) {
   // Map: script.js -> /script.js, style.v3.css -> /style.v3.css, logo.png -> /logo.png,
   // any image referenced by bare filename in src.
   const rootRelativeAssets = [
-    'script.js', 'style.v3.css', 'style.css',
+    'script.js', 'analytics.js', 'forms.js', 'style.v3.css', 'style.css',
     'logo.png', 'logo_modern.png',
     'ananas-champ.jpg', 'ananas-produit.png', 'ananas.png',
     'cajou.png', 'karite.png', 'mangue.png', 'papaye.png',

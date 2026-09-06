@@ -27,11 +27,7 @@
   
   
   <!-- Preconnect & Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,opsz,wght@0,5..1200,400..700;1,5..1200,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-    rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/fonts/fonts.css" />
   <!-- Schema.org FAQPage JSON-LD -->
   <script type="application/ld+json">
     {
@@ -81,37 +77,17 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="style.v3.css?v=3" />
-  <!-- Google tag (gtag.js) with Consent Mode v2 — default denied until user consent -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied',
-      'wait_for_update': 500
-    });
-    try {
-      var astConsent = localStorage.getItem('ast-cookie-consent');
-      if (astConsent === 'granted') {
-        gtag('consent', 'update', { 'analytics_storage': 'granted' });
-      }
-    } catch(e) {}
-    gtag('js', new Date());
-    gtag('config', 'G-KJX42G51Q4', { 'anonymize_ip': true });
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJX42G51Q4"></script>
+  <link rel="stylesheet" href="style.v3.css?v=20260906" />
+  <script src="/analytics.js?v=20260906" defer></script>
 </head>
 
-<body style="scroll-padding-top:80px">
+<body>
 
   <!-- Navigation -->
   <nav>
     <div class="nav-kente"></div>
     <div class="nav-inner">
-      <a href="/" class="nav-logo"><img src="logo.png" alt="AST Trade International" width="140" height="70" /></a>
+      <a href="/" class="nav-logo"><img src="/assets/logo-280.webp" alt="AST Trade International" width="280" height="132" /></a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="/#about" data-i18n="nav.about">L'entreprise</a></li>
@@ -135,7 +111,7 @@
         <li><a href="/#faq" data-i18n="nav.faq">FAQ</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
-      <a class="nav-cta" href="#contact" data-i18n="nav.cta">Demander un devis</a>
+      <a class="nav-cta" href="#contactForm" data-i18n="nav.cta">Demander un devis</a>
       <div class="lang-switcher" id="langSwitcher">
         <a class="lang-btn active" href="/cajou" id="btnFR" hreflang="fr" rel="alternate" aria-current="page">FR</a>
         <a class="lang-btn" href="/en/cashew" id="btnEN" hreflang="en" rel="alternate">EN</a>
@@ -159,12 +135,13 @@
       <div class="prod-simple-grid">
         <div class="reveal">
           <div class="modern-img-container">
-            <img src="cajou.png" alt="Noix de cajou du Bénin" class="modern-fruit-img" width="500" height="500" loading="lazy" />
+            <img src="/assets/cajou-600.webp" alt="Noix de cajou du Bénin" class="modern-fruit-img" width="500" height="500" loading="lazy" />
           </div>
         </div>
         <div class="reveal">
           <p class="s-label" data-i18n="cajou.label">Fruit sec d'exception</p>
           <h1 class="s-title" style="color:var(--terre)" data-i18n="cajou.title">Noix de<br><em style="font-family:'Playfair Display';color:var(--ocre)">Cajou</em></h1>
+          <a class="btn-primary product-quote" href="#contactForm" data-i18n="btn.devis">Demander un devis</a>
           <div class="adinkra-div"></div>
           <table class="spec-table">
             <tr><td data-i18n="spec.botanical">Nom botanique</td><td><em>Anacardium occidentale</em></td></tr>
@@ -172,7 +149,7 @@
             <tr><td data-i18n="cajou.grade">Classement</td><td data-i18n="cajou.grade.val">Cerneaux W240 · Cat&eacute;gorie Extra ou I</td></tr>
             <tr><td data-i18n="cajou.kor">KOR moyen</td><td data-i18n="cajou.kor.val">48 (Kernel Output Ratio)</td></tr>
             <tr><td data-i18n="spec.packaging">Conditionnement</td><td data-i18n="cajou.packaging.val">Sacs 25 kg (brutes) · Cartons 10 kg (cerneaux) · Sous vide</td></tr>
-            <tr><td data-i18n="spec.shelf">Shelf life</td><td data-i18n="cajou.shelf.val">12 mois (cerneaux secs · stock&eacute; &agrave; &lt;25 &deg;C)</td></tr>
+            <tr><td data-i18n="spec.shelf">Durée de conservation</td><td data-i18n="cajou.shelf.val">12 mois (cerneaux secs · stock&eacute; &agrave; &lt;25 &deg;C)</td></tr>
             <tr><td data-i18n="spec.moq">MOQ suggéré</td><td data-i18n="cajou.moq.val">1 tonne (brutes) · 500 kg (cerneaux)</td></tr>
           </table>
           <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ocre);font-weight:500;margin-top:1.5rem;margin-bottom:.5rem;" data-i18n="cajou.campagne">Campagne</p>
@@ -199,7 +176,7 @@
           <div class="prod-tags">
             <span class="p-tag">W240</span><span class="p-tag">KOR 48</span><span class="p-tag" data-i18n="cajou.tag1">Cerneaux et brutes</span><span class="p-tag" data-i18n="cajou.tag2">Longue conservation</span>
           </div>
-          <div style="margin-top:1.5rem"><a class="btn-primary" href="#contact" data-i18n="btn.devis">Demander un devis</a></div>
+          <div style="margin-top:1.5rem"><a class="btn-primary" href="#contactForm" data-i18n="btn.devis">Demander un devis</a></div>
         </div>
       </div>
     </div>
@@ -210,7 +187,7 @@
     <div class="container" style="max-width:1100px;margin:0 auto;padding:0 1.5rem">
       <div class="reveal" style="margin-bottom:2.5rem">
         <p class="s-label" data-i18n="pseo.after.label">Après votre demande</p>
-        <h3 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="pseo.after.title">Comment nous traitons votre demande</h3>
+        <h2 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="pseo.after.title">Comment nous traitons votre demande</h2>
         <ul class="prod-desc-text" style="margin-top:1rem;padding-left:1.2rem;line-height:1.7">
           <li data-i18n="pseo.after.li1">Analyse de votre besoin : produit, volume, destination et calendrier souhaité.</li>
           <li data-i18n="pseo.after.li2">Retour sous 24h ouvrées avec les premières options disponibles.</li>
@@ -220,13 +197,13 @@
 
       <div class="reveal" style="margin-bottom:2.5rem">
         <p class="s-label" data-i18n="pseo.docs.label">Documents et contrôles possibles</p>
-        <h3 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="pseo.docs.title">Préparation export</h3>
+        <h2 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="pseo.docs.title">Préparation export</h2>
         <p class="prod-desc-text" style="margin-top:1rem" data-i18n="pseo.docs.text.dry">Selon le produit, la destination et l’opération, AST Trade International peut accompagner la préparation des documents commerciaux et export : facture commerciale, packing list, certificat d’origine, ainsi qu’un certificat d’analyse lorsque disponible. Les contrôles sont confirmés au cas par cas avant expédition.</p>
       </div>
 
       <div class="reveal" style="margin-bottom:2.5rem">
         <p class="s-label" data-i18n="pseo.faq.label">Questions fréquentes</p>
-        <h3 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="pseo.faq.title">FAQ produit</h3>
+        <h2 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="pseo.faq.title">FAQ produit</h2>
         <div class="faq-grid" style="margin-top:1.5rem">
           <details class="faq-item">
             <summary class="faq-q" data-i18n="pseo.cajou.q1">Quels formats de noix de cajou sont disponibles ?</summary>
@@ -253,7 +230,7 @@
 
       <div class="reveal">
         <p class="s-label" data-i18n="pseo.see.label">Voir aussi</p>
-        <h3 class="s-title" style="color:var(--terre);font-size:1.4rem" data-i18n="pseo.see.title">Nos autres produits</h3>
+        <h2 class="s-title" style="color:var(--terre);font-size:1.4rem" data-i18n="pseo.see.title">Nos autres produits</h2>
         <div class="prod-tags" style="margin-top:1rem">
           <a class="p-tag" href="/ananas" style="text-decoration:none" data-i18n="pseo.see.ananas">Ananas Pain de Sucre</a>
           <a class="p-tag" href="/mangue" style="text-decoration:none" data-i18n="pseo.see.mangue">Mangue Kent</a>
@@ -278,7 +255,7 @@
             <div class="c-item">
               <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
               <div>
-                <div class="c-label" data-i18n="contact.phone">Téléphone / WhatsApp</div>
+                <div class="c-label" data-i18n="contact.phone">Téléphone</div>
                 <a class="c-value" href="tel:+33184161824">+33 1 84 16 18 24</a>
               </div>
             </div>
@@ -299,69 +276,39 @@
           </div>
         </div>
         <div class="reveal">
-          <form class="contact-form" id="contactForm"
-            action="https://formspree.io/f/xpzvqwka" method="POST">
-            <div class="form-h" data-i18n="form.title">Votre demande</div>
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpzvqwka" method="POST">
+            <h2 class="form-h" data-i18n="form.title">Votre demande de devis</h2>
             <input type="hidden" name="_subject" value="Nouvelle demande de devis — AST Trade" />
-            <input type="hidden" name="_next" value="https://ast-trade.com/#contact" />
             <input type="hidden" name="source_page" value="cajou" />
-            <div style="position:absolute;left:-9999px;"><label for="website">Ne pas remplir</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off" /></div>
+            <input type="hidden" name="_language" value="fr" />
+            <div class="form-trap" aria-hidden="true"><label for="website">Ne pas remplir</label><input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off" /></div>
             <div class="form-2col">
-              <div class="fg"><label for="societe" data-i18n="form.company">Société *</label><input type="text" id="societe" name="societe" data-i18n-placeholder="form.company.ph" placeholder="Nom de votre entreprise" required /></div>
-              <div class="fg"><label for="fonction" data-i18n="form.position">Fonction / Poste</label><input type="text" id="fonction" name="fonction" data-i18n-placeholder="form.position.ph" placeholder="Directeur des achats, etc." /></div>
+              <div class="fg"><label for="societe" data-i18n="form.company">Société *</label><input type="text" id="societe" name="societe" autocomplete="organization" required /></div>
+              <div class="fg"><label for="nom" data-i18n="form.lastname">Nom du contact *</label><input type="text" id="nom" name="nom" autocomplete="name" placeholder="Prénom et nom" data-i18n-placeholder="form.name.ph" required /></div>
             </div>
+            <div class="fg"><label for="email" data-i18n="form.email">Email *</label><input type="email" id="email" name="email" autocomplete="email" required /></div>
+            <div class="fg"><label for="produit" data-i18n="form.product">Produit(s) souhaité(s) *</label><select id="produit" name="produit" required>
+              <option value="" data-i18n="form.selectproduct">Sélectionner un produit</option><option value="ananas" data-i18n="form.prod.ananas">Ananas Pain de Sucre</option>
+<option value="mangue" data-i18n="form.prod.mangue">Mangue Kent</option>
+<option value="papaye" data-i18n="form.prod.papaye">Papaye Solo</option>
+<option value="cajou" data-i18n="form.prod.cajou" selected>Noix de cajou</option>
+<option value="karite" data-i18n="form.prod.karite">Beurre de karité</option>
+<option value="multi" data-i18n="form.prod.multi">Plusieurs produits</option>
+<option value="autre" data-i18n="form.prod.autre">Autre</option>
+            </select></div>
             <div class="form-2col">
-              <div class="fg"><label for="prenom" data-i18n="form.firstname">Prénom *</label><input type="text" id="prenom" name="prenom" placeholder="Jean" required /></div>
-              <div class="fg"><label for="nom" data-i18n="form.lastname">Nom *</label><input type="text" id="nom" name="nom" placeholder="Dupont" required /></div>
+              <div class="fg"><label for="pays" data-i18n="form.country">Pays de livraison *</label><input type="text" id="pays" name="pays" autocomplete="section-delivery country-name" required /></div>
+              <div class="fg"><label for="volume" data-i18n="form.volume">Volume estimé *</label><select id="volume" name="volume" required><option value="" data-i18n="form.select">Sélectionner</option><option value="moins-1t">&lt; 1 tonne</option><option value="1-5t">1–5 tonnes</option><option value="5-20t">5–20 tonnes</option><option value="plus-20t">&gt; 20 tonnes</option><option value="a-definir" data-i18n="form.unknown">À définir avec votre équipe</option></select></div>
             </div>
-            <div class="form-2col">
-              <div class="fg"><label for="email" data-i18n="form.email">Email *</label><input type="email" id="email" name="email" placeholder="jean@entreprise.com" required /></div>
-              <div class="fg"><label for="telephone" data-i18n="form.phone">Téléphone</label><input type="tel" id="telephone" name="telephone" placeholder="+33 6 00 00 00 00" /></div>
-            </div>
-            <div class="form-3col">
-              <div class="fg"><label for="pays" data-i18n="form.country">Pays</label>
-                <input type="text" id="pays" name="pays" data-i18n-placeholder="form.country.ph" placeholder="Ex : France, Belgique, Suisse..." />
-              </div>
-              <div class="fg"><label for="volume" data-i18n="form.volume">Volume estimé</label>
-                <select id="volume" name="volume">
-                  <option value="" data-i18n="form.select">Sélectionner</option>
-                  <option>&lt; 1 tonne</option>
-                  <option>1 – 5 tonnes</option>
-                  <option>5 – 20 tonnes</option>
-                  <option>&gt; 20 tonnes</option>
-                </select>
-              </div>
-              <div class="fg"><label for="frequence" data-i18n="form.frequency">Fréquence</label>
-                <select id="frequence" name="frequence">
-                  <option value="" data-i18n="form.select">Sélectionner</option>
-                  <option data-i18n="form.freq.once">Ponctuel / Essai</option>
-                  <option data-i18n="form.freq.monthly">Mensuel</option>
-                  <option data-i18n="form.freq.weekly">Hebdomadaire</option>
-                </select>
-              </div>
-            </div>
-            <div class="fg"><label for="produit" data-i18n="form.product">Produit(s) souhaité(s) *</label>
-              <select id="produit" name="produit" required>
-                <option value="" data-i18n="form.selectproduct">Sélectionner un produit</option>
-                <option data-i18n="form.prod.ananas">Ananas Pain de Sucre</option>
-                <option data-i18n="form.prod.mangue">Mangue Kent</option>
-                <option data-i18n="form.prod.papaye">Papaye Solo</option>
-                <option selected data-i18n="form.prod.cajou">Noix de cajou</option>
-                <option data-i18n="form.prod.karite">Beurre de karité</option>
-                <option data-i18n="form.prod.multi">Plusieurs produits</option>
-                <option data-i18n="form.prod.autre">Autre</option>
-              </select>
-            </div>
-            <div class="fg"><label for="message" data-i18n="form.message">Votre message</label><textarea id="message" name="message"
-                data-i18n-placeholder="form.message.ph" placeholder="Calibres souhaités, Incoterm préféré, contraintes de conditionnement, questions techniques..."></textarea>
-            </div>
-            <div class="fg fg-consent">
-              <label class="consent-label">
-                <input type="checkbox" name="rgpd_consent" value="oui" class="consent-checkbox" required />
-                <span class="consent-text" data-i18n="form.consent">J’accepte que mes données soient utilisées pour répondre à ma demande, conformément à la <a href="/politique-confidentialite">politique de confidentialité</a>.</span>
-              </label>
-            </div>
+            <details class="form-options"><summary data-i18n="form.options">Précisions complémentaires (facultatif)</summary>
+              <div class="fg"><label for="telephone" data-i18n="form.phone">Téléphone</label><input type="tel" id="telephone" name="telephone" autocomplete="tel" /></div>
+              <div class="fg"><label for="frequence" data-i18n="form.frequency">Fréquence</label><select id="frequence" name="frequence"><option value="" data-i18n="form.select">Sélectionner</option><option value="essai" data-i18n="form.freq.once">Ponctuel / Essai</option><option value="mensuel" data-i18n="form.freq.monthly">Mensuel</option><option value="hebdomadaire" data-i18n="form.freq.weekly">Hebdomadaire</option></select></div>
+              <div class="fg"><label for="livraison" data-i18n="form.date">Date de livraison souhaitée</label><input type="date" id="livraison" name="livraison" /></div>
+              <div class="fg"><label for="message" data-i18n="form.message">Votre message</label><textarea id="message" name="message" data-i18n-placeholder="form.message.ph" placeholder="Calibres souhaités, Incoterm préféré, contraintes de conditionnement, questions techniques..."></textarea></div>
+            </details>
+            <div class="fg fg-consent"><label class="consent-label"><input type="checkbox" name="rgpd_consent" value="information-lue" class="consent-checkbox" required /><span class="consent-text" data-i18n="form.consent">J’ai lu la <a href="/politique-confidentialite">politique de confidentialité</a> concernant le traitement de ma demande.</span></label></div>
             <button type="submit" class="form-submit" data-i18n="form.submit">Envoyer ma demande de devis &rarr;</button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
           </form>
         </div>
       </div>
@@ -376,13 +323,14 @@
       <div class="footer-kente"></div>
       <div class="footer-inner">
         <div>
-          <div class="footer-logo"><img src="logo.png" alt="AST Trade International" width="140" height="70" /></div>
+          <div class="footer-logo"><img src="/assets/logo-280.webp" alt="AST Trade International" width="280" height="132" /></div>
         </div>
         <div class="footer-info">
           40, rue de Ménilmontant &middot; 75020 Paris, France<br>
           <a href="tel:+33184161824">+33 1 84 16 18 24</a> &middot; <a href="mailto:contact@ast-trade.com">contact@ast-trade.com</a>
         </div>
         <div class="footer-legal">
+          <button type="button" class="cookie-settings" data-cookie-settings data-i18n="footer.cookies">Gérer les cookies</button><br>
           SIRET 98040601100026 &middot; TVA FR50980406011<br>
           <a href="/mentions-legales" data-i18n="footer.legal">Mentions l&eacute;gales</a> &middot; <a href="/conditions-generales" data-i18n="footer.cgv">Conditions g&eacute;n&eacute;rales</a> &middot; <a href="/politique-confidentialite" data-i18n="footer.privacy">Politique de confidentialit&eacute;</a><br>
           &copy; <span id="copyYear">2025</span> AST Trade International SARL
@@ -394,67 +342,7 @@
   <a href="#" id="backToTop"
     style="position:fixed;bottom:2rem;right:2rem;opacity:0;visibility:hidden;z-index:900;background:var(--ocre);color:var(--blanc);border:none;border-radius:50%;width:44px;height:44px;display:flex;justify-content:center;align-items:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:all .3s;text-decoration:none;">&uarr;</a>
 
-  <script src="script.js?v=4" defer></script>
-<script data-pplx-inline-edit>
-(function(){
-  if(window===window.top)return;
-  function inlineAll(orig,clone){
-    if(orig.nodeType!==1)return;
-    try{
-      var cs=getComputedStyle(orig);
-      var t='';
-      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
-      clone.style.cssText=t;
-    }catch(e){}
-    var oc=orig.children,cc=clone.children;
-    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
-  }
-  function stripExternal(clone){
-    var imgs=clone.querySelectorAll('img');
-    for(var i=0;i<imgs.length;i++){
-      var s=imgs[i].getAttribute('src');
-      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
-    }
-    var all=clone.querySelectorAll('*');
-    for(var i=0;i<all.length;i++){
-      var st=all[i].style.cssText;
-      if(st&&st.indexOf('url(')>=0){
-        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
-      }
-    }
-  }
-  window.addEventListener('message',function(e){
-    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
-    var scrollX=window.scrollX||window.pageXOffset||0;
-    var scrollY=window.scrollY||window.pageYOffset||0;
-    var w=window.innerWidth,h=window.innerHeight;
-    try{
-      var clone=document.documentElement.cloneNode(true);
-      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
-      for(var i=0;i<rm.length;i++){rm[i].remove();}
-      inlineAll(document.documentElement,clone);
-      stripExternal(clone);
-      var html=new XMLSerializer().serializeToString(clone);
-      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
-        +'<foreignObject width="100%" height="100%">'
-        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
-        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
-        +html+'</div></div></foreignObject></svg>';
-      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
-      var img=new Image();
-      img.onload=function(){
-        var c=document.createElement('canvas');c.width=w;c.height=h;
-        c.getContext('2d').drawImage(img,0,0);
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.onerror=function(){
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.src=svgUrl;
-    }catch(err){
-      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-    }
-  });
-})();
-</script></body>
+  <script src="script.js?v=20260906" defer></script>
+  <script src="/forms.js?v=20260906" defer></script>
+</body>
 </html>

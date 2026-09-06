@@ -15,8 +15,8 @@
   
   <title>AST Trade International — Tropical produce export from Benin to Europe</title>
   <!-- Open Graph -->
-  <meta property="og:title" content="AST Trade International — Your tropical fruit import partner from West Africa" />
-  <meta property="og:description" content="Direct supply chain from West Africa: Sugarloaf pineapple, Kent mango, cashew, shea butter. Certified quality, controlled delivery." />
+  <meta property="og:title" content="AST Trade International — Tropical produce from Benin for B2B buyers" />
+  <meta property="og:description" content="Pineapple, mango, papaya, cashew and shea butter from Benin. Sourcing, packaging and logistics assessed for each enquiry." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="AST Trade International" />
@@ -26,11 +26,7 @@
   
   
   <!-- Preconnect & Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,opsz,wght@0,5..1200,400..700;1,5..1200,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-    rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/fonts/fonts.css" />
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
 {
@@ -80,7 +76,7 @@
       "name": "Do you provide phytosanitary documents?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. We systematically provide a phytosanitary certificate, certificate of origin, detailed packing list and pro forma invoice. All documents required for EU customs clearance are included."
+        "text": "Required documents are defined for the product and destination: commercial invoice, packing list, certificate of origin and, where required, phytosanitary certificate. Availability and checks are confirmed before ordering."
       }
     },
     {
@@ -88,7 +84,7 @@
       "name": "Which Incoterms do you offer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We mainly work with FOB Cotonou, CIF (destination port/airport) and DDP (delivered duty paid). The Incoterm is agreed when preparing the quotation, based on your preferences."
+        "text": "Sea freight terms may include FOB Cotonou or CIF at the agreed destination port. CIF does not apply to air freight. For air or multimodal transport, the appropriate Incoterm is agreed in the quote, including the named place and allocation of obligations. DDP is assessed according to the destination and operational feasibility."
       }
     },
     {
@@ -110,29 +106,11 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="/style.v3.css?v=3" />
+  <link rel="stylesheet" href="/style.v3.css?v=20260906" />
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
-  <!-- Google tag (gtag.js) with Consent Mode v2 — default denied until user consent -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied',
-      'wait_for_update': 500
-    });
-    try {
-      var astConsent = localStorage.getItem('ast-cookie-consent');
-      if (astConsent === 'granted') {
-        gtag('consent', 'update', { 'analytics_storage': 'granted' });
-      }
-    } catch(e) {}
-    gtag('js', new Date());
-    gtag('config', 'G-KJX42G51Q4', { 'anonymize_ip': true });
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJX42G51Q4"></script>
+  <script src="/analytics.js?v=20260906" defer></script>
+  <meta property="og:image" content="https://ast-trade.com/hero-bg.jpg" />
+  <meta name="twitter:image" content="https://ast-trade.com/hero-bg.jpg" />
 </head>
 
 <body>
@@ -144,7 +122,7 @@
   <nav>
     <div class="nav-kente"></div>
     <div class="nav-inner">
-      <a href="/en/" class="nav-logo"><img src="/logo.png" alt="AST Trade International" width="140" height="70" /></a>
+      <a href="/en/" class="nav-logo"><img src="/assets/logo-280.webp" alt="AST Trade International" width="280" height="132" /></a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about" data-i18n="nav.about">About</a></li>
@@ -164,7 +142,7 @@
         <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
-      <a class="nav-cta" href="#contact" data-i18n="nav.cta">Request a quote</a>
+      <a class="nav-cta" href="#contactForm" data-i18n="nav.cta">Request a quote</a>
       <div class="lang-switcher" id="langSwitcher">
         <a class="lang-btn" href="/" id="btnFR" hreflang="fr" rel="alternate">FR</a>
         <a class="lang-btn active" href="/en/" id="btnEN" hreflang="en" rel="alternate" aria-current="page">EN</a>
@@ -176,15 +154,15 @@
 
   <!-- B2B: Hero repositionné — message de valeur B2B -->
   <section id="hero">
-    <div class="hero-bg" style="background-image: url('hero-bg.jpg'); background-size: cover; background-position: center;"></div>
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-overlay" style="background: linear-gradient(135deg, rgba(13, 42, 20, 0.85) 0%, rgba(13, 42, 20, 0.6) 50%, rgba(45, 26, 14, 0.85) 100%);"></div>
     <div class="hero-content" style="grid-template-columns: 1fr; text-align: center;">
       <div class="hero-left" style="display: flex; flex-direction: column; align-items: center;">
-        <h1 class="hero-h1" data-i18n="hero.title">Your partner<br>for tropical fruits</h1>
-        <p class="hero-sub" style="max-width: 60ch;" data-i18n="hero.sub">Direct supply chain from West Africa: Sugarloaf pineapple, Kent mango, Solo papaya, cashew nuts and shea butter. Certified quality, tailored support and international delivery.</p>
+        <h1 class="hero-h1" data-i18n="hero.title">Tropical produce from Benin<br>for importers and wholesalers</h1>
+        <p class="hero-sub" style="max-width: 60ch;" data-i18n="hero.sub">Sugarloaf pineapple, Kent mango, Solo papaya, cashew nuts and shea butter. B2B sourcing, packaging and logistics assessed for your product, volume and destination.</p>
         <div class="hero-actions" style="justify-content: center;">
-          <a class="btn-primary" href="#produits" data-i18n="hero.products">View our products</a>
-          <a class="btn-ghost" href="#contact" data-i18n="hero.cta">Request a quote</a>
+          <a class="btn-ghost" href="#produits" data-i18n="hero.products">View our products</a>
+          <a class="btn-primary" href="#contactForm" data-i18n="hero.cta">Request a quote</a>
         </div>
       </div>
     </div>
@@ -225,13 +203,13 @@
           <h2 class="s-title" style="color:var(--terre)" data-i18n="about.title">Our expertise</h2>
           <div class="adinkra-div"></div>
           <p class="about-lead" data-i18n="about.lead">Expert in premium agricultural exports from West Africa, partner to professionals worldwide.</p>
-          <p class="about-body" data-i18n="about.body">Based in Paris, AST Trade International connects the finest West African producers with international buyers. With no intermediaries, we control every step of the value chain, from harvest to shipment.<br><br>Our commitment: impeccable quality, rigorous traceability and strict compliance with international phytosanitary and food-safety standards.</p>
+          <p class="about-body" data-i18n="about.body">Based in Paris, AST Trade International connects West African producers with professional buyers. We help define product specifications, packaging and shipping arrangements.<br><br>Quality checks, traceability documents and compliance requirements are agreed for each product and destination before order confirmation.</p>
           <div class="values-row">
             <div class="value-item">
               <div class="v-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
               <div>
                 <div class="v-name" data-i18n="about.v1.name">Direct supply chain</div>
-                <div class="v-desc" data-i18n="about.v1.desc">No intermediary between our producers and your warehouse. Competitive pricing and guaranteed traceability.</div>
+                <div class="v-desc" data-i18n="about.v1.desc">Sourcing through partner producers. Terms and traceability are specified for each lot.</div>
               </div>
             </div>
             <div class="value-item">
@@ -279,7 +257,7 @@
         </div>
         <div class="av-card reveal"><span class="av-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
           <div class="av-title" data-i18n="av.2.title">Consistent, compliant quality</div>
-          <p class="av-text" data-i18n="av.2.text">Rigorous quality controls at every stage. Phytosanitary and customs documentation included. Compliance with international fresh produce import standards.</p>
+          <p class="av-text" data-i18n="av.2.text">Quality checks and required documents are defined for the product, lot and destination requirements before order confirmation.</p>
         </div>
         <div class="av-card reveal"><span class="av-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
           <div class="av-title" data-i18n="av.3.title">Custom packaging</div>
@@ -291,7 +269,7 @@
         </div>
         <div class="av-card reveal"><span class="av-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></span>
           <div class="av-title" data-i18n="av.5.title">Complete documentation</div>
-          <p class="av-text" data-i18n="av.5.text">Phytosanitary certificates, certificates of origin, packing lists and pro forma invoices. All documents required for seamless customs clearance.</p>
+          <p class="av-text" data-i18n="av.5.text">Commercial invoice, packing list, certificate of origin and, depending on the product and destination, phytosanitary or analysis certificate. Availability is confirmed before ordering.</p>
         </div>
         <div class="av-card reveal"><span class="av-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
           <div class="av-title" data-i18n="av.6.title">Reliable supply</div>
@@ -312,7 +290,7 @@
     <div class="product-preview-grid">
       <!-- Ananas -->
       <div class="product-card reveal">
-        <img class="product-card-img" src="/ananas-produit.png" alt="Ananas Pain de Sucre IGP" loading="lazy" width="400" height="240" />
+        <img class="product-card-img" src="/assets/ananas-produit-600.webp" alt="PGI Sugarloaf pineapple" loading="lazy" width="400" height="240" />
         <div class="product-card-body">
           <h3 data-i18n="preview.ananas.name">Sugarloaf Pineapple</h3>
           <div class="product-card-origin">Bénin</div>
@@ -322,7 +300,7 @@
       </div>
       <!-- Mangue -->
       <div class="product-card reveal">
-        <img class="product-card-img" src="/mangue.png" alt="Mangue Kent du Bénin" loading="lazy" width="400" height="240" />
+        <img class="product-card-img" src="/assets/mangue-600.webp" alt="Kent mango from Benin" loading="lazy" width="400" height="240" />
         <div class="product-card-body">
           <h3 data-i18n="preview.mangue.name">Kent Mango</h3>
           <div class="product-card-origin">Bénin</div>
@@ -332,7 +310,7 @@
       </div>
       <!-- Papaye -->
       <div class="product-card reveal">
-        <img class="product-card-img" src="/papaye.png" alt="Papaye Solo" loading="lazy" width="400" height="240" />
+        <img class="product-card-img" src="/assets/papaye-600.webp" alt="Solo papaya" loading="lazy" width="400" height="240" />
         <div class="product-card-body">
           <h3 data-i18n="preview.papaye.name">Solo Papaya</h3>
           <div class="product-card-origin">Bénin</div>
@@ -342,7 +320,7 @@
       </div>
       <!-- Cajou -->
       <div class="product-card reveal">
-        <img class="product-card-img" src="/cajou.png" alt="Noix de cajou du Bénin" loading="lazy" width="400" height="240" />
+        <img class="product-card-img" src="/assets/cajou-600.webp" alt="Cashew nuts from Benin" loading="lazy" width="400" height="240" />
         <div class="product-card-body">
           <h3 data-i18n="preview.cajou.name">Cashew Nuts</h3>
           <div class="product-card-origin">Bénin</div>
@@ -352,7 +330,7 @@
       </div>
       <!-- Karité -->
       <div class="product-card reveal">
-        <img class="product-card-img" src="/karite.png" alt="Beurre de karité" loading="lazy" width="400" height="240" />
+        <img class="product-card-img" src="/assets/karite-600.webp" alt="Shea butter" loading="lazy" width="400" height="240" />
         <div class="product-card-body">
           <h3 data-i18n="preview.karite.name">Shea Butter</h3>
           <div class="product-card-origin">Bénin</div>
@@ -408,7 +386,7 @@
 
             <li data-i18n="log.air.2">Pineapple and mango: delivery within 3 to 5 days</li>
             <li data-i18n="log.air.3">Cold chain maintained end-to-end</li>
-            <li data-i18n="log.air.4">Minimum order of 5 tonnes recommended</li>
+            <li data-i18n="log.air.4">Indicative minimums are listed on each product sheet; economical volumes are assessed for the destination.</li>
           </ul>
         </div>
         <div class="log-card reveal">
@@ -438,9 +416,9 @@
           <!-- B2B: Incoterms et documentation -->
           <div class="log-title" data-i18n="log.inco.title">Incoterms & documentation</div>
           <ul class="log-list">
-            <li data-i18n="log.inco.1">Incoterms available: FOB Cotonou, CIF, DDP</li>
+            <li data-i18n="log.inco.1">Sea freight: FOB Cotonou or CIF agreed port. Other terms are defined in the quote.</li>
             <li data-i18n="log.inco.2">Payment by bank transfer or L/C for large volumes</li>
-            <li data-i18n="log.inco.3">Documents provided: phytosanitary certificate, certificate of origin, packing list, pro forma invoice</li>
+            <li data-i18n="log.inco.3">Documents are confirmed for the product and destination: invoice, packing list, certificate of origin and required certificates.</li>
             <li data-i18n="log.inco.4">Real-time temperature tracking (data logger)</li>
             <li data-i18n="log.inco.5">Transport insurance available on request</li>
           </ul>
@@ -467,11 +445,11 @@
         </details>
         <details class="faq-item reveal">
           <summary class="faq-q" data-i18n="faq.3.q">Do you provide phytosanitary documents?</summary>
-          <div class="faq-a" data-i18n="faq.3.a">Yes. We systematically provide a phytosanitary certificate, certificate of origin, detailed packing list and pro forma invoice. All documents required for EU customs clearance are included.</div>
+          <div class="faq-a" data-i18n="faq.3.a">Required documents are defined for the product and destination: commercial invoice, packing list, certificate of origin and, where required, phytosanitary certificate. Availability and checks are confirmed before ordering.</div>
         </details>
         <details class="faq-item reveal">
           <summary class="faq-q" data-i18n="faq.4.q">Which Incoterms do you offer?</summary>
-          <div class="faq-a" data-i18n="faq.4.a">We mainly work with FOB Cotonou, CIF (destination port/airport) and DDP (delivered duty paid). The Incoterm is agreed when preparing the quotation, based on your preferences.</div>
+          <div class="faq-a" data-i18n="faq.4.a">Sea freight terms may include FOB Cotonou or CIF at the agreed destination port. CIF does not apply to air freight. For air or multimodal transport, the appropriate Incoterm is agreed in the quote, including the named place and allocation of obligations. DDP is assessed according to the destination and operational feasibility.</div>
         </details>
         <details class="faq-item reveal">
           <summary class="faq-q" data-i18n="faq.5.q">Do you offer private label / white label?</summary>
@@ -500,7 +478,7 @@
             <div class="c-item">
               <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
               <div>
-                <div class="c-label" data-i18n="contact.phone">Phone / WhatsApp</div>
+                <div class="c-label" data-i18n="contact.phone">Phone</div>
                 <a class="c-value" href="tel:+33184161824">+33 1 84 16 18 24</a>
               </div>
             </div>
@@ -521,76 +499,44 @@
           </div>
           <!-- B2B: Documents téléchargeables -->
           <div class="download-row">
-            <span class="dl-btn dl-btn--soon" data-i18n="contact.dl1" aria-disabled="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Product catalogue &mdash; coming soon</span>
+            <a class="dl-btn" href="/en/#produits" data-i18n="contact.dl1">View product sheets</a>
           </div>
         </div>
         <div class="reveal">
           <!-- B2B: Formulaire de contact -->
-          <form class="contact-form" id="contactForm"
-            action="https://formspree.io/f/xpzvqwka" method="POST">
-            <div class="form-h" data-i18n="form.title">Your enquiry</div>
-            <!-- Formspree hidden fields -->
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpzvqwka" method="POST">
+            <h2 class="form-h" data-i18n="form.title">Your quote request</h2>
             <input type="hidden" name="_subject" value="Nouvelle demande de devis — AST Trade" />
-            <input type="hidden" name="_next" value="https://ast-trade.com/#contact" />
             <input type="hidden" name="source_page" value="landing" />
-            <!-- Honeypot anti-spam -->
-            <div style="position:absolute;left:-9999px;"><label for="website">Ne pas remplir</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off" /></div>
+            <input type="hidden" name="_language" value="en" />
+            <div class="form-trap" aria-hidden="true"><label for="website">Ne pas remplir</label><input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off" /></div>
             <div class="form-2col">
-              <div class="fg"><label for="societe" data-i18n="form.company">Company *</label><input type="text" id="societe" name="societe" data-i18n-placeholder="form.company.ph" placeholder="Your company name" required /></div>
-              <div class="fg"><label for="fonction" data-i18n="form.position">Position / Job title</label><input type="text" id="fonction" name="fonction" data-i18n-placeholder="form.position.ph" placeholder="e.g. Purchasing Director" /></div>
+              <div class="fg"><label for="societe" data-i18n="form.company">Company *</label><input type="text" id="societe" name="societe" autocomplete="organization" required /></div>
+              <div class="fg"><label for="nom" data-i18n="form.lastname">Contact name *</label><input type="text" id="nom" name="nom" autocomplete="name" placeholder="First and last name" data-i18n-placeholder="form.name.ph" required /></div>
             </div>
+            <div class="fg"><label for="email" data-i18n="form.email">Email *</label><input type="email" id="email" name="email" autocomplete="email" required /></div>
+            <div class="fg"><label for="produit" data-i18n="form.product">Product(s) of interest *</label><select id="produit" name="produit" required>
+              <option value="" data-i18n="form.selectproduct">Select a product</option><option value="ananas" data-i18n="form.prod.ananas">Sugarloaf Pineapple</option>
+<option value="mangue" data-i18n="form.prod.mangue">Kent Mango</option>
+<option value="papaye" data-i18n="form.prod.papaye">Solo Papaya</option>
+<option value="cajou" data-i18n="form.prod.cajou">Cashew Nuts</option>
+<option value="karite" data-i18n="form.prod.karite">Shea Butter</option>
+<option value="multi" data-i18n="form.prod.multi">Multiple products</option>
+<option value="autre" data-i18n="form.prod.autre">Other</option>
+            </select></div>
             <div class="form-2col">
-              <div class="fg"><label for="prenom" data-i18n="form.firstname">First name *</label><input type="text" id="prenom" name="prenom" placeholder="Jean" required /></div>
-              <div class="fg"><label for="nom" data-i18n="form.lastname">Last name *</label><input type="text" id="nom" name="nom" placeholder="Dupont" required /></div>
+              <div class="fg"><label for="pays" data-i18n="form.country">Delivery country *</label><input type="text" id="pays" name="pays" autocomplete="section-delivery country-name" required /></div>
+              <div class="fg"><label for="volume" data-i18n="form.volume">Estimated volume *</label><select id="volume" name="volume" required><option value="" data-i18n="form.select">Select</option><option value="moins-1t">&lt; 1 tonne</option><option value="1-5t">1–5 tonnes</option><option value="5-20t">5–20 tonnes</option><option value="plus-20t">&gt; 20 tonnes</option><option value="a-definir" data-i18n="form.unknown">To discuss with your team</option></select></div>
             </div>
-            <div class="form-2col">
-              <div class="fg"><label for="email" data-i18n="form.email">Email *</label><input type="email" id="email" name="email" placeholder="jean@entreprise.com" required /></div>
-              <div class="fg"><label for="telephone" data-i18n="form.phone">Phone</label><input type="tel" id="telephone" name="telephone" placeholder="+33 6 00 00 00 00" /></div>
-            </div>
-            <div class="form-3col">
-              <div class="fg"><label for="pays" data-i18n="form.country">Country</label>
-                <input type="text" id="pays" name="pays" data-i18n-placeholder="form.country.ph" placeholder="e.g. France, Belgium, Switzerland" />
-              </div>
-              <div class="fg"><label for="volume" data-i18n="form.volume">Estimated volume</label>
-                <select id="volume" name="volume">
-                  <option value="" data-i18n="form.select">Select</option>
-                  <option>&lt; 1 tonne</option>
-                  <option>1 – 5 tonnes</option>
-                  <option>5 – 20 tonnes</option>
-                  <option>&gt; 20 tonnes</option>
-                </select>
-              </div>
-              <div class="fg"><label for="frequence" data-i18n="form.frequency">Frequency</label>
-                <select id="frequence" name="frequence">
-                  <option value="" data-i18n="form.select">Select</option>
-                  <option data-i18n="form.freq.once">One-off / Trial order</option>
-                  <option data-i18n="form.freq.monthly">Monthly</option>
-                  <option data-i18n="form.freq.weekly">Weekly</option>
-                </select>
-              </div>
-            </div>
-            <div class="fg"><label for="produit" data-i18n="form.product">Product(s) of interest *</label>
-              <select id="produit" name="produit" required>
-                <option value="" data-i18n="form.selectproduct">Select a product</option>
-                <option data-i18n="form.prod.ananas">Sugarloaf Pineapple</option>
-                <option data-i18n="form.prod.mangue">Kent Mango</option>
-                <option data-i18n="form.prod.papaye">Solo Papaya</option>
-                <option data-i18n="form.prod.cajou">Cashew Nuts</option>
-                <option data-i18n="form.prod.karite">Shea Butter</option>
-                <option data-i18n="form.prod.multi">Multiple products</option>
-                <option data-i18n="form.prod.autre">Other</option>
-              </select>
-            </div>
-            <div class="fg"><label for="message" data-i18n="form.message">Your message</label><textarea id="message" name="message"
-                data-i18n-placeholder="form.message.ph" placeholder="Sizes required, preferred Incoterm, packaging constraints, technical questions..."></textarea>
-            </div>
-            <div class="fg fg-consent">
-              <label class="consent-label">
-                <input type="checkbox" name="rgpd_consent" value="oui" class="consent-checkbox" required />
-                <span class="consent-text" data-i18n="form.consent">I agree that my data may be used to respond to my request, in accordance with the <a href="/en/privacy-policy">privacy policy</a>.</span>
-              </label>
-            </div>
+            <details class="form-options"><summary data-i18n="form.options">Additional details (optional)</summary>
+              <div class="fg"><label for="telephone" data-i18n="form.phone">Phone</label><input type="tel" id="telephone" name="telephone" autocomplete="tel" /></div>
+              <div class="fg"><label for="frequence" data-i18n="form.frequency">Frequency</label><select id="frequence" name="frequence"><option value="" data-i18n="form.select">Select</option><option value="essai" data-i18n="form.freq.once">One-off / Trial order</option><option value="mensuel" data-i18n="form.freq.monthly">Monthly</option><option value="hebdomadaire" data-i18n="form.freq.weekly">Weekly</option></select></div>
+              <div class="fg"><label for="livraison" data-i18n="form.date">Preferred delivery date</label><input type="date" id="livraison" name="livraison" /></div>
+              <div class="fg"><label for="message" data-i18n="form.message">Your message</label><textarea id="message" name="message" data-i18n-placeholder="form.message.ph" placeholder="Sizes required, preferred Incoterm, packaging constraints, technical questions..."></textarea></div>
+            </details>
+            <div class="fg fg-consent"><label class="consent-label"><input type="checkbox" name="rgpd_consent" value="information-lue" class="consent-checkbox" required /><span class="consent-text" data-i18n="form.consent">I have read the <a href="/en/privacy-policy">privacy policy</a> explaining how my request is processed.</span></label></div>
             <button type="submit" class="form-submit" data-i18n="form.submit">Send my quote request &rarr;</button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
           </form>
         </div>
       </div>
@@ -605,13 +551,14 @@
       <div class="footer-kente"></div>
       <div class="footer-inner">
         <div>
-          <div class="footer-logo"><img src="/logo.png" alt="AST Trade International" width="140" height="70" /></div>
+          <div class="footer-logo"><img src="/assets/logo-280.webp" alt="AST Trade International" width="280" height="132" /></div>
         </div>
         <div class="footer-info">
           40, rue de Ménilmontant &middot; 75020 Paris, France<br>
           <a href="tel:+33184161824">+33 1 84 16 18 24</a> &middot; <a href="mailto:contact@ast-trade.com">contact@ast-trade.com</a>
         </div>
         <div class="footer-legal">
+          <button type="button" class="cookie-settings" data-cookie-settings data-i18n="footer.cookies">Cookie preferences</button><br>
           SIRET 98040601100026 &middot; TVA FR50980406011<br>
           <a href="/en/legal-notice" data-i18n="footer.legal">Legal notice</a> &middot; <a href="/en/terms" data-i18n="footer.cgv">General terms</a> &middot; <a href="/en/privacy-policy" data-i18n="footer.privacy">Privacy policy</a><br>
           &copy; <span id="copyYear">2025</span> AST Trade International SARL
@@ -623,6 +570,7 @@
   <a href="#" id="backToTop"
     style="position:fixed;bottom:2rem;right:2rem;opacity:0;visibility:hidden;z-index:900;background:var(--ocre);color:var(--blanc);border:none;border-radius:50%;width:44px;height:44px;display:flex;justify-content:center;align-items:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:all .3s;text-decoration:none;">&uarr;</a>
 
-  <script src="/script.js?v=4" defer></script>
+  <script src="/script.js?v=20260906" defer></script>
+  <script src="/forms.js?v=20260906" defer></script>
 </body>
 </html>

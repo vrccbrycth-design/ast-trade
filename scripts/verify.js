@@ -58,7 +58,7 @@ for (const p of PAGES) {
   // Resource URLs must be root-relative (so they resolve correctly from /en/...)
   check(`script.js loads from /script.js`, /src="\/script\.js/.test(h));
   check(`stylesheet from /style.v3.css`, /href="\/style\.v3\.css/.test(h));
-  check(`logo from /logo.png`, /src="\/logo\.png"/.test(h));
+  check(`optimized logo resolves from root`, /src="\/assets\/logo-280\.webp"/.test(h));
 
   // No accidental FR-slug links remaining in body (except in lang switcher/hreflang).
   // Strip head and lang-switcher, then check.

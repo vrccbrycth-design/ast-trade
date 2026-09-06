@@ -19,43 +19,20 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="AST Trade International" />
   <meta property="og:url" content="https://ast-trade.com/en/privacy-policy" />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,opsz,wght@0,5..1200,400..700;1,5..1200,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="/style.v3.css?v=3" />
-  <!-- Google tag (gtag.js) with Consent Mode v2 — default denied until user consent -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied',
-      'wait_for_update': 500
-    });
-    try {
-      var astConsent = localStorage.getItem('ast-cookie-consent');
-      if (astConsent === 'granted') {
-        gtag('consent', 'update', { 'analytics_storage': 'granted' });
-      }
-    } catch(e) {}
-    gtag('js', new Date());
-    gtag('config', 'G-KJX42G51Q4', { 'anonymize_ip': true });
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJX42G51Q4"></script>
+  <link rel="stylesheet" href="/assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="/style.v3.css?v=20260906" />
+  <script src="/analytics.js?v=20260906" defer></script>
+  <meta property="og:image" content="https://ast-trade.com/hero-bg.jpg" />
+  <meta name="twitter:image" content="https://ast-trade.com/hero-bg.jpg" />
 </head>
 
-<body style="scroll-padding-top:80px">
+<body>
 
   <!-- Navigation -->
   <nav>
     <div class="nav-kente"></div>
     <div class="nav-inner">
-      <a href="/en/" class="nav-logo"><img src="/logo.png" alt="AST Trade International" width="140" height="70" /></a>
+      <a href="/en/" class="nav-logo"><img src="/assets/logo-280.webp" alt="AST Trade International" width="280" height="132" /></a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="/en/#about" data-i18n="nav.about">About</a></li>
@@ -74,7 +51,7 @@
         <li><a href="/en/#faq" data-i18n="nav.faq">FAQ</a></li>
         <li><a href="/en/#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
-      <a class="nav-cta" href="/en/#contact" data-i18n="nav.cta">Request a quote</a>
+      <a class="nav-cta" href="/en/#contactForm" data-i18n="nav.cta">Request a quote</a>
       <div class="lang-switcher" id="langSwitcher">
         <a class="lang-btn" href="/politique-confidentialite" id="btnFR" hreflang="fr" rel="alternate">FR</a>
         <a class="lang-btn active" href="/en/privacy-policy" id="btnEN" hreflang="en" rel="alternate" aria-current="page">EN</a>
@@ -102,7 +79,7 @@
 
       <div class="reveal" style="margin-bottom:2.5rem">
         <h2 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="privacy.data.title">Data collected</h2>
-        <p class="prod-desc-text" style="margin-top:1rem" data-i18n="privacy.data.body">When you use the contact form, AST Trade International may collect the following information: last name, first name, company, job title, email address, phone number, country, product of interest, estimated volume and message content.</p>
+        <p class="prod-desc-text" style="margin-top:1rem" data-i18n="privacy.data.body">The form collects your company, contact name, email, delivery country, volume and requested product. You may add a phone number, frequency, preferred date and message. Fields marked with an asterisk are needed to assess your request.</p>
       </div>
 
       <div class="reveal" style="margin-bottom:2.5rem">
@@ -122,22 +99,22 @@
 
       <div class="reveal" style="margin-bottom:2.5rem">
         <h2 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="privacy.recipients.title">Data recipients</h2>
-        <p class="prod-desc-text" style="margin-top:1rem" data-i18n="privacy.recipients.body">Data is intended solely for AST Trade International. It is not sold to third parties.</p>
+        <p class="prod-desc-text" style="margin-top:1rem" data-i18n="privacy.recipients.body">Requests are accessible to the AST Trade International team responsible for commercial follow-up and the technical providers needed to transmit and host them, including Formspree for the form. Data is not sold to third parties.</p>
       </div>
 
       <div class="reveal" style="margin-bottom:2.5rem">
         <h2 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="privacy.form.title">Contact form</h2>
-        <p class="prod-desc-text" style="margin-top:1rem" data-i18n="privacy.form.body">The site uses an external service to transmit forms. Information sent through the form is used solely to allow AST Trade International to receive and process enquiries.</p>
+        <p class="prod-desc-text" style="margin-top:1rem" data-i18n="privacy.form.body">The form sends the entered information to Formspree so that AST Trade International can receive and process it. See the <a href="https://formspree.io/legal/privacy-policy/">Formspree privacy policy</a> for information published by this provider.</p>
       </div>
 
       <div class="reveal" style="margin-bottom:2.5rem">
         <h2 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="privacy.rights.title">Your rights</h2>
-        <p class="prod-desc-text" style="margin-top:1rem" data-i18n="privacy.rights.body">You may request access to, correction of, or deletion of your personal data by writing to: <a href="mailto:contact@ast-trade.com">contact@ast-trade.com</a>.</p>
+        <p class="prod-desc-text" style="margin-top:1rem" data-i18n="privacy.rights.body">To exercise your rights of access, rectification, erasure, restriction or objection and, where applicable, portability, write to <a href="mailto:contact@ast-trade.com">contact@ast-trade.com</a>. These rights apply under the conditions set by law. You may also lodge a complaint with the <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>.</p>
       </div>
 
       <div class="reveal" style="margin-bottom:2.5rem">
         <h2 class="s-title" style="color:var(--terre);font-size:1.6rem" data-i18n="privacy.cookies.title">Cookies and audience measurement</h2>
-        <p class="prod-desc-text" style="margin-top:1rem" data-i18n="privacy.cookies.body">The site may use audience measurement tools to understand site traffic and improve its content. This data is used for statistical purposes.</p>
+        <p class="prod-desc-text" style="margin-top:1rem" data-i18n="privacy.cookies.body">Google Analytics measures visits and interactions only after audience measurement cookies are accepted. Quote events do not include names, email addresses, phone numbers or message contents. Your cookie choice is stored in your browser for six months. You can change it or withdraw consent through “Cookie preferences” in the footer of every page. Fonts are hosted with the site.</p>
       </div>
 
       <div class="reveal" style="margin-top:2.5rem">
@@ -154,13 +131,14 @@
       <div class="footer-kente"></div>
       <div class="footer-inner">
         <div>
-          <div class="footer-logo"><img src="/logo.png" alt="AST Trade International" width="140" height="70" /></div>
+          <div class="footer-logo"><img src="/assets/logo-280.webp" alt="AST Trade International" width="280" height="132" /></div>
         </div>
         <div class="footer-info">
           40, rue de Ménilmontant &middot; 75020 Paris, France<br>
           <a href="tel:+33184161824">+33 1 84 16 18 24</a> &middot; <a href="mailto:contact@ast-trade.com">contact@ast-trade.com</a>
         </div>
         <div class="footer-legal">
+          <button type="button" class="cookie-settings" data-cookie-settings data-i18n="footer.cookies">Cookie preferences</button><br>
           SIRET 98040601100026 &middot; TVA FR50980406011<br>
           <a href="/en/legal-notice" data-i18n="footer.legal">Legal notice</a> &middot; <a href="/en/terms" data-i18n="footer.cgv">General terms</a> &middot; <a href="/en/privacy-policy" data-i18n="footer.privacy">Privacy policy</a><br>
           &copy; <span id="copyYear">2025</span> AST Trade International SARL
@@ -172,6 +150,6 @@
   <a href="#" id="backToTop"
     style="position:fixed;bottom:2rem;right:2rem;opacity:0;visibility:hidden;z-index:900;background:var(--ocre);color:var(--blanc);border:none;border-radius:50%;width:44px;height:44px;display:flex;justify-content:center;align-items:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:all .3s;text-decoration:none;">&uarr;</a>
 
-  <script src="/script.js?v=4" defer></script>
+  <script src="/script.js?v=20260906" defer></script>
 </body>
 </html>

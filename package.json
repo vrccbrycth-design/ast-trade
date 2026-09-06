@@ -1,0 +1,10 @@
+{
+  "name": "ast-trade-site",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/package_site.js",
+    "build:en": "node scripts/build_en.js",
+    "test": "node scripts/verify.js && node --test scripts/audit.test.js"
+  },
+  "devDependencies": { "jsdom": "30.0.1" }
+}
