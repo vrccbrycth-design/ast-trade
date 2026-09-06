@@ -1,3 +1,9 @@
+function closeMobileMenu() {
+  var links = document.getElementById('navLinks');
+  var toggle = document.getElementById('mobileToggle');
+  if (links) links.classList.remove('active');
+  if (toggle) { toggle.setAttribute('aria-expanded', 'false'); toggle.innerHTML = '&#9776;'; }
+}
     // Mobile Menu Toggle
     const mobileToggle = document.getElementById('mobileToggle');
     const navLinks = document.getElementById('navLinks');
@@ -10,7 +16,7 @@
       });
       // Fermer le menu mobile quand on clique un lien (sauf le toggle dropdown)
       navLinks.querySelectorAll('a:not(.nav-dropdown-toggle)').forEach(l => {
-        l.addEventListener('click', () => navLinks.classList.remove('active'));
+        l.addEventListener('click', closeMobileMenu);
       });
     }
 
@@ -45,7 +51,7 @@
           dropdown.setAttribute('aria-expanded', 'false');
           toggle.setAttribute('aria-expanded', 'false');
           // Fermer aussi le menu mobile
-          if (navLinks) navLinks.classList.remove('active');
+          closeMobileMenu();
         });
       });
 
@@ -136,12 +142,17 @@
     // ═══════════════ LANGUAGE SWITCHER ═══════════════
     const translations = {
       en: {
+        "footer.cookies": "Cookie preferences",
+        "form.name.ph": "First and last name",
+        "form.unknown": "To discuss with your team",
+        "form.date": "Preferred delivery date",
+        "form.options": "Additional details (optional)",
 
         // Navigation (previously hardcoded)
         'nav.faq': 'FAQ',
         'nav.contact': 'Contact',
         'contact.email.label': 'Email',
-        'spec.shelf': 'Shelf life',
+        "spec.shelf": "Shelf life",
         'spec.transport': 'Transport',
 
         // Skip & Nav
@@ -158,8 +169,8 @@
         'nav.cta': 'Request a quote',
 
         // Hero
-        'hero.title': 'Your partner<br>for tropical fruits',
-        'hero.sub': 'Direct supply chain from West Africa: Sugarloaf pineapple, Kent mango, Solo papaya, cashew nuts and shea butter. Certified quality, tailored support and international delivery.',
+        "hero.title": "Tropical produce from Benin<br>for importers and wholesalers",
+        "hero.sub": "Sugarloaf pineapple, Kent mango, Solo papaya, cashew nuts and shea butter. B2B sourcing, packaging and logistics assessed for your product, volume and destination.",
         'hero.cta': 'Request a quote',
         'hero.products': 'View our products',
 
@@ -174,9 +185,9 @@
         'about.label': 'The company',
         'about.title': 'Our expertise',
         'about.lead': 'Expert in premium agricultural exports from West Africa, partner to professionals worldwide.',
-        'about.body': 'Based in Paris, AST Trade International connects the finest West African producers with international buyers. With no intermediaries, we control every step of the value chain, from harvest to shipment.<br><br>Our commitment: impeccable quality, rigorous traceability and strict compliance with international phytosanitary and food-safety standards.',
+        "about.body": "Based in Paris, AST Trade International connects West African producers with professional buyers. We help define product specifications, packaging and shipping arrangements.<br><br>Quality checks, traceability documents and compliance requirements are agreed for each product and destination before order confirmation.",
         'about.v1.name': 'Direct supply chain',
-        'about.v1.desc': 'No intermediary between our producers and your warehouse. Competitive pricing and guaranteed traceability.',
+        "about.v1.desc": "Sourcing through partner producers. Terms and traceability are specified for each lot.",
         'about.v2.name': 'Consistent quality',
         'about.v2.desc': 'Quality controls at every stage: harvest, sorting, packaging and shipping. High compliance rate.',
         'about.v3.name': 'Global logistics',
@@ -192,13 +203,13 @@
         'av.1.title': 'Direct supply, best price',
         'av.1.text': 'No intermediary between our partner producers and your warehouse. You benefit from competitive pricing and full traceability, from farm to delivery.',
         'av.2.title': 'Consistent, compliant quality',
-        'av.2.text': 'Rigorous quality controls at every stage. Phytosanitary and customs documentation included. Compliance with international fresh produce import standards.',
+        "av.2.text": "Quality checks and required documents are defined for the product, lot and destination requirements before order confirmation.",
         'av.3.title': 'Custom packaging',
         'av.3.text': 'Cartons in your choice of sizes, private label and tailored labelling available. We adapt packaging to your specifications.',
         'av.4.title': 'Responsiveness & a dedicated contact',
         'av.4.text': 'Quotation within 24 hours. A single point of contact for smooth commercial follow-up.',
         'av.5.title': 'Complete documentation',
-        'av.5.text': 'Phytosanitary certificates, certificates of origin, packing lists and pro forma invoices. All documents required for seamless customs clearance.',
+        "av.5.text": "Commercial invoice, packing list, certificate of origin and, depending on the product and destination, phytosanitary or analysis certificate. Availability is confirmed before ordering.",
         'av.6.title': 'Reliable supply',
         'av.6.text': 'Season-long planning with our producers to secure consistent volumes. Availability calendar shared at the start of each season.',
 
@@ -307,7 +318,7 @@
         'log.air.1': 'Departure: Cotonou Airport (COO)',
         'log.air.2': 'Pineapple and mango: delivery within 3 to 5 days',
         'log.air.3': 'Cold chain maintained end-to-end',
-        'log.air.4': 'Minimum order of 5 tonnes recommended',
+        "log.air.4": "Indicative minimums are listed on each product sheet; economical volumes are assessed for the destination.",
         'log.sea.title': 'Sea freight',
         'log.sea.1': 'Departure: Port of Cotonou',
         'log.sea.2': 'Refrigerated container at ±8 °C, 20% ventilation',
@@ -320,9 +331,9 @@
         'log.pack.4': 'Custom labelling / private label available',
         'log.pack.5': 'Shea butter: custom packaging (drums, IBC)',
         'log.inco.title': 'Incoterms & documentation',
-        'log.inco.1': 'Incoterms available: FOB Cotonou, CIF, DDP',
+        "log.inco.1": "Sea freight: FOB Cotonou or CIF agreed port. Other terms are defined in the quote.",
         'log.inco.2': 'Payment by bank transfer or L/C for large volumes',
-        'log.inco.3': 'Documents provided: phytosanitary certificate, certificate of origin, packing list, pro forma invoice',
+        "log.inco.3": "Documents are confirmed for the product and destination: invoice, packing list, certificate of origin and required certificates.",
         'log.inco.4': 'Real-time temperature tracking (data logger)',
         'log.inco.5': 'Transport insurance available on request',
 
@@ -334,9 +345,9 @@
         'faq.2.q': 'What is the minimum order quantity (MOQ)?',
         'faq.2.a': 'The MOQ varies by product and transport mode. Air freight: from 300 kg. Sea freight: from one pallet or one 20\' container. Contact us for a quote tailored to your volumes.',
         'faq.3.q': 'Do you provide phytosanitary documents?',
-        'faq.3.a': 'Yes. We systematically provide a phytosanitary certificate, certificate of origin, detailed packing list and pro forma invoice. All documents required for EU customs clearance are included.',
+        "faq.3.a": "Required documents are defined for the product and destination: commercial invoice, packing list, certificate of origin and, where required, phytosanitary certificate. Availability and checks are confirmed before ordering.",
         'faq.4.q': 'Which Incoterms do you offer?',
-        'faq.4.a': 'We mainly work with FOB Cotonou, CIF (destination port/airport) and DDP (delivered duty paid). The Incoterm is agreed when preparing the quotation, based on your preferences.',
+        "faq.4.a": "Sea freight terms may include FOB Cotonou or CIF at the agreed destination port. CIF does not apply to air freight. For air or multimodal transport, the appropriate Incoterm is agreed in the quote, including the named place and allocation of obligations. DDP is assessed according to the destination and operational feasibility.",
         'faq.5.q': 'Do you offer private label / white label?',
         'faq.5.a': 'Yes. We provide custom labelling to your specifications: brand, design, regulatory information and barcodes. Packaging can also be adapted to your formats.',
         'faq.6.q': 'How are quality disputes handled?',
@@ -346,25 +357,25 @@
         'contact.label': 'Let\'s talk business',
         'contact.title': 'Request your quote',
         'contact.lead': 'Samples, volumes and seasonal planning: our team replies within 24 business hours. Order in 6 simple steps, all the way to delivery.',
-        'contact.phone': 'Phone / WhatsApp',
+        "contact.phone": "Phone",
         'contact.hq': 'Headquarters',
         'contact.address': '40, rue de Ménilmontant · 75020 Paris',
-        'contact.dl1': '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Product catalogue &mdash; coming soon',
+        "contact.dl1": "View product sheets",
 
         // Form
-        'form.title': 'Your enquiry',
-        'form.company': 'Company *',
+        "form.title": "Your quote request",
+        "form.company": "Company *",
         'form.company.ph': 'Your company name',
         'form.position': 'Position / Job title',
         'form.position.ph': 'e.g. Purchasing Director',
         'form.firstname': 'First name *',
-        'form.lastname': 'Last name *',
+        "form.lastname": "Contact name *",
         'form.email': 'Email *',
         'form.phone': 'Phone',
-        'form.country': 'Country',
+        "form.country": "Delivery country *",
         'form.country.ph': 'e.g. France, Belgium, Switzerland',
         'form.select': 'Select',
-        'form.volume': 'Estimated volume',
+        "form.volume": "Estimated volume *",
         'form.frequency': 'Frequency',
         'form.freq.once': 'One-off / Trial order',
         'form.freq.monthly': 'Monthly',
@@ -403,7 +414,7 @@
         'breadcrumb.products': 'Products',
 
         // RGPD / Cookie consent
-        'form.consent': 'I agree that my data may be used to respond to my request, in accordance with the <a href="/politique-confidentialite">privacy policy</a>.',
+        "form.consent": "I have read the <a href=\"/politique-confidentialite\">privacy policy</a> explaining how my request is processed.",
         'cookie.text': 'We use audience measurement cookies to improve the site. You can accept or refuse them. See our <a href="/politique-confidentialite">privacy policy</a>.',
         'cookie.accept': 'Accept',
         'cookie.refuse': 'Refuse',
@@ -534,7 +545,7 @@
         'privacy.title': 'Privacy <em style="font-family:\'Playfair Display\';color:var(--ocre)">policy</em>',
         'privacy.intro': 'AST Trade International pays particular attention to protecting the personal data shared through its website.',
         'privacy.data.title': 'Data collected',
-        'privacy.data.body': 'When you use the contact form, AST Trade International may collect the following information: last name, first name, company, job title, email address, phone number, country, product of interest, estimated volume and message content.',
+        "privacy.data.body": "The form collects your company, contact name, email, delivery country, volume and requested product. You may add a phone number, frequency, preferred date and message. Fields marked with an asterisk are needed to assess your request.",
         'privacy.purpose.title': 'Purpose of processing',
         'privacy.purpose.body': 'This data is used only to respond to commercial enquiries, prepare a quote, discuss an import-export need or follow up on a professional relationship.',
         'privacy.basis.title': 'Legal basis',
@@ -542,13 +553,13 @@
         'privacy.retention.title': 'Retention period',
         'privacy.retention.body': 'Data is kept for as long as needed to handle the enquiry and follow up on the commercial relationship, unless a legal obligation requires a longer period.',
         'privacy.recipients.title': 'Data recipients',
-        'privacy.recipients.body': 'Data is intended solely for AST Trade International. It is not sold to third parties.',
+        "privacy.recipients.body": "Requests are accessible to the AST Trade International team responsible for commercial follow-up and the technical providers needed to transmit and host them, including Formspree for the form. Data is not sold to third parties.",
         'privacy.form.title': 'Contact form',
-        'privacy.form.body': 'The site uses an external service to transmit forms. Information sent through the form is used solely to allow AST Trade International to receive and process enquiries.',
+        "privacy.form.body": "The form sends the entered information to Formspree so that AST Trade International can receive and process it. See the <a href=\"https://formspree.io/legal/privacy-policy/\">Formspree privacy policy</a> for information published by this provider.",
         'privacy.rights.title': 'Your rights',
-        'privacy.rights.body': 'You may request access to, correction of, or deletion of your personal data by writing to: <a href="mailto:contact@ast-trade.com">contact@ast-trade.com</a>.',
+        "privacy.rights.body": "To exercise your rights of access, rectification, erasure, restriction or objection and, where applicable, portability, write to <a href=\"mailto:contact@ast-trade.com\">contact@ast-trade.com</a>. These rights apply under the conditions set by law. You may also lodge a complaint with the <a href=\"https://www.cnil.fr/fr/plaintes\">CNIL</a>.",
         'privacy.cookies.title': 'Cookies and audience measurement',
-        'privacy.cookies.body': 'The site may use audience measurement tools to understand site traffic and improve its content. This data is used for statistical purposes.',
+        "privacy.cookies.body": "Google Analytics measures visits and interactions only after audience measurement cookies are accepted. Quote events do not include names, email addresses, phone numbers or message contents. Your cookie choice is stored in your browser for six months. You can change it or withdraw consent through “Cookie preferences” in the footer of every page. Fonts are hosted with the site.",
         'privacy.cta': 'Contact us',
       }
     };
@@ -621,165 +632,4 @@
       if (btnEN && btnEN.tagName === 'BUTTON') {
         btnEN.addEventListener('click', () => setLang('en'));
       }
-    })();
-
-
-    (function() {
-      var contactForm = document.getElementById('contactForm');
-      if (!contactForm) return;
-
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var btn = contactForm.querySelector('.form-submit');
-        var origText = btn.innerHTML;
-        btn.disabled = true;
-        btn.innerHTML = '⏳ Envoi en cours…';
-
-        fetch(contactForm.action, {
-          method: 'POST',
-          body: new FormData(contactForm),
-          headers: { 'Accept': 'application/json' }
-        }).then(function(response) {
-          if (response.ok) {
-            var lang = document.getElementById('htmlRoot').getAttribute('lang');
-            contactForm.reset();
-            btn.innerHTML = lang === 'en'
-              ? '✓ Sent! We will respond within 24h.'
-              : '✓ Envoyé ! Réponse sous 24h.';
-            btn.style.background = 'var(--vert2)';
-            btn.style.color = '#fff';
-            setTimeout(function() {
-              btn.innerHTML = origText;
-              btn.disabled = false;
-              btn.style.background = '';
-              btn.style.color = '';
-            }, 5000);
-          } else {
-            throw new Error('Server error');
-          }
-        }).catch(function() {
-          var lang = document.getElementById('htmlRoot').getAttribute('lang');
-          btn.innerHTML = lang === 'en'
-            ? '✗ Error — please try again'
-            : '✗ Erreur — veuillez réessayer';
-          btn.style.background = '#a13544';
-          btn.style.color = '#fff';
-          btn.disabled = false;
-          setTimeout(function() {
-            btn.innerHTML = origText;
-            btn.style.background = '';
-            btn.style.color = '';
-          }, 4000);
-        });
-      });
-    })();
-
-    // ═══════════════ COOKIE CONSENT BANNER (RGPD) ═══════════════
-    (function() {
-      function currentLang() {
-        try {
-          var root = document.getElementById('htmlRoot') || document.documentElement;
-          return root.getAttribute('lang') === 'en' ? 'en' : 'fr';
-        } catch(e) { return 'fr'; }
-      }
-
-      var COPY = {
-        fr: {
-          text: 'Nous utilisons des cookies de mesure d’audience pour améliorer le site. Vous pouvez les accepter ou les refuser. Voir notre <a href="/politique-confidentialite">politique de confidentialité</a>.',
-          accept: 'Accepter',
-          refuse: 'Refuser'
-        },
-        en: {
-          text: 'We use audience measurement cookies to improve the site. You can accept or refuse them. See our <a href="/politique-confidentialite">privacy policy</a>.',
-          accept: 'Accept',
-          refuse: 'Refuse'
-        }
-      };
-
-      function getStored() {
-        try { return localStorage.getItem('ast-cookie-consent'); } catch(e) { return null; }
-      }
-      function setStored(v) {
-        try { localStorage.setItem('ast-cookie-consent', v); } catch(e) {}
-      }
-
-      function updateConsent(granted) {
-        if (typeof window.gtag === 'function') {
-          window.gtag('consent', 'update', {
-            'analytics_storage': granted ? 'granted' : 'denied'
-          });
-        }
-      }
-
-      function buildBanner() {
-        var lang = currentLang();
-        var copy = COPY[lang] || COPY.fr;
-        var banner = document.createElement('div');
-        banner.id = 'cookie-banner';
-        banner.className = 'cookie-banner';
-        banner.setAttribute('role', 'dialog');
-        banner.setAttribute('aria-live', 'polite');
-        banner.setAttribute('aria-label', lang === 'en' ? 'Cookie consent' : 'Consentement aux cookies');
-        banner.innerHTML =
-          '<div class="cookie-banner-inner">' +
-            '<p class="cookie-banner-text" data-i18n="cookie.text">' + copy.text + '</p>' +
-            '<div class="cookie-banner-actions">' +
-              '<button type="button" class="cookie-btn cookie-btn-refuse" id="cookieRefuse" data-i18n="cookie.refuse">' + copy.refuse + '</button>' +
-              '<button type="button" class="cookie-btn cookie-btn-accept" id="cookieAccept" data-i18n="cookie.accept">' + copy.accept + '</button>' +
-            '</div>' +
-          '</div>';
-        document.body.appendChild(banner);
-
-        document.getElementById('cookieAccept').addEventListener('click', function() {
-          setStored('granted');
-          updateConsent(true);
-          banner.remove();
-        });
-        document.getElementById('cookieRefuse').addEventListener('click', function() {
-          setStored('denied');
-          updateConsent(false);
-          // Best-effort: remove any GA cookies that may have slipped through
-          try {
-            document.cookie.split(';').forEach(function(c) {
-              var n = c.split('=')[0].trim();
-              if (n.indexOf('_ga') === 0 || n === '_gid' || n === '_gat') {
-                document.cookie = n + '=; Max-Age=0; path=/';
-                document.cookie = n + '=; Max-Age=0; path=/; domain=' + location.hostname;
-                document.cookie = n + '=; Max-Age=0; path=/; domain=.' + location.hostname;
-              }
-            });
-          } catch(e) {}
-          banner.remove();
-        });
-      }
-
-      // Only show banner if choice not yet made
-      if (!getStored()) {
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', buildBanner);
-        } else {
-          buildBanner();
-        }
-      }
-    })();
-
-    // ═══════════════ RGPD CHECKBOX — Block submit if unchecked ═══════════════
-    (function() {
-      document.querySelectorAll('form.contact-form').forEach(function(form) {
-        form.addEventListener('submit', function(e) {
-          var cb = form.querySelector('input[name="rgpd_consent"]');
-          if (cb && !cb.checked) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            cb.focus();
-            var lang = (document.getElementById('htmlRoot') || document.documentElement).getAttribute('lang') === 'en' ? 'en' : 'fr';
-            cb.setCustomValidity(lang === 'en'
-              ? 'You must agree to the privacy policy.'
-              : 'Vous devez accepter la politique de confidentialité.');
-            cb.reportValidity();
-          } else if (cb) {
-            cb.setCustomValidity('');
-          }
-        }, true);
-      });
     })();
