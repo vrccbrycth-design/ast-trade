@@ -26,3 +26,5 @@ Les pages françaises sont les modèles ; `scripts/build_en.js` génère les pag
 - En-têtes de protection Cloudflare ; suppression d'un ancien script de capture de l'éditeur.
 
 Les tests du formulaire utilisent une réponse simulée pour ne pas envoyer de faux prospects. La réception réelle des courriels reste à contrôler séparément. Les mentions légales doivent être complétées avec le capital social et le nom du directeur de publication après confirmation de l'entreprise. Les minimums de commande restent indicatifs et à confirmer commercialement.
+
+La politique CSP autorise les scripts intégrés nécessaires aux contrôles anti-robots injectés par Cloudflare, avec l’accord du propriétaire. Une politique stricte avec nonce nécessiterait une réponse dynamique ; ce site conserve son hébergement statique.
