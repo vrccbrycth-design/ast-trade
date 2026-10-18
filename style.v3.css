@@ -2389,3 +2389,33 @@ html { scroll-padding-top: var(--nav-offset); }
   .hero-actions a { min-width: 0; max-width: 100%; }
   .cookie-banner-actions { flex-wrap: wrap; }
 }
+
+/* ═══════════════ WHATSAPP ═══════════════ */
+.whatsapp-fab {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 901;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.whatsapp-fab:hover { transform: scale(1.07); box-shadow: 0 8px 24px rgba(0, 0, 0, .32); }
+.whatsapp-fab:focus-visible { outline: 3px solid var(--ocre2, #e0a855); outline-offset: 3px; }
+.whatsapp-fab svg { width: 30px; height: 30px; }
+.whatsapp-fab-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 600px) {
+  .whatsapp-fab { right: 16px; bottom: 16px; width: 52px; height: 52px; }
+  .whatsapp-fab svg { width: 28px; height: 28px; }
+}
+@media print { .whatsapp-fab { display: none; } }
+@media (max-width: 600px) {
+  #backToTop { right: 20px !important; bottom: 80px !important; }
+}
