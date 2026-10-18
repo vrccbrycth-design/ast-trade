@@ -91,9 +91,11 @@
     window.gtag('event', eventName, parameters);
   };
   document.querySelectorAll('[data-cookie-settings]').forEach(function (button) { button.addEventListener('click', openPreferences); });
-  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function (link) {
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"], a[href^="https://wa.me/"]').forEach(function (link) {
     link.addEventListener('click', function () {
-      window.astTrack(link.getAttribute('href').indexOf('tel:') === 0 ? 'contact_phone' : 'contact_email', { page_path: location.pathname, language: en ? 'en' : 'fr' });
+      var href = link.getAttribute('href');
+      var eventName = href.indexOf('tel:') === 0 ? 'contact_phone' : href.indexOf('mailto:') === 0 ? 'contact_email' : 'contact_whatsapp';
+      window.astTrack(eventName, { page_path: location.pathname, language: en ? 'en' : 'fr' });
     });
   });
   if (consent === 'granted') startAnalytics();

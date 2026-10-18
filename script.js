@@ -143,6 +143,7 @@ function closeMobileMenu() {
     const translations = {
       en: {
         "footer.cookies": "Cookie preferences",
+        "wa.label": "Chat on WhatsApp",
         "form.name.ph": "First and last name",
         "form.unknown": "To discuss with your team",
         "form.date": "Preferred delivery date",

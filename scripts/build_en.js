@@ -153,6 +153,7 @@ function translateHtml(html, page) {
     return `${attr}="${value}"`;
   });
   html = html.replace(/(<input type="hidden" name="_language" value=")fr("[^>]*>)/g, '$1en$2');
+  html = html.replace(/(href="https:\/\/wa\.me\/\d+\?text=)[^"]*"/g, `$1${encodeURIComponent('Hello AST Trade International, I would like information about your products.')}"`);
 
   // 2. Replace [data-i18n] elements' inner HTML with EN translations.
   // Handles <tag ... data-i18n="key" ...>...</tag>
